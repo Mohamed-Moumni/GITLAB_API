@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_task_form2_extended">
+            <field name="name">project.task.form.kzm_planning.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_ids']" position="after">
+                    <field name="team_id"/>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="timesheets_sm_action_view" type="object" class="oe_stat_button" icon="fa-calendar">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="timesheets_count"/>
+                            </span>
+                            <span class="o_stat_text">
+                                Timesheets
+                            </span>
+                        </div>
+                    </button>
+                    <button name="activities_sm_action_view" type="object" class="oe_stat_button" icon="fa-tags">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="activities_count"/>
+                            </span>
+                            <span class="o_stat_text">
+                                Activities
+                            </span>
+                        </div>
+                    </button>
+                    <button name="ressources_sm_action_view" type="object" class="oe_stat_button" icon="fa-table">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="ressources_count"/>
+                            </span>
+                            <span class="o_stat_text">
+                                Ressources
+                            </span>
+                        </div>
+                    </button>
+                    <button name="reports_sm_action_view" type="object" class="oe_stat_button" icon="fa-file-o">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="reports_count"/>
+                            </span>
+                            <span class="o_stat_text">
+                                Reports
+                            </span>
+                        </div>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

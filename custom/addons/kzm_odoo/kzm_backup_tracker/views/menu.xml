@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <menuitem name="Monitoring" id="kzm_backup_tracker_root"
+                  web_icon="kzm_backup_tracker,static/description/icon.png"/>
+        <menuitem name="GCloud Backup" id="kzm_backup_tracker_gantt_gc"
+                  parent="kzm_backup_tracker_root"
+                  action="kzm_backup_tracker_gantt_view"
+                  sequence="1"
+        />
+        <menuitem name="Configuration" id="kzm_backup_tracker_config"
+                  parent="kzm_backup_tracker_root" sequence="6"/>
+
+        <menuitem name="GCloud Backup" id="kzm_backup_tracker.admin"
+                  parent="kzm_backup_tracker_config"
+                  action="kzm_backup_tracker.action_window"
+                  sequence="1"/>
+    </data>
+</odoo>

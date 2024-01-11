@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="activity_type_to_be_processed" model="mail.activity.type">
+            <field name="name">À traiter</field>
+            <field name="category">default</field>
+            <field name="sequence">1</field>
+        </record>
+    </data>
+</odoo>

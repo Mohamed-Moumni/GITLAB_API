@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="kzm_instance_request_action" model="ir.actions.act_window">
+            <field name="name">Instance</field>
+            <field name="res_model">kzm.instance.request</field>
+            <field name="view_mode">tree,form,kanban,pivot,gantt</field>
+            <field name="view_id" ref="kzm_instance_request.kzm_instance_request_view" />
+            <field name="domain">[('create_uid', '=', uid)]</field>
+            <field name="context">{'search_default_my_requests_filter':True}</field>
+        </record>
+
+        <record
+            id="kzm_managers_request_action" model="ir.actions.act_window">
+            <field name="name">kzm Managers request</field>
+            <field name="res_model">kzm.instance.request</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record
+            id="kzm_analysis_request_action" model="ir.actions.act_window">
+            <field name="name">kzm Analysis request</field>
+            <field name="res_model">kzm.instance.request</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="view_kzm_instance_request_graph" />
+        </record>
+
+        <record
+            id="kzm_my_request_action" model="ir.actions.act_window">
+            <field name="name">My Request</field>
+            <field name="res_model">kzm.instance.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('create_uid', '=', uid)]</field>
+        </record>
+
+        <record
+            id="to_validate_request_action" model="ir.actions.act_window">
+            <field name="name">To Validate</field>
+            <field name="res_model">kzm.instance.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">['|', ('state', '=', 'Soumise'), ('state', '=', 'En traitement')]</field>
+        </record>
+
+        <record
+            id="all_request_action" model="ir.actions.act_window">
+            <field name="name">All</field>
+            <field name="res_model">kzm.instance.request</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record
+            id="traitee_all_action" model="ir.actions.server">
+            <field name="name">traitee</field>
+            <field name="model_id" ref="model_kzm_instance_request" />
+            <field name="binding_model_id" ref="model_kzm_instance_request" />
+            <field name="state">code</field>
+            <field name="code">
+                for record in records:
+                record.change_to_Traitee()
+            </field>
+        </record>
+
+        <menuitem
+            id="kzm_instance_menu" name="Instance" action="kzm_instance_request_action"
+            sequence="0" />
+        <menuitem
+            id="kzm_instance_my_request_menu"
+            name="My Requests"
+            action="kzm_my_request_action"
+            parent="kzm_instance_menu"
+        />
+        <menuitem
+            id="kzm_instance_managers_menu"
+            name="Managers"
+            action="kzm_managers_request_action"
+            parent="kzm_instance_menu"
+            groups="instance_group_manager"
+        />
+        <menuitem
+            id="kzm_instance_analysis_menu"
+            name="Analysis"
+            action="kzm_analysis_request_action"
+            parent="kzm_instance_menu"
+        />
+        <menuitem
+            id="kzm_instance_configuration_menu"
+            name="Configuration"
+            parent="kzm_instance_menu"
+            groups="instance_group_admin" />
+
+        <menuitem id="kzm_instance_managers_to_validate_menu"
+            name="To Validate"
+            action="to_validate_request_action" parent="kzm_instance_managers_menu" sequence="0" />
+
+        <menuitem
+            id="kzm_instance_managers_all_menu" name="All" action="all_request_action"
+            parent="kzm_instance_managers_menu" sequence="1" />
+    </data>
+</odoo>

@@ -1,0 +1,221 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* kzm_helpdesk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-24 08:58+0000\n"
+"PO-Revision-Date: 2020-09-24 08:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_helpdesk_ticket__available_sold
+msgid "Available Solde"
+msgstr "Solde disponible"
+
+#. module: kzm_helpdesk
+#: model:ir.model,name:kzm_helpdesk.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_line__consumed_load
+msgid "Consumed Load"
+msgstr "Charge consommée"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_helpdesk_ticket__contact
+msgid "Contact"
+msgstr "Contact"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_odoo__create_uid
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_service__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_odoo__create_date
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_service__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: kzm_helpdesk
+#: model_terms:ir.ui.view,arch_db:kzm_helpdesk.fe_product_product_form_view
+msgid "Delivery Packaging"
+msgstr "Emballage de livraison"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_helpdesk_ticket_type__description
+msgid "Description"
+msgstr "Description"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_odoo__display_name
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_service__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: kzm_helpdesk
+#: model:ir.model,name:kzm_helpdesk.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Ticket Helpdesk"
+
+#. module: kzm_helpdesk
+#: model:ir.model,name:kzm_helpdesk.model_helpdesk_ticket_type
+msgid "Helpdesk Ticket Type"
+msgstr "Type de ticket"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_odoo__id
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_service__id
+msgid "ID"
+msgstr ""
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_odoo____last_update
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_service____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_odoo__write_uid
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_service__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_odoo__write_date
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_service__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_helpdesk_ticket__nature_id
+msgid "Nature"
+msgstr "Nature"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_helpdesk_ticket__nature_ids
+msgid "Natures"
+msgstr "Natures"
+
+#. module: kzm_helpdesk
+#: model:ir.actions.act_window,name:kzm_helpdesk.sale_subscription_odoo_action
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_helpdesk_ticket__odoo_version_id
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription__odoo_version_id
+#: model:ir.ui.menu,name:kzm_helpdesk.subscription_menu_config_odoo_version
+msgid "Odoo Version"
+msgstr "Version Odoo"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_product_product__operation_id
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_product_template__operation_id
+msgid "Operation"
+msgstr "Opération"
+
+#. module: kzm_helpdesk
+#: model:ir.model,name:kzm_helpdesk.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription__project_id
+msgid "Project"
+msgstr "Projet"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_res_company__project_subscription_id
+msgid "Project Subscription"
+msgstr "Projet"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_service__sla_average_id
+msgid "SLA Average"
+msgstr "Moyen SLA"
+
+#. module: kzm_helpdesk
+#: model:ir.actions.act_window,name:kzm_helpdesk.sale_subscription_service_action
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription__service_ids
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_service__service_id
+#: model_terms:ir.ui.view,arch_db:kzm_helpdesk.sale_subscription_service_view_form
+#: model_terms:ir.ui.view,arch_db:kzm_helpdesk.sale_subscription_service_view_tree
+msgid "Service"
+msgstr "Service"
+
+#. module: kzm_helpdesk
+#: model_terms:ir.ui.view,arch_db:kzm_helpdesk.sale_subscription_view_form_inherit
+msgid "Services"
+msgstr "Services"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_helpdesk_ticket__sla_ticket
+msgid "Sla Ticket"
+msgstr "Ticket SLA"
+
+#. module: kzm_helpdesk
+#: model:ir.model,name:kzm_helpdesk.model_sale_subscription
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_helpdesk_ticket__subscription_id
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_service__subscription_id
+msgid "Subscription"
+msgstr "Abonnement"
+
+#. module: kzm_helpdesk
+#: model:ir.model,name:kzm_helpdesk.model_sale_subscription_line
+msgid "Subscription Line"
+msgstr "Ligne d'abonnement"
+
+#. module: kzm_helpdesk
+#: model:ir.model,name:kzm_helpdesk.model_sale_subscription_odoo
+msgid "Subscription Odoo Version"
+msgstr ""
+
+#. module: kzm_helpdesk
+#: model:ir.model,name:kzm_helpdesk.model_sale_subscription_service
+msgid "Subscription Service"
+msgstr "Service"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_service__tag_ids
+msgid "Tags"
+msgstr "Étiquettes"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription__task_id
+msgid "Task"
+msgstr "Tâche"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription__teamlead_id
+msgid "Teamlead"
+msgstr "Chef d'équipe"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,help:kzm_helpdesk.field_helpdesk_ticket__validity_date
+msgid "The next invoice will be created on this date then the period will be extended."
+msgstr "La prochaine facture sera générée à cette date et la période sera incrémentée."
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_service__type_id
+msgid "Type"
+msgstr "Type"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_helpdesk_ticket__validity_date
+msgid "Validity Date"
+msgstr "Date de validité"
+
+#. module: kzm_helpdesk
+#: model:ir.model.fields,field_description:kzm_helpdesk.field_sale_subscription_odoo__name
+#: model_terms:ir.ui.view,arch_db:kzm_helpdesk.sale_subscription_odoo_view_tree
+msgid "Version"
+msgstr "Version"

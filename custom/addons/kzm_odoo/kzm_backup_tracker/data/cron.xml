@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="gcloud_backup_cron" model="ir.cron">
+            <field name="name">Synchronise GCloud Backups</field>
+            <field name="model_id" ref="model_kzm_backup_tracker"/>
+            <field name="state">code</field>
+            <field name="code">model.gcloud_connection()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="True"/>
+        </record>
+        <record id="cron_recap_mail" model="ir.cron">
+            <field name="name">Récap Mail Backup</field>
+            <field name="model_id" ref="model_kzm_backup_tracker_gantt"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_recap_mail()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall"
+                   eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 08:30:00')"/>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="True"/>
+        </record>
+    </data>
+</odoo>

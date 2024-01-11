@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_template_form_inherited" model="ir.ui.view">
+            <field name="name">product.template.inherited</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='image_1920']" position="before">
+                    <field name="referenced" invisible="1"/>
+                    <widget name="web_ribbon" title="Non référencé" bg_color="bg-danger"
+                            attrs="{'invisible': [('referenced', '!=', False)]}"/>
+                    <widget name="web_ribbon" title="Référencé" bg_color="bg-success"
+                            attrs="{'invisible': [('referenced', '!=', True)]}"/>
+                </xpath>
+
+                <xpath expr="//header" position="inside">
+                    <button type="object" name="validate_reference" string="Valider la référence" class="btn-primary"
+                            groups="kzm_referencement.group_referencement_product"
+                            attrs="{'invisible': [('referenced', '=', True)]}"/>
+                    <button type="object" name="cancel_reference" string="Annuler la référence" class="btn-secondary"
+                            groups="kzm_referencement.group_referencement_product"
+                            attrs="{'invisible': [('referenced', '=', False)]}"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <record id="view_product_product_tree_inherited" model="ir.ui.view">
+            <field name="name">product.product.tree.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="inside">
+                    <field name="referenced"/>
+                </xpath>
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="decoration-danger">referenced == False</attribute>
+                    <attribute name="decoration-success">referenced != False</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

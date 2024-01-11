@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="planification_line_menu_action_window">
+            <field name="name">Planification line</field>
+            <field name="res_model">planification.line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="planification_menu_action_window">
+            <field name="name">Planification</field>
+            <field name="res_model">planification.planification</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="ticket_derogation_menu_action_window">
+            <field name="name">Ticket Derogation</field>
+            <field name="res_model">sold.ticket.derogation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="kzm_project_base.kzm_sold_task_derogation_menu" action=""/>
+        <menuitem name="Task Derogation" id="kzm_sold_task_derogation_menu_after_root" parent="kzm_project_base.kzm_sold_task_derogation_menu" action="kzm_project_base.sold_task_derogation_action_window" sequence="1"/>
+
+        <menuitem name="Ticket Derogation" id="ticket_derogation_menu" parent="kzm_project_base.kzm_sold_task_derogation_menu"
+                  action="ticket_derogation_menu_action_window" sequence="2"/>
+
+        <menuitem name="Planification" id="planification_menu" parent="planning.planning_menu_root"
+                  action="planification_menu_action_window" sequence="9"/>
+        <!--<menuitem name="Planification Line" id="planification_line_menu" parent="planning.planning_menu_root"
+                  action="planification_line_menu_action_window" sequence="9"/>-->
+    </data>
+</odoo>

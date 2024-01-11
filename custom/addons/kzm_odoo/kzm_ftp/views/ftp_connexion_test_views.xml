@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_ftp_connexion_test_form" model="ir.ui.view">
+        <field name="name">ftp.connexion.test.form</field>
+        <field name="model">ftp.connexion.test</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+
+                    <button
+                        type="object"
+                        string="TEST CONNEXION"
+                        name="test_connexion"
+                        class="oe_highlight"
+                    />
+                </header>
+                <sheet>
+                    <group>
+                        <group name="main" string="Connexion Data">
+                            <field name="host" required="1"/>
+                            <field name="user" required="1"/>
+                            <field name="protocol" required="1"/>
+                            <field name="port" required="1"/>
+                            <field name="pwd" password="True" required="1"/>
+                        </group>
+
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_ids"/>
+                </div>
+
+            </form>
+
+        </field>
+    </record>
+    <record id="view_ftp_connexion_test_list" model="ir.ui.view">
+        <field name="name">ftp.connexion.test.tree</field>
+        <field name="model">ftp.connexion.test</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="host"/>
+                <field name="user"/>
+                <field name="protocol"/>
+                <field name="port"/>
+
+            </tree>
+        </field>
+    </record>
+    <record id="action_ftp_connexion_test" model="ir.actions.act_window">
+        <field name="name">Test Connexion FTP / FTPS</field>
+        <field name="res_model">ftp.connexion.test</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem
+        parent="base.next_id_9"
+        action="action_ftp_connexion_test"
+        name="Test Connexion FTP/FTPS"
+        id="ftp_connexion_test_menu"
+    />
+
+
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="timesheet" name="Feuilles de temps">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Feuilles de temps</t>
+            </t>
+            <t t-if="timesheet_ids" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th class="text-end">Date</th>
+                        <th class="text-end">Employé</th>
+                        <th class="text-end">Projet</th>
+                        <th class="text-end">Description</th>
+                    </tr>
+                </thead>
+                <t t-foreach="timesheet_ids" t-as="timesheet_id">
+                    <tr>
+                        <td class="text-end">
+
+                            <t t-out="timesheet_id.date"/>
+
+                        </td>
+                        <td class="text-end">
+                            <span t-field="timesheet_id.employee_id.name"/>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="timesheet_id.project_id.name"/>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="timesheet_id.name"/>
+                        </td>
+
+                    </tr>
+                </t>
+            </t>
+            <p t-else="">There are currently no timesheets.</p>
+        </t>
+    </template>
+</odoo>

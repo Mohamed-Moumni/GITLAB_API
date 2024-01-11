@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_kzm_backup_kzm_backup,kzm_backup.kzm_backup,model_kzm_backup,,1,1,1,1
+access_kzm_instance_kzm_instance,kzm_backup.kzm_instance,model_kzm_instance,,1,1,1,1

@@ -1,0 +1,246 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kzm_backup_tracker
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-23 14:22+0000\n"
+"PO-Revision-Date: 2020-10-23 14:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: kzm_backup_tracker
+#: model_terms:ir.ui.view,arch_db:kzm_backup_tracker.conf
+msgid "/path/to/json/file"
+msgstr "/chemin/vers/fichier/json"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__name
+msgid "Backup Name"
+msgstr "Le nom de backup"
+
+#. module: kzm_backup_tracker
+#: model:ir.ui.menu,name:kzm_backup_tracker.kzm_backup_tracker_gantt
+msgid "Backup Tracker"
+msgstr "Suivi des sauvegardes"
+
+#. module: kzm_backup_tracker
+#: model:ir.actions.act_window,name:kzm_backup_tracker.action_window
+#: model:ir.actions.act_window,name:kzm_backup_tracker.kzm_backup_tracker_gantt_view
+msgid "Backup Tracker Configuration"
+msgstr "Configuration de Backup Tracker"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker__backup_name
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_lines__backup_name
+msgid "Backup name"
+msgstr "Le nom de backup"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_lines__backup_path
+msgid "Backup path"
+msgstr "Le chemin de backup"
+
+#. module: kzm_backup_tracker
+#: model_terms:ir.ui.view,arch_db:kzm_backup_tracker.conf
+msgid "Backups"
+msgstr "Sauvegardes"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker__name
+msgid "Bucket ID"
+msgstr "L'id de Bucket"
+
+#. module: kzm_backup_tracker
+#: model_terms:ir.ui.view,arch_db:kzm_backup_tracker.conf
+msgid "Bucket Name"
+msgstr "Le nom de Bucket"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__bucket_name
+msgid "Bucket name"
+msgstr "Le nom de Bucket"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__color
+msgid "Color"
+msgstr "Couleur"
+
+#. module: kzm_backup_tracker
+#: code:addons/kzm_backup_tracker/models/models.py:0
+#: code:addons/kzm_backup_tracker/models/models.py:0
+#, python-format
+msgid ""
+"Connection Test Failed!\n"
+" "
+msgstr "Test de connexion echoué!"
+
+#. module: kzm_backup_tracker
+#: code:addons/kzm_backup_tracker/models/models.py:0
+#, python-format
+msgid "Connection Test Succeeded!"
+msgstr "Test de connexion réussi!"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker__create_uid
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__create_uid
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_lines__create_uid
+msgid "Created by"
+msgstr "Crée par"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker__create_date
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__create_date
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_lines__create_date
+msgid "Created on"
+msgstr "Crée en"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__start_date
+msgid "Date debut"
+msgstr "La date de début"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__end_date
+msgid "Date fin"
+msgstr "La date de fin"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__days_to_keep
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_lines__days_to_keep
+msgid "Days to keep"
+msgstr "Jours de garde"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker__display_name
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__display_name
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_lines__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: kzm_backup_tracker
+#: model:ir.ui.menu,name:kzm_backup_tracker.admin
+#: model:ir.ui.menu,name:kzm_backup_tracker.kzm_backup_tracker_gantt_gc
+msgid "GCloud Backup"
+msgstr "Sauvegarde du GCloud"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_lines__gcloud_backup_id
+msgid "GCloud Backup Id"
+msgstr "L'id de GCloud Backup"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker__gcloud_lines
+msgid "GCloud Lines"
+msgstr "Les lignes GClouds"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker__GOOGLE_APPLICATION_CREDENTIALS
+msgid "GOOGLE STORAGE PATH"
+msgstr "CHEMIN DE STOCKAGE GOOGLE"
+
+#. module: kzm_backup_tracker
+#: model_terms:ir.ui.view,arch_db:kzm_backup_tracker.tree
+msgid "Gcloud Tree"
+msgstr "Arbre GCloud"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker__id
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__id
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_lines__id
+msgid "ID"
+msgstr "Id"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker____last_update
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt____last_update
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_lines____last_update
+msgid "Last Modified on"
+msgstr "Derniére modification en"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker__write_uid
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__write_uid
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_lines__write_uid
+msgid "Last Updated by"
+msgstr "Derniére modification par"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker__write_date
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__write_date
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_lines__write_date
+msgid "Last Updated on"
+msgstr "Derniére mise à jour en"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__role_id
+msgid "Role id"
+msgstr "L'id de rôle"
+
+#. module: kzm_backup_tracker
+#: model_terms:ir.ui.view,arch_db:kzm_backup_tracker.backup_gantt_view
+msgid "Session Gantt"
+msgstr "Session Gantt"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker_gantt__state
+msgid "State"
+msgstr "Etat"
+
+#. module: kzm_backup_tracker
+#: model:ir.actions.server,name:kzm_backup_tracker.gcloud_backup_cron_ir_actions_server
+#: model:ir.cron,cron_name:kzm_backup_tracker.gcloud_backup_cron
+#: model:ir.cron,name:kzm_backup_tracker.gcloud_backup_cron
+msgid "Synchronise GCloud Backups"
+msgstr "Synchroniser les sauvegardes"
+
+#. module: kzm_backup_tracker
+#: model_terms:ir.ui.view,arch_db:kzm_backup_tracker.conf
+msgid "Test GCloud Connection"
+msgstr "Tester la connexion GCloud"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker__count_backups
+msgid "count backups"
+msgstr "nombre des backups"
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker__start_date
+msgid "date_debut"
+msgstr ""
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,field_description:kzm_backup_tracker.field_kzm_backup_tracker__end_date
+msgid "date_fin"
+msgstr ""
+
+#. module: kzm_backup_tracker
+#: model:ir.model.fields,help:kzm_backup_tracker.field_kzm_backup_tracker__name
+msgid "https://console.cloud.google.com/storage/browser/[bucket-id]/"
+msgstr ""
+
+#. module: kzm_backup_tracker
+#: model:ir.model,name:kzm_backup_tracker.model_kzm_backup_tracker
+msgid "kzm.backup.tracker"
+msgstr ""
+
+#. module: kzm_backup_tracker
+#: model:ir.model,name:kzm_backup_tracker.model_kzm_backup_tracker_gantt
+msgid "kzm.backup.tracker.gantt"
+msgstr ""
+
+#. module: kzm_backup_tracker
+#: model:ir.model,name:kzm_backup_tracker.model_kzm_backup_tracker_lines
+msgid "kzm.backup.tracker.lines"
+msgstr ""
+
+#. module: kzm_backup_tracker
+#: model:ir.ui.menu,name:kzm_backup_tracker.menu_root
+msgid "kzm_backup_tracker"
+msgstr ""

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_planification_line" model="ir.sequence">
+            <field name="name">Planification Line sequence</field>
+            <field name="code">planification.line.increment</field>
+            <field name="prefix">PF</field>
+            <field name="padding">4</field>
+            <field name="number_next" eval="1"/>
+            <field name="number_increment" eval="1"/>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_planification_planification" model="ir.sequence">
+            <field name="name">Planification sequence</field>
+            <field name="code">planification.planification.increment</field>
+            <field name="prefix">PL</field>
+            <field name="padding">4</field>
+            <field name="number_next" eval="1"/>
+            <field name="number_increment" eval="1"/>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_planification_activity_line" model="ir.sequence">
+            <field name="name">Planification activity line sequence</field>
+            <field name="code">planification.activity.line</field>
+            <field name="prefix">AL</field>
+            <field name="padding">4</field>
+            <field name="number_next" eval="1"/>
+            <field name="number_increment" eval="1"/>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

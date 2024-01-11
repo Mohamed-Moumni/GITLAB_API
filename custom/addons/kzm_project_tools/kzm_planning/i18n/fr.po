@@ -1,0 +1,1343 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kzm_planning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-02 14:43+0000\n"
+"PO-Revision-Date: 2024-01-02 14:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+
+#. module: kzm_planning
+#: model:mail.template,body_html:kzm_planning.to_validate_email_template_new
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                    <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                                <tbody>\n"
+"                                    <!-- HEADER -->\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\">\n"
+"                                                        <span style=\"font-size: 10px;\">Votre compte</span>\n"
+"                                                        <br>\n"
+"                                                        <span style=\"font-size: 20px; font-weight: bold;\">\n"
+"                                                            <span t-esc=\"partner_to\"></span>\n"
+"                                                        </span>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td colspan=\"2\" style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            Good morning <t t-out=\"object.manager_id.name\"></t>,\n"
+"                                                            <br><br>\n"
+"                                                            Please validate the following ticket waiver:\n"
+"                                                            <br>\n"
+"                                                            <div style=\"margin: 16px 0px 16px 0px;\">\n"
+"                                                                <a t-att-href=\"object.get_actual_page_url()\" style=\"background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;\">\n"
+"                                                                    Consult derogation\n"
+"                                                                </a>\n"
+"                                                            </div>\n"
+"                                                            <br>\n"
+"                                                            <p>Sincerely,</p>\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <!-- POWERED BY -->\n"
+"                    <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;\">\n"
+"                                <tr>\n"
+"                                    <td style=\"text-align: center; font-size: 13px;\">\n"
+"                                        Powered by\n"
+"                                        <a target=\"_blank\" href=\"https://www.odoo.com?utm_source=db&amp;utm_medium=auth\" style=\"color: #875A7B;\">Odoo\n"
+"                                        </a>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+msgstr ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                    <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                                <tbody>\n"
+"                                    <!-- HEADER -->\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\">\n"
+"                                                        <span style=\"font-size: 10px;\">Votre compte</span>\n"
+"                                                        <br>\n"
+"                                                        <span style=\"font-size: 20px; font-weight: bold;\">\n"
+"                                                            <span t-esc=\"partner_to\"></span>\n"
+"                                                        </span>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td colspan=\"2\" style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            Bonjour <t t-out=\"object.manager_id.name\"></t>,\n"
+"                                                            <br><br>\n"
+"                                                            Veuillez valider la dérogation de ticket suivante :\n"
+"                                                            <br>\n"
+"                                                            <div style=\"margin: 16px 0px 16px 0px;\">\n"
+"                                                                <a t-att-href=\"object.get_actual_page_url()\" style=\"background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;\">\n"
+"                                                                    Consulter dérogation\n"
+"                                                                </a>\n"
+"                                                            </div>\n"
+"                                                            <br>\n"
+"                                                            <p>Cordialement,</p>\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <!-- POWERED BY -->\n"
+"                    <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;\">\n"
+"                                <tr>\n"
+"                                    <td style=\"text-align: center; font-size: 13px;\">\n"
+"                                        Powered by\n"
+"                                        <a target=\"_blank\" href=\"https://www.odoo.com?utm_source=db&amp;utm_medium=auth\" style=\"color: #875A7B;\">Odoo\n"
+"                                        </a>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+
+#. module: kzm_planning
+#. odoo-javascript
+#: code:addons/kzm_planning/static/src/xml/gantt_view.xml:0
+#: code:addons/kzm_planning/static/src/xml/gantt_view.xml:0
+#, python-format
+msgid "&nbsp;"
+msgstr ""
+
+#. module: kzm_planning
+#: model:mail.template,name:kzm_planning.to_validate_email_template_new
+#: model:mail.template,subject:kzm_planning.to_validate_email_template_new
+msgid "Validate Derogation"
+msgstr "Valider dérogation"
+
+#. module: kzm_planning
+#: model:ir.actions.report,print_report_name:kzm_planning.action_task_consumption_report
+msgid "'Task Consumption Report'"
+msgstr "'Rapport de consommation'"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_form_view
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                                        Ressources\n"
+"                                    </span>"
+msgstr ""
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.view_task_form2_extended
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                                Activities\n"
+"                            </span>"
+msgstr ""
+"<span class=\"o_stat_text\">\n"
+"                                Activités\n"
+"                            </span>"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.view_task_form2_extended
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                                Reports\n"
+"                            </span>"
+msgstr ""
+"<span class=\"o_stat_text\">\n"
+"                                Rapports\n"
+"                            </span>"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.view_task_form2_extended
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                                Ressources\n"
+"                            </span>"
+msgstr ""
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.view_task_form2_extended
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                                Timesheets\n"
+"                            </span>"
+msgstr ""
+"<span class=\"o_stat_text\">\n"
+"                                Feuille de temps\n"
+"                            </span>"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_planification_form_view
+msgid "<span class=\"o_stat_text\">Activities</span>"
+msgstr "<span class=\"o_stat_text\">Activités</span>"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_planification_form_view
+msgid "<span class=\"o_stat_text\">Lignes planification</span>"
+msgstr ""
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.taks_consumption_form_view
+msgid "<span class=\"o_stat_text\">Report lines</span>"
+msgstr "<span class=\"o_stat_text\">Lignes de rapport</span>"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_planification_form_view
+msgid "<span class=\"o_stat_text\">Ressources</span>"
+msgstr ""
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.helpdesk_ticket_view_form_extended
+msgid "<span class=\"o_stat_text\">Ticket derogations</span>"
+msgstr "<span class=\"o_stat_text\">Dérogation ticket</span>"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_form_view
+msgid "<span class=\"o_stat_text\">Tickets</span>"
+msgstr ""
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.helpdesk_ticket_view_kanban_extended_kzm
+msgid "<span style=\"color: blue;\">Not Planned</span>"
+msgstr "<span style=\"color: blue;\">Non Planifié</span>"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.helpdesk_ticket_view_kanban_extended_kzm
+msgid "<span style=\"color: green;\">Planned</span>"
+msgstr "<span style=\"color: green;\">Planifié</span>"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.helpdesk_ticket_view_kanban_extended_kzm
+msgid "<span style=\"color: red;\">In Late</span>"
+msgstr "<span style=\"color: red;\">En Retard</span>"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.task_consumption_template
+msgid ""
+"<strong>\n"
+"                                    <span style=\"text-decoration: underline;\">End Date</span>\n"
+"                                    :\n"
+"                                </strong>"
+msgstr ""
+"<strong>\n"
+"                                <span style=\"text-decoration: underline;\">Date de Fin</span>\n"
+"                                :\n"
+"                            </strong>"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.task_consumption_template
+msgid ""
+"<strong>\n"
+"                                    <span style=\"text-decoration: underline;\">Start Date</span>\n"
+"                                    :\n"
+"                                </strong>"
+msgstr ""
+"<strong>\n"
+"                                    <span style=\"text-decoration: underline;\">Date de Début</span>\n"
+"                                    :\n"
+"                                </strong>"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.task_consumption_template
+msgid ""
+"<strong>\n"
+"                                <span style=\"text-decoration: underline;\">Task</span>\n"
+"                                :\n"
+"                            </strong>"
+msgstr ""
+"<strong>\n"
+"                                <span style=\"text-decoration: underline;\">Tâche</span>\n"
+"                                :\n"
+"                            </strong>"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.task_consumption_template
+msgid "<strong>Task Consumption Report</strong>"
+msgstr "<strong>Rapport de Consommation</strong>"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__message_needaction
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__message_needaction
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__message_needaction
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/project_task.py:0
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__activity_ids
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__activity_ids
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__activity_ids
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__activity_ids
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_planification_form_view
+#, python-format
+msgid "Activities"
+msgstr "Activités"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_project_task__activities_count
+msgid "Activities Count"
+msgstr "Nombre activités"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__activity_id
+msgid "Activity"
+msgstr "Activité"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__activity_exception_decoration
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__activity_exception_decoration
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__activity_exception_decoration
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__activity_state
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__activity_state
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__activity_type_icon
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__activity_type_icon
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation__additional_charge
+msgid "Additional Charge"
+msgstr "Charge supplémentaire"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__planned_hours
+msgid "Allocated H"
+msgstr "H allouées"
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planification_line__state__cancelled
+msgid "Annulé"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planification_line__state__approved
+msgid "Approuvé"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.actions.server,name:kzm_planning.action_server_approuver
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_form_view
+msgid "Approve"
+msgstr "Approuver"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_search_view
+msgid "Approved tasks"
+msgstr "Tâches approuvées"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__assign_to_ids
+msgid "Assign To"
+msgstr "Assigné à"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__message_attachment_count
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__message_attachment_count
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planification_line__state__draft
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planification_planification__state__draft
+msgid "Brouillon"
+msgstr ""
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_search_view
+msgid "Cancelled tasks"
+msgstr "Tâches annulées"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__capacity
+msgid "Capacity"
+msgstr "Capacité"
+
+#. module: kzm_planning
+#: model:ir.actions.server,name:kzm_planning.ir_cron_action_create_planif_every_thursday_ir_actions_server
+#: model:ir.cron,cron_name:kzm_planning.ir_cron_action_create_planif_every_thursday
+msgid "Create planification"
+msgstr "Créer planification"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation__create_uid
+#: model_terms:ir.ui.view,arch_db:kzm_planning.ticket_derogation_form_view
+#: model_terms:ir.ui.view,arch_db:kzm_planning.ticket_derogation_list_view
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation__contract_id
+msgid "Contract cadre"
+msgstr "Contrat cadre"
+
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__create_uid
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption_line__created_on
+#: model_terms:ir.ui.view,arch_db:kzm_planning.task_consumption_template
+msgid "Created On"
+msgstr "Créé le"
+
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__create_date
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__create_date
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__create_date
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__create_date
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption_line__create_date
+#: model:ir.model.fields,field_description:kzm_planning.field_track_planing__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.ticket_derogation_form_view
+#: model_terms:ir.ui.view,arch_db:kzm_planning.ticket_derogation_list_view
+msgid "Creation date"
+msgstr "Date de création"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__description
+#: model:ir.model.fields,field_description:kzm_planning.field_planning_slot__description
+msgid "Description"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__difference
+msgid "Difference"
+msgstr "Différence"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__display_name
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__display_name
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__display_name
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation__display_name
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__display_name
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption_line__display_name
+#: model:ir.model.fields,field_description:kzm_planning.field_track_planing__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__sold_ticket_derogation__state__draft
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__end_date
+msgid "End Date"
+msgstr "Date de Fin"
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planning_slot__state__en_cours
+msgid "En cours"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__last_date
+msgid "End date"
+msgstr "Date fin"
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/task_consumption.py:0
+#, python-format
+msgid "End date must be greater than or equal to start date"
+msgstr "La date de fin doit être supérieure ou égale à la date de début"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__estimated_charge
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption_line__estimated_charge
+msgid "Estimated Charge"
+msgstr "Charge estimée"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__estimated_charge_not_planned
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__estimated_charge_not_planned
+msgid "Estimated Charge Not Planned"
+msgstr "Charge estimée non planifiée"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__estimated_charge_planned
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__estimated_charge_planned
+msgid "Estimated Charge Planned"
+msgstr "Charge estimée planifiée"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.task_consumption_template
+msgid "Estimed Charge"
+msgstr "Charge estimée"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation__existing_charge
+msgid "Existing Charge"
+msgstr "Charge existante"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__message_follower_ids
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__message_follower_ids
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__message_follower_ids
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__message_partner_ids
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__message_partner_ids
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__message_partner_ids
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,help:kzm_planning.field_planification_activity_line__activity_type_icon
+#: model:ir.model.fields,help:kzm_planning.field_planification_line__activity_type_icon
+#: model:ir.model.fields,help:kzm_planning.field_planification_planification__activity_type_icon
+#: model:ir.model.fields,help:kzm_planning.field_task_consumption__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_planification_form_view
+msgid "Generate tasks"
+msgstr "Générer tâches"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_search_view
+msgid "Group By"
+msgstr "Regrouper par"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__has_message
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__has_message
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__has_message
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model,name:kzm_planning.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planning_slot__priority__2
+msgid "High priority"
+msgstr "Priorité élevée"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__id
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__id
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__id
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation__id
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__id
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption_line__id
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption_line__ticket_id
+#: model:ir.model.fields,field_description:kzm_planning.field_track_planing__id
+#: model_terms:ir.ui.view,arch_db:kzm_planning.task_consumption_template
+msgid "ID"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__activity_exception_icon
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__activity_exception_icon
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__activity_exception_icon
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,help:kzm_planning.field_planification_activity_line__activity_exception_icon
+#: model:ir.model.fields,help:kzm_planning.field_planification_line__activity_exception_icon
+#: model:ir.model.fields,help:kzm_planning.field_planification_planification__activity_exception_icon
+#: model:ir.model.fields,help:kzm_planning.field_task_consumption__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,help:kzm_planning.field_planification_activity_line__message_needaction
+#: model:ir.model.fields,help:kzm_planning.field_planification_line__message_needaction
+#: model:ir.model.fields,help:kzm_planning.field_planification_planification__message_needaction
+#: model:ir.model.fields,help:kzm_planning.field_task_consumption__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,help:kzm_planning.field_planification_activity_line__message_has_error
+#: model:ir.model.fields,help:kzm_planning.field_planification_activity_line__message_has_sms_error
+#: model:ir.model.fields,help:kzm_planning.field_planification_line__message_has_error
+#: model:ir.model.fields,help:kzm_planning.field_planification_line__message_has_sms_error
+#: model:ir.model.fields,help:kzm_planning.field_planification_planification__message_has_error
+#: model:ir.model.fields,help:kzm_planning.field_planification_planification__message_has_sms_error
+#: model:ir.model.fields,help:kzm_planning.field_task_consumption__message_has_error
+#: model:ir.model.fields,help:kzm_planning.field_task_consumption__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.helpdesk_ticket_view_form_extended
+msgid "In late"
+msgstr "En Retard"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_form_view
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_planification_form_view
+msgid "Indicators"
+msgstr "Indicateurs"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__message_is_follower
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__message_is_follower
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__message_is_follower
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_helpdesk_ticket__is_late
+msgid "Is Late"
+msgstr "En Retard"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_helpdesk_ticket__is_not_planned
+msgid "Is Not Planned"
+msgstr "Non Planifié"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_helpdesk_ticket__is_planned
+msgid "Is Planned"
+msgstr "Planifié"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_helpdesk_ticket__is_estimated_charge_readonly
+msgid "Is estimated charge"
+msgstr "Charge estimée"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line____last_update
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line____last_update
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification____last_update
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation____last_update
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption____last_update
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption_line____last_update
+#: model:ir.model.fields,field_description:kzm_planning.field_track_planing____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__write_uid
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__write_uid
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__write_uid
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation__write_uid
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__write_uid
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption_line__write_uid
+#: model:ir.model.fields,field_description:kzm_planning.field_track_planing__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__write_date
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__write_date
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__write_date
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation__write_date
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__write_date
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption_line__write_date
+#: model:ir.model.fields,field_description:kzm_planning.field_track_planing__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__planning_ids
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_form_view
+msgid "Lignes de planification"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planning_slot__priority__0
+msgid "Low priority"
+msgstr "Faible priorité"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__message_main_attachment_id
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__message_main_attachment_id
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__message_main_attachment_id
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__contract_id
+msgid "Master agreement"
+msgstr "Contrat cadre"
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planning_slot__priority__1
+msgid "Medium priority"
+msgstr "Priorité moyenne"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planning_slot__member_ids
+msgid "Member"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__message_has_error
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__message_has_error
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__message_has_error
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__message_ids
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__message_ids
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__message_ids
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__my_activity_date_deadline
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__my_activity_date_deadline
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__my_activity_date_deadline
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__name
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__name
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/planification_activity_line.py:0
+#: code:addons/kzm_planning/models/planification_activity_line.py:0
+#: code:addons/kzm_planning/models/planification_activity_line.py:0
+#: code:addons/kzm_planning/models/planification_activity_line.py:0
+#: code:addons/kzm_planning/models/planification_line.py:0
+#: code:addons/kzm_planning/models/planification_line.py:0
+#: code:addons/kzm_planning/models/planification_line.py:0
+#: code:addons/kzm_planning/models/planification_line.py:0
+#: code:addons/kzm_planning/models/planification_planification.py:0
+#: code:addons/kzm_planning/models/planification_planification.py:0
+#: code:addons/kzm_planning/models/planification_planification.py:0
+#: code:addons/kzm_planning/models/planification_planification.py:0
+#, python-format
+msgid "New"
+msgstr "Nouveau"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__activity_calendar_event_id
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__activity_calendar_event_id
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__activity_calendar_event_id
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__activity_date_deadline
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__activity_date_deadline
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__activity_date_deadline
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__activity_summary
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__activity_summary
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__activity_summary
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__activity_type_id
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__activity_type_id
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__activity_type_id
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.helpdesk_ticket_view_form_extended
+msgid "Not Planned"
+msgstr "Non Planifié"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__not_planned_ticket_ids
+msgid "Not Planned Ticket"
+msgstr "Tickets non planifiés"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__message_needaction_counter
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__message_needaction_counter
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__message_needaction_counter
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__message_has_error_counter
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,help:kzm_planning.field_planification_planification__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,help:kzm_planning.field_planification_planification__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__planned_ticket_ids_count
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__planned_ticket_count
+msgid "Number of planned tickets"
+msgstr "Nombre tickets planifiés"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__not_planned_ticket_ids_count
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__not_planned_ticket_count
+msgid "Number of unplanned tickets"
+msgstr "Nombre tickets non planifiés"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__effective_hours
+msgid "Past H"
+msgstr "H passées"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__plafond
+msgid "Plafond"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__plan
+#: model:ir.model.fields,field_description:kzm_planning.field_planning_slot__plan_id
+msgid "Plan"
+msgstr "Plan"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__plan_line_count
+msgid "Plan Line Count"
+msgstr "Nombre ligne plan"
+
+#. module: kzm_planning
+#: model:ir.actions.act_window,name:kzm_planning.planification_menu_action_window
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__planification_id
+#: model:ir.model.fields,field_description:kzm_planning.field_track_planing__planification_id
+#: model:ir.ui.menu,name:kzm_planning.planification_menu
+msgid "Planification"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.actions.act_window,name:kzm_planning.planification_line_menu_action_window
+msgid "Planification line"
+msgstr "Ligne planification"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.helpdesk_ticket_view_form_extended
+msgid "Planned"
+msgstr "Planifié"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__planned_ticket_ids
+msgid "Planned Ticket"
+msgstr "Tickets planifiés"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__planning_ids
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_form_view
+msgid "Planning"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__planning_count
+msgid "Planning Count"
+msgstr "Nombre planning"
+
+#. module: kzm_planning
+#: model:ir.model,name:kzm_planning.model_planning_slot
+msgid "Planning Shift"
+msgstr ""
+
+#. module: kzm_planning
+#: model:res.groups,name:kzm_planning.group_validateur_planning
+msgid "Planning Validator"
+msgstr "Validateur planning"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_planification_form_view
+msgid "Activities"
+msgstr "Activités"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planning_slot__priority
+msgid "Priority"
+msgstr "Priorité"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planning_slot__project_id
+#: model:ir.model.fields.selection,name:kzm_planning.selection__task_consumption_line__type__project
+msgid "Project"
+msgstr "Projet"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_planification_form_view
+msgid "Re-draft"
+msgstr "Remettre en brouillon"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__real_charge_not_planned
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__real_charge_not_planned
+msgid "Real Charge Not Planned"
+msgstr "Charge réelle non planifiée"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__real_charge_planned
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__real_charge_planned
+msgid "Real Charge Planned"
+msgstr "Charge réelle planifiée"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__real_charge
+msgid "Realized charge"
+msgstr "Charge réalisée"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation__reason
+msgid "Reason"
+msgstr "Motif"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_form_view
+msgid "Refuse"
+msgstr "Refuser"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__remaining_hours
+msgid "Remaining H"
+msgstr "H restantes"
+
+#. module: kzm_planning
+#: model:ir.actions.act_window,name:kzm_planning.task_consumption_menu_action_window
+#: model:ir.actions.report,name:kzm_planning.action_task_consumption_report
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption_line__task_consumption_id
+msgid "Report"
+msgstr "Rapport"
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planning_slot__state__reporté_clt
+msgid "Reporté Clt"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planning_slot__state__reporté_int
+msgid "Reporté Int"
+msgstr ""
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/task_consumption.py:0
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__consumption_line_ids
+#: model_terms:ir.ui.view,arch_db:kzm_planning.taks_consumption_form_view
+#, python-format
+msgid "Report lines"
+msgstr "Lignes du rapport"
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/project_task.py:0
+#, python-format
+msgid "Reports"
+msgstr "Rapports"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation__manager_id
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/planification_line.py:0
+#: code:addons/kzm_planning/models/project_task.py:0
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__ressources_ids
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_activity_line_form_view
+#, python-format
+msgid "Ressources"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__scrum_master_id
+msgid "Scrum Master"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__start_date
+msgid "Start Date"
+msgstr "Date de Début"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__first_date
+msgid "Start date"
+msgstr "Date début"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption_line__state
+#: model_terms:ir.ui.view,arch_db:kzm_planning.task_consumption_template
+msgid "State"
+msgstr "Étape"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__state
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__state
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planning_view_search_extended_kzm
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation__state
+msgid "State"
+msgstr "Statut"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planning_slot__state
+msgid "Status"
+msgstr "Statut"
+
+#. module: kzm_planning
+#: model:ir.model.fields,help:kzm_planning.field_planification_planification__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption_line__subject
+#: model_terms:ir.ui.view,arch_db:kzm_planning.task_consumption_template
+msgid "Subject"
+msgstr "Sujet"
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__task_consumption_line__type__abonnement
+msgid "Subscription"
+msgstr "Abonnement"
+
+#. module: kzm_planning
+#: model:ir.model,name:kzm_planning.model_project_task
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__activity_id_task_id
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__task_id
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation__task_id
+#: model:ir.model.fields,field_description:kzm_planning.field_task_consumption__task_id
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planning_view_search_extended_kzm
+msgid "Task"
+msgstr "Tâche"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_project_task__task_consumption_ids
+msgid "Task Consumption"
+msgstr "Rapports"
+
+#. module: kzm_planning
+#: model:ir.ui.menu,name:kzm_planning.kzm_sold_task_derogation_menu_after_root
+msgid "Task Derogation"
+msgstr "Dérogation tâches"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_search_view
+msgid "Tasks planned"
+msgstr "Tâches planifiées"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_search_view
+msgid "Tasks to plan"
+msgstr "Tâches à planifier"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__team_id
+#: model:ir.model.fields,field_description:kzm_planning.field_project_task__team_id
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_search_view
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planning_view_search_extended_kzm
+msgid "Team"
+msgstr "Équipe"
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/planification_planification.py:0
+#, python-format
+msgid "The start date must be less than the end date."
+msgstr "La date de début doit être inférieure à la date de fin."
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/planning_slot.py:0
+#, python-format
+msgid "The date must be between the planning start and end dates."
+msgstr "La date doit être entre la date de début et de fin de la planification."
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planification_line__state__terminé
+msgid "Terminé"
+msgstr ""
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/helpdesk_ticket.py:0
+#: code:addons/kzm_planning/models/sold_ticket_derogation.py:0
+#, python-format
+msgid "The estimated workload exceeds the available ceiling."
+msgstr "La charge de travail estimée dépasse le plafond disponible."
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_activity_line__ticket_id
+#: model:ir.model.fields,field_description:kzm_planning.field_planning_slot__ticket_id
+#: model:ir.model.fields,field_description:kzm_planning.field_sold_ticket_derogation__ticket_id
+#: model:ir.model.fields,field_description:kzm_planning.field_track_planing__ticket_id
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_activity_line_form_view
+msgid "Ticket"
+msgstr ""
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/helpdesk_ticket.py:0
+#: model:ir.actions.act_window,name:kzm_planning.ticket_derogation_menu_action_window
+#: model:ir.ui.menu,name:kzm_planning.ticket_derogation_menu
+#, python-format
+msgid "Ticket Derogation"
+msgstr "Dérogation tickets"
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/project_task.py:0
+#, python-format
+msgid "Timesheets"
+msgstr "Feuilles de temps"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_line__to_plan
+msgid "To Plan"
+msgstr "À planifier"
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planning_slot__state__traité
+msgid "Traité"
+msgstr ""
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/sold_ticket_derogation.py:0
+#: model:ir.model.fields.selection,name:kzm_planning.selection__sold_ticket_derogation__state__to_validate
+#, python-format
+msgid "To Validate"
+msgstr "À Valider"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.ticket_derogation_form_view
+msgid "To validate"
+msgstr "À Valider"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.task_consumption_template
+msgid "Total charges"
+msgstr "Total charge"
+
+#. module: kzm_planning
+#: model:ir.model.fields,help:kzm_planning.field_planification_planification__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planning_slot__priority__3
+msgid "Urgent"
+msgstr ""
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_search_view
+msgid "Unplanned tasks"
+msgstr "Tâches non planifiées"
+
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planification_planification__state__validated
+#: model:ir.model.fields.selection,name:kzm_planning.selection__sold_ticket_derogation__state__validated
+msgid "Validated"
+msgstr "Validé"
+
+#. module: kzm_planning
+#: model:ir.model.fields,field_description:kzm_planning.field_planification_planification__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.ticket_derogation_form_view
+msgid "Validate"
+msgstr "Valider"
+
+#. module: kzm_planning
+#: model:ir.model.fields,help:kzm_planning.field_planification_planification__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/sold_ticket_derogation.py:0
+#, python-format
+msgid "You can only delete derogations that are in draft form."
+msgstr "Vous ne pouvez supprimer que les dérogations qui sont en brouillon."
+
+#. module: kzm_planning
+#: model:ir.model,name:kzm_planning.model_planification_line
+msgid "planification.line"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model,name:kzm_planning.model_planification_planification
+msgid "planification.planification"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model,name:kzm_planning.model_task_consumption
+msgid "task.consumption"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model,name:kzm_planning.model_task_consumption_line
+msgid "task.consumption.line"
+msgstr ""
+
+#. module: kzm_planning
+#: model:ir.model,name:kzm_planning.model_track_planing
+msgid "track.planing"
+msgstr ""
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_form_view
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_planification_form_view
+msgid "validate"
+msgstr "valider"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_line_form_view
+msgid "Reset to draft"
+msgstr "Remettre en brouillon"
+
+#. module: kzm_planning
+#: model_terms:ir.ui.view,arch_db:kzm_planning.planification_planification_form_view
+msgid "Update tasks"
+msgstr "Actualiser"
+
+#. module: kzm_planning
+#: model:ir.model.fields.selection,name:kzm_planning.selection__planification_line__state__finished
+msgid "À approuver"
+msgstr ""
+
+#. module: kzm_planning
+#. odoo-python
+#: code:addons/kzm_planning/models/task_consumption.py:0
+#, python-format
+msgid "End date must be greater than or equal to start date"
+msgstr "La date de fin doit être supérieure ou égale à la date de début"
+

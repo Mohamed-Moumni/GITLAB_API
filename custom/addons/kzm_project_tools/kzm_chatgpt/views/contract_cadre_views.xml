@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="contract_cadre_form" model="ir.ui.view">
+        <field name="name">contract.cadre.form.inherit</field>
+        <field name="model">contract.cadre</field>
+        <field name="inherit_id" ref="kzm_project_base.contract_cadre_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Token">
+                    <group>
+                        <group>
+                            <field name="token_balance"/>
+                            <field name="consumed_tokens"/>
+                            <field name="remained_tokens"/>
+                        </group>
+                        <group>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

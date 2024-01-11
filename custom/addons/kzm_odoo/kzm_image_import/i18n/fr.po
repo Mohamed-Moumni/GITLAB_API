@@ -1,0 +1,91 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kzm_database_cleanup
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-11 11:54+0000\n"
+"PO-Revision-Date: 2020-11-11 11:54+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: kzm_database_cleanup
+#: model_terms:ir.ui.view,arch_db:kzm_database_cleanup.res_config_settings_view_form
+msgid "Cleanup All"
+msgstr "Tout supprimer"
+
+#. module: kzm_database_cleanup
+#: model_terms:ir.ui.view,arch_db:kzm_database_cleanup.res_config_settings_view_form
+msgid "Cleanup PO"
+msgstr "Supprimer tous les Bons de commandes (Achats)"
+
+#. module: kzm_database_cleanup
+#: model_terms:ir.ui.view,arch_db:kzm_database_cleanup.res_config_settings_view_form
+msgid "Cleanup POS"
+msgstr "Supprimer les commandes POS"
+
+#. module: kzm_database_cleanup
+#: model_terms:ir.ui.view,arch_db:kzm_database_cleanup.res_config_settings_view_form
+msgid "Cleanup Payments"
+msgstr "Supprimer tous les paiements"
+
+#. module: kzm_database_cleanup
+#: model_terms:ir.ui.view,arch_db:kzm_database_cleanup.res_config_settings_view_form
+msgid "Cleanup Production"
+msgstr "Supprimer la production"
+
+#. module: kzm_database_cleanup
+#: model_terms:ir.ui.view,arch_db:kzm_database_cleanup.res_config_settings_view_form
+msgid "Cleanup SO"
+msgstr "Supprimer les Bon de commandes (Ventes)"
+
+#. module: kzm_database_cleanup
+#: model_terms:ir.ui.view,arch_db:kzm_database_cleanup.res_config_settings_view_form
+msgid "Cleanup SO & PO"
+msgstr "Supprimer Bon de commande (Ventes et Achats)"
+
+#. module: kzm_database_cleanup
+#: model_terms:ir.ui.view,arch_db:kzm_database_cleanup.res_config_settings_view_form
+msgid "Cleanup Stock"
+msgstr "Supprimer le stock"
+
+#. module: kzm_database_cleanup
+#: model_terms:ir.ui.view,arch_db:kzm_database_cleanup.res_config_settings_view_form
+msgid "Cleanup invoices"
+msgstr "Supprimer les factures"
+
+#. module: kzm_database_cleanup
+#: model_terms:ir.ui.view,arch_db:kzm_database_cleanup.res_config_settings_view_form
+msgid "Cleanup now"
+msgstr "Supprimer maintenant"
+
+#. module: kzm_database_cleanup
+#: model:ir.model,name:kzm_database_cleanup.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: kzm_database_cleanup
+#: model_terms:ir.ui.view,arch_db:kzm_database_cleanup.res_config_settings_view_form
+msgid "Database Cleanup"
+msgstr "Nettoyage de la base"
+
+#. module: kzm_database_cleanup
+#: model:ir.model.fields,field_description:kzm_database_cleanup.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: kzm_database_cleanup
+#: model:ir.model.fields,field_description:kzm_database_cleanup.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: kzm_database_cleanup
+#: model:ir.model.fields,field_description:kzm_database_cleanup.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"

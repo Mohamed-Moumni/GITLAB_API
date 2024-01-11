@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="portal_helpdesk_ticket" name="My Tickets">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+                        <t t-call="portal.portal_searchbar">
+                            <t t-set="title">Tickets</t>
+                        </t>
+<!--                        <span t-esc="all_tickets"/>-->
+                        <div t-if="not grouped_tickets" class="alert alert-info">
+                            There are currently no Ticket for your account.
+                        </div>
+                        <div t-else="">
+                            <t t-call="portal.portal_table">
+                                <thead>
+                                    <tr>
+                                        <th>Ticket</th>
+                                        <th class="text-end" t-if="groupby != 'create_date'">Reported on</th>
+                                        <th id="ticket_user_header" t-if="groupby != 'user'">Assigned to</th>
+                                        <th t-if="groupby != 'stage'" colspan="5" class="text-end">Stage</th>
+                                    </tr>
+                                </thead>
+                                <t t-foreach="grouped_tickets" t-as="tickets">
+                                    <tbody>
+                                        <tr t-if="not groupby =='none'" class="table-light">
+                                            <th t-if="groupby == 'stage'" colspan="5">
+                                                <span t-field="tickets[0].stage_id.name"/>
+                                            </th>
+                                            <th t-if="groupby == 'user'" colspan="5">
+                                                <span t-if="tickets[0].user_id" t-out="tickets[0].user_id.name"/>
+                                                <span t-else="">Unassigned</span>
+                                            </th>
+                                            <th t-if="groupby == 'create_date'" colspan="5">
+                                                <span t-field="tickets[0].create_date"/>
+                                            </th>
+                                        </tr>
+                                    </tbody>
+                                    <t t-foreach="tickets" t-as="ticket">
+                                        <tr>
+                                            <td class="text-start">
+                                                <a t-attf-href="/helpdesk/ticket/#{ticket.id}">
+                                                    <small>#</small>
+                                                    <t t-out="ticket.id"/>
+                                                    <span class="ms-2" t-field="ticket.name"/>
+                                                </a>
+                                            </td>
+                                            <td class="text-end" t-if="groupby != 'create_date'">
+                                                <span t-field="ticket.create_date"
+                                                      t-options='{"widget": "datetime", "hide_seconds": True}'/>
+                                            </td>
+                                            <td id="ticket_user_body" t-if="groupby != 'user'">
+                                                <img t-if="ticket.user_id" class="rounded-circle o_portal_contact_img"
+                                                     t-attf-src="#{image_data_uri(ticket.user_id.sudo().avatar_1024)}"
+                                                     alt="Contact"
+                                                     style="width: 20px; height: 20px;"/>
+                                                <span t-field="ticket.user_id"/>
+                                            </td>
+                                            <td t-if="groupby != 'stage'" class="text-end">
+                                                <span t-attf-class="badge rounded-pill #{'text-bg-info' if ticket.stage_id.fold else 'text-bg-light'}"
+                                                      t-esc="ticket.stage_id.name"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="col-md-3 offset-md-1">
+                        <div class="p-3">
+                            <div class="row">
+                                <button type="button" class="btn"
+                                        style="border-radius: 5px 5px 0px 0px; background-color:#603b5b; color:white; font-weight: bold;">
+                                    Fiche d'identité
+                                </button>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Société</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">Karizma Conseil</p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Email</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">example@example.com</p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Mobile</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">(098) 765-4321</p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Address</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <button type="button" class="btn"
+                                        style="border-radius: 5px 5px 0px 0px; background-color:#603b5b; color:white; font-weight: bold;">
+                                    Votre Contrat
+                                </button>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Date début</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">Karizma Conseil</p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Statut</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">example@example.com</p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Situation</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">(098) 765-4321</p>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <br/>
+                                        <div class="col text-center">
+                                            <a href="#" class="btn btn-outline-primary">Demande règlement</a>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <button type="button" class="btn"
+                                        style="border-radius: 5px 5px 0px 0px; background-color:#603b5b; color:white; font-weight: bold;">
+                                    Votre Contact
+                                </button>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Contact</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">Karizma Conseil</p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Email</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">example@example.com</p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Mobile</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">(098) 765-4321</p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Fix</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">(098) 765-4321</p>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

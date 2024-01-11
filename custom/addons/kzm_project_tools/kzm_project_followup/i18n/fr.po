@@ -1,0 +1,539 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* kzm_project_followup
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-10 15:32+0000\n"
+"PO-Revision-Date: 2018-10-10 15:32+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.view_project_kanban_kzm_eval
+msgid "<span class=\"o_label\">Lots</span>"
+msgstr "<span class=\"o_label\">Lots</span>"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.view_project_kanban_kzm_eval
+msgid "<span class=\"o_label\">Phases</span>"
+msgstr "<span class=\"o_label\">Phases</span>"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_advancement
+msgid "Advancement"
+msgstr "Avancement"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_advancement_inv
+msgid "Advancement Facturation"
+msgstr "Avancement Facturation"
+
+#. module: kzm_project_followup
+#: model:ir.model,name:kzm_project_followup.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Ligne analytique"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+msgid "Charges estimées"
+msgstr "Charges estimées"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+msgid "Charges plannifiées"
+msgstr "Charges plannifiées"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+msgid "Charges réalisée"
+msgstr "Charges réalisée"
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,help:kzm_project_followup.lot_line_action
+msgid "Click to add a project lot Line."
+msgstr "Cliquer pour ajouter un nouvel lot de projet."
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,help:kzm_project_followup.lot_action
+#: model:ir.actions.act_window,help:kzm_project_followup.lot_action_kanban
+msgid "Click to add a project lot."
+msgstr "Cliquer pour ajouter un projet lot."
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,help:kzm_project_followup.phase_action
+#: model:ir.actions.act_window,help:kzm_project_followup.phase_action_kanban
+msgid "Click to add a project phase."
+msgstr "Clique pur ajouter une phase de projet."
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,help:kzm_project_followup.template_lot_action
+msgid "Click to add a project template lot."
+msgstr "Clique pour ajouter un moèdèle de lot du projet."
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,help:kzm_project_followup.template_phase_action
+msgid "Click to add a project template phase."
+msgstr "Clique pour ajouter une phase de template."
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,help:kzm_project_followup.sale_order_action_kanban
+msgid "Click to add a sale order associated with this project."
+msgstr "Clique pour ajouter un bon de commande associé à ce projet."
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,help:kzm_project_followup.account_invoice_action_kanban
+msgid "Click to add an invoice associated with this project."
+msgstr "Clique pour ajouter une facture associé à ce projet."
+
+#. module: kzm_project_followup
+#: model:ir.model,name:kzm_project_followup.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_lot_create_uid
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_lot_line_create_uid
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_phase_create_uid
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_template_lot_create_uid
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_template_phase_create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_lot_create_date
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_lot_line_create_date
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_phase_create_date
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_template_lot_create_date
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_template_phase_create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: kzm_project_followup
+#: model:ir.model,name:kzm_project_followup.model_hr_employee
+msgid "Employee"
+msgstr "Employé"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_estimated_charges
+msgid "Estimated charges (Hours)"
+msgstr "Charges estimées (Heures)"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_estimated_charges_dy
+msgid "Estimated charges (day)"
+msgstr "Charges estimées (jours)"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_tree_view
+msgid "F1"
+msgstr "F1"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_from_view
+msgid "F12"
+msgstr "F12"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_from_view
+msgid "F13"
+msgstr "F13"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_tree_view
+msgid "F2"
+msgstr "F2"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_from_view
+msgid "F22"
+msgstr "F22"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_tree_view
+msgid "F3"
+msgstr "F3"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_from_view
+msgid "F33"
+msgstr "F33"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.view_company_form2_inherited
+msgid "HR/Project evaluation"
+msgstr "Évaluation RH/Projet"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+msgid "Heures --"
+msgstr "Heures --"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+msgid "Horaires --"
+msgstr "Horaires --"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_hr_employee_tot_in_progress
+msgid "In progress total"
+msgstr "Total en cours"
+
+#. module: kzm_project_followup
+#: model:ir.model,name:kzm_project_followup.model_account_invoice
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_invoiced_amount
+msgid "Invoiced untaxed amount"
+msgstr "Total HT facturé"
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,name:kzm_project_followup.account_invoice_action_kanban
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_account_inv_count
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_account_inv_ids
+#: model:ir.ui.view,arch_db:kzm_project_followup.view_edit_project_kzm_inherited
+msgid "Invoices"
+msgstr "Factures"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.view_project_kanban_kzm_eval
+msgid "Invoices ("
+msgstr "Factures ("
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_task_is_planned
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_task_type_is_planned
+msgid "Is Planned"
+msgstr "Planifiée"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_task_is_progress
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_task_type_is_progress
+msgid "Is progress"
+msgstr "En cours"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+msgid "Journalier"
+msgstr "Journalier"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+msgid "Jours"
+msgstr "Jours"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_lot_line_write_uid
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_lot_write_uid
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_phase_write_uid
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_template_lot_write_uid
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_template_phase_write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_lot_line_write_date
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_lot_write_date
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_phase_write_date
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_template_lot_write_date
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_template_phase_write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,name:kzm_project_followup.lot_action
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_task_lot_id
+msgid "Lot"
+msgstr "Lot"
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,name:kzm_project_followup.lot_line_action
+#: model:ir.ui.menu,name:kzm_project_followup.menu_lot_line_eval
+#: model:ir.ui.view,arch_db:kzm_project_followup.line_lot_from_view
+#: model:ir.ui.view,arch_db:kzm_project_followup.line_lot_tree_view
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_from_view
+#: model:ir.ui.view,arch_db:kzm_project_followup.phase_from_view
+msgid "Lot lines"
+msgstr "Lignes de lot"
+
+#. module: kzm_project_followup
+#: model:ir.ui.menu,name:kzm_project_followup.menu_lot_template_eval
+msgid "Lot template"
+msgstr "Modèle de lot"
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,name:kzm_project_followup.template_lot_action
+#: model:ir.ui.view,arch_db:kzm_project_followup.template_lot_tree_view
+msgid "Lot templates"
+msgstr "Modèles de lot"
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,name:kzm_project_followup.lot_action_kanban
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_lot_ids
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_lots_count
+#: model:ir.ui.menu,name:kzm_project_followup.menu_lot_eval
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_tree_view
+#: model:ir.ui.view,arch_db:kzm_project_followup.view_edit_project_kzm_inherited
+msgid "Lots"
+msgstr "Lots"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.view_project_kanban_kzm_eval
+msgid "Lots ("
+msgstr "Lots ("
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_lot_line_ids
+msgid "Lots lines"
+msgstr "Lignes Lot"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_line_search_view
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_search_view
+#: model:ir.ui.view,arch_db:kzm_project_followup.phase_search_view
+#: model:ir.ui.view,arch_db:kzm_project_followup.template_lot_search_view
+#: model:ir.ui.view,arch_db:kzm_project_followup.template_phase_search_view
+msgid "Name"
+msgstr "Nom"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,help:kzm_project_followup.field_res_company_hrs_per_day
+msgid "Number of work hours per day"
+msgstr "Le nombre d'heures de travail par un jour."
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_ordered_amount
+msgid "Ordered untaxed amount"
+msgstr "Total HT"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_task_phase_id
+#: model:ir.ui.menu,name:kzm_project_followup.menu_phase_eval
+msgid "Phase"
+msgstr "Phase"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.template_phase_from_view
+msgid "Phase Templates"
+msgstr "Templates phase"
+
+#. module: kzm_project_followup
+#: model:ir.ui.menu,name:kzm_project_followup.menu_template_phase_eval
+msgid "Phase template"
+msgstr "Template Phase"
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,name:kzm_project_followup.template_phase_action
+#: model:ir.ui.view,arch_db:kzm_project_followup.template_phase_tree_view
+msgid "Phase templates"
+msgstr "Templates phase"
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,name:kzm_project_followup.phase_action
+#: model:ir.actions.act_window,name:kzm_project_followup.phase_action_kanban
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_phase_ids
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_phases_count
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+#: model:ir.ui.view,arch_db:kzm_project_followup.phase_tree_view
+#: model:ir.ui.view,arch_db:kzm_project_followup.view_edit_project_kzm_inherited
+msgid "Phases"
+msgstr "Phases"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.view_project_kanban_kzm_eval
+msgid "Phases ("
+msgstr "Phases ("
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_planned_charges
+msgid "Planned charges (Hours)"
+msgstr "Charges plannifiées (Heures)"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_planned_charges_dy
+msgid "Planned charges (day)"
+msgstr "Charges plannifiées (jours)"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_hr_employee_tot_planned
+msgid "Planned total"
+msgstr "Total planifiée"
+
+#. module: kzm_project_followup
+#: model:ir.model,name:kzm_project_followup.model_project_project
+#: model:ir.model.fields,field_description:kzm_project_followup.field_account_invoice_project_id
+#: model:ir.model.fields,field_description:kzm_project_followup.field_sale_order_our_project_id
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_line_search_view
+#: model:ir.ui.view,arch_db:kzm_project_followup.phase_search_view
+msgid "Project"
+msgstr "Projet"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.view_project_project_pivot_kzm
+msgid "Project Analysis"
+msgstr "Analyses Projet"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+msgid "Project costing"
+msgstr "Chiffrage projet"
+
+#. module: kzm_project_followup
+#: model:ir.ui.menu,name:kzm_project_followup.menu_config_eval_project
+msgid "Project evaluation composants"
+msgstr "Composants d'évaluation projet"
+
+#. module: kzm_project_followup
+#: model:ir.model,name:kzm_project_followup.model_sale_order
+msgid "Quotation"
+msgstr "Devis"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_realised_charges
+msgid "Realised charges (Hours)"
+msgstr "Charges réalisées (Heures)"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_realised_charges_dy
+msgid "Realised charges (day)"
+msgstr "Charges réalisées (jours)"
+
+#. module: kzm_project_followup
+#: model:ir.actions.act_window,name:kzm_project_followup.sale_order_action_kanban
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_sale_orders_count
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+#: model:ir.ui.view,arch_db:kzm_project_followup.view_edit_project_kzm_inherited
+msgid "Sale orders"
+msgstr "Bons de commande"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.view_project_kanban_kzm_eval
+msgid "Sale orders ("
+msgstr "Bons commande ("
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_sale_order_ids
+msgid "Sales order"
+msgstr "Bons de commande"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_line_search_view
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_search_view
+msgid "Search Lot line"
+msgstr "Recherche ligne de lot"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.phase_search_view
+msgid "Search Phase"
+msgstr "Recherche Phase"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.template_lot_search_view
+msgid "Search Template Lot"
+msgstr "Recherche modèle Lot"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.template_phase_search_view
+msgid "Search Template phase"
+msgstr "Recherche modèle phase"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_hours_budgets
+msgid "THM"
+msgstr "THM"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_project_project_day_budgets
+msgid "TJM"
+msgstr "TJM"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+msgid "Tarif moyen"
+msgstr "Tarif moyen"
+
+#. module: kzm_project_followup
+#: model:ir.model,name:kzm_project_followup.model_project_task
+msgid "Task"
+msgstr "Tâche"
+
+#. module: kzm_project_followup
+#: model:ir.model,name:kzm_project_followup.model_project_task_type
+msgid "Task Stage"
+msgstr "Étape de tâche"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.lot_from_view
+msgid "Tasks"
+msgstr "Tâches"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.template_lot_from_view
+msgid "Templates"
+msgstr "Modèles"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+msgid "Total"
+msgstr "Total"
+
+#. module: kzm_project_followup
+#: model:ir.model.fields,field_description:kzm_project_followup.field_res_company_hrs_per_day
+msgid "Works hours/day"
+msgstr "Nbr. Heures/jour"
+
+#. module: kzm_project_followup
+#: code:addons/kzm_project_followup/models/eval_models.py:259
+#, python-format
+msgid "You can't create or update a timesheet not in progress"
+msgstr "Vous ne pouvez pas créer ou mettre à jour une feuille de temps non en cours"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+msgid "amount total"
+msgstr "Montant total"
+
+#. module: kzm_project_followup
+#: model:ir.model,name:kzm_project_followup.model_project_lot
+msgid "project.lot"
+msgstr "project.lot"
+
+#. module: kzm_project_followup
+#: model:ir.model,name:kzm_project_followup.model_project_lot_line
+msgid "project.lot.line"
+msgstr "project.lot.line"
+
+#. module: kzm_project_followup
+#: model:ir.model,name:kzm_project_followup.model_project_phase
+msgid "project.phase"
+msgstr "Phases du projet"
+
+#. module: kzm_project_followup
+#: model:ir.model,name:kzm_project_followup.model_project_template_lot
+msgid "project.template.lot"
+msgstr "project.template.lot"
+
+#. module: kzm_project_followup
+#: model:ir.model,name:kzm_project_followup.model_project_template_phase
+msgid "project.template.phase"
+msgstr "project.template.phase"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+msgid "total"
+msgstr "total"
+
+#. module: kzm_project_followup
+#: model:ir.ui.view,arch_db:kzm_project_followup.eval_edit_project_form_inherited
+msgid "untaxed total"
+msgstr "Montant HT"
+

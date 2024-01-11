@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="app_res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">app.res.config.settings.view.form</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <div id="appstore" position="attributes">
+                    <attribute name="class">o_hidden</attribute>
+                </div>
+            </field>
+        </record>
+
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <div id="companies" position="after">
+                    <h2 id="web_theme_title">Background Image</h2>
+                    <div class="row mt16 o_settings_container" name="web_theme">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Background Image</span>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific."
+                                      aria-label="Values set here are company-specific."
+                                      role="img"/>
+                                <div class="text-muted">
+                                    Set the background image for the apps menu
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16 row">
+                                        <field name="background_image" widget="image" class="ml-4 w-75"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!--        <record id="action_print_format_canevas" model="ir.actions.report">-->
+        <!--            <field name="name">Csv Canevas</field>-->
+        <!--            <field name="model">import.wizard</field>-->
+        <!--            <field name="report_type">xlsx</field>-->
+        <!--            <field name="report_name">kzm_image_import.export_file</field>-->
+        <!--            <field name="report_file">kzm_image_import.export_file</field>-->
+        <!--            &lt;!&ndash;            <field name="menu">False</field>&ndash;&gt;-->
+        <!--        </record>-->
+
+        <record id="product_import_image_wizard_form_view" model="ir.ui.view">
+            <field name="name">import.wizard.form</field>
+            <field name="model">import.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Image Import">
+                    <group>
+                        <group>
+                            <field name="type" required="1"/>
+                            <!--                            <field name="imported" required="1"/>-->
+                            <field name="imported" invisible="1"/>
+                            <field name="canevas_name" invisible="1"/>
+                            <field name="on_server" attrs="{'invisible': [('type', '!=', 'rpc')]}"/>
+                            <field name="url" help="URL of the server, with a port if you can"
+                                   attrs="{'invisible': ['|', ('type', '!=', 'rpc'), ('on_server', '=', True)], 'required': [('on_server', '=', False), ('type', '=', 'rpc')]}"/>
+                            <field name="db" help="DB of the server"
+                                   attrs="{'invisible': ['|', ('type', '!=', 'rpc'), ('on_server', '=', True)], 'required': [('on_server', '=', False), ('type', '=', 'rpc')]}"/>
+
+                            <field name="username" help="Your login"
+                                   attrs="{'invisible': ['|', ('type', '!=', 'rpc'), ('on_server', '=', True)], 'required': [('on_server', '=', False), ('type', '=', 'rpc')]}"
+                            />
+                            <field name="password" password="1"
+                                   help="Your password"
+                                   attrs="{'invisible': ['|', ('type', '!=', 'rpc'), ('on_server', '=', True)], 'required': [('on_server', '=', False), ('type', '=', 'rpc')]}"
+                            />
+                            <field name="file" filename="canevas_name"
+                                   attrs="{'invisible': [('type', '!=', 'csv')], 'required': [('type', '=', 'csv')]}"/>
+
+                            <field name="folder_id"
+                                   attrs="{'invisible': [('type', '!=', 'google')], 'required': [('type', '=', 'google')]}"/>
+                            <field name="block_importation"/>
+
+                        </group>
+                        <group>
+                            <field name="model_id" required="1"/>
+                            <field name="field_research_id"
+                                   domain="[('model_id', '=', model_id), ('ttype', 'in', ('char', 'integer', 'text'))]"
+                                   required="1"/>
+                            <field name="field_id"
+                                   domain="[('model_id', '=', model_id), ('ttype', '=', 'binary')]"
+                                   required="1"/>
+                            <field name="source_folder"
+                                   help="Where your images are"
+                                   attrs="{'invisible': [('type', '!=', 'rpc')], 'required': [('type', '=', 'rpc')]}"/>
+                            <field name="error_folder"
+                                   help="Where the file that can't be import should go"
+                                   attrs="{'invisible': [('type', '!=', 'rpc')], 'required': [('type', '=', 'rpc')]}"/>
+
+                        </group>
+                    </group>
+                    <div attrs="{'invisible': [('type', '!=', 'csv')]}">
+                        <h2>Canevas à préprarer</h2>
+                        Veuillez uploader un canevas .csv,.xlsx contenant une colonne pour identifier le record et une
+                        seconde pour l'image à importer.
+                        <ul>
+                            <li>Par lien http ou https</li>
+                            <li>Par chemin absolu sur votre machine</li>
+                        </ul>
+                    </div>
+                    <div attrs="{'invisible': [('type', '!=', 'rpc')]}">
+                        <h2>Importation par RPC</h2>
+                        <ul>
+                            <li>Sur serveur: si vous êtes bien connecté sur la base oû les images sont à importer</li>
+                            <li>Pas sur serveur: si la base de donnée est distante</li>
+                        </ul>
+
+                    </div>
+                    <div attrs="{'invisible': [('imported', '=', False)]}">
+                        <p>
+                            <span>
+                                <field class="alert-warning" name="result"/>
+                            </span>
+                        </p>
+                    </div>
+                    <footer>
+                        <button class="oe_highlight" string="Import File" name="import_file" type="object"/>
+                        or
+                        <button class="oe_link" string="Cancel" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="import_image_action_form" model="ir.actions.act_window">
+            <field name="name">Import Image</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">import.wizard</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem name="Import Image" id="menu_import_product_image" parent="base.menu_custom"
+                  action="import_image_action_form" sequence="22"/>
+    </data>
+</odoo>

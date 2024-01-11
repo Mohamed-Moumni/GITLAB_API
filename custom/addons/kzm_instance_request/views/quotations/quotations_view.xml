@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="view_quotations_form_inherit" model="ir.ui.view">
+        <field name="name">quotations.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="version_odoo_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_quotations_list_inherit" model="ir.ui.view">
+        <field name="name">quotations.list.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="version_odoo_id" />
+            </xpath>
+        </field>
+    </record>
+
+     <record id="view_sales_order_tree_inherit" model="ir.ui.view">
+    <field name="name">view.sales.order.tree.inherit</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_tree" />
+    <field name="arch" type="xml">
+        <xpath expr="//tree" position="inside">
+        <header>
+        <button string="Create Instances" class="oe_highlight" type="object"
+                    name="action_create_instance" />
+        </header>
+        </xpath>
+    </field>
+</record>
+
+</odoo>

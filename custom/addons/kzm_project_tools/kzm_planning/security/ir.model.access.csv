@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_planification_line,planification_line,model_planification_line,,1,1,1,1
+access_planification_planification,planification_planification,model_planification_planification,,1,1,1,1
+access_planification_activity_line,planification_activity_line,model_planification_activity_line,,1,1,1,1
+access_track_planing,track_planing,model_track_planing,,1,1,1,1
+access_task_consumption,task_consumption,model_task_consumption,,1,1,1,1
+access_task_consumption_line,task_consumption_line,model_task_consumption_line,,1,1,1,1
+access_sold_ticket_derogation,sold_ticket_derogation,model_sold_ticket_derogation,,1,1,1,1

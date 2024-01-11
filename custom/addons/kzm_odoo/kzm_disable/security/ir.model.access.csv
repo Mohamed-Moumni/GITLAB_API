@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+kzm_disable.access_kzm_disable,access_kzm_disable,kzm_disable.model_kzm_disable,base.group_user,1,1,1,1

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "thematic-gift-242113",
+  "private_key_id": "ca1aa0dd8fd1384d69cb62c0bd6237b69d4fcb5e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCUBO8rt/7sDN7n\nhpRfy2VIqo4Q8r1LfmJweEIHil87LXxVtxQdfBiWn+gudH0KhvxWzfAuw/1iv0SY\n42qZcl89KJAZusBx+iXLWQ4bm4hXIPXjOnSTZkTsU6FKmb1IwgObM3AXw23+NGcq\n0N/63JI+AJ7rAbo2Bq/ejdwwOLyGao9h9+83Ettyfkiy8TcpRfZPyTS8G91xtScO\n165IZYJNotfU2n74birV+dld/1mEHzE31cftqboKVifPaPDhwJgTAsgscD1PZWZP\nQPbHN0pDaKPndZIzoogsTnRrPxBV9vkpkXSy37SlXRZsaZoPlzTPrb92KtK9zc6i\nAcC/5R1bAgMBAAECggEAGQQMd9MM3k/+jBqOkPILGBDbGbosi8m8UU3BuwyDs7io\nPsRGPgVvEmXME63URCc0FmePpBezhzDUIxKsPWq69dcZI4AQbjLcmFVgsQHENRV4\n+QI0GYU7OMWZiMYa22UOvvgehaWdvUyV8wKCGB+XB6uLMCSGmALhTjejcvLjycOO\n00JVdNTQ1pQ9teKkeAcPnhdTP57rYIvepOvL7Zd42w0nsVKp55t8uuIGliri2MUI\n+g92Ah7VUcMaLVTIOICYxYSNyzEJNCUbNxL9tPF365bt/A/fb4ClCiDNR+/5tW48\noDd/rUNFohbqqxH+wZpKwLG8BaMDk0MDzxjVegt2oQKBgQDEGkSC3vSsbX1HGOhK\n7+vjUP8AOMk02A/6l3wXdq8DP1gw5G9Qy01N5DEco/5X/loi8wgvZ7jXKG7PsZaY\nSgClAe2AdZNnRQHD1zhj2tuJn4tyzTG37Mg6av4RnficdBDopMXdtqYGi5y9MRCg\nqb9Xi781LNgL8QQtX5uLR696/QKBgQDBOupqbAj5OfQ9vSiUVTDZR0v6G4qdhK0N\nA6TKpxs2bC0wW7N+7U3hJHoGxrpxBxzv9yIYcL/99QgS3By78vsujpo+A0FSi9x8\nAS52FGjErvwgfAlXkFmwtRFY5HOfrBfBma/Dnz4kr2suwBfwKXKe+d3KL3WCs9ut\n+A2Is9HFNwKBgGEjHdKxvAL5TTf9h3svMuprwZSLjGcnq2qWxPoeaPyz0OyPCvC7\nc7Rkl0s3lJJjxKRRPDm3KCEzvwgUUKNo7L7PoKSkGPrrfL9UiXM1AtA9/mZEbB9O\nI7SEMQvq8y4UdBe5HuX/RmgxmddBSZo72zLzXyho6S+pGEeddz/bp3nFAoGBAIvj\n8U22hRCZil8gEL7CpijHWxPo2IONSBNB7g3gyOyviE+YM+zSNC2o0McTHGszsRlx\nGzgCeJyMxpmQzSSslnhwOO5oQORX6PnFiTNnNyodXN7PrZu9H5G0pKhsS+DvIAvD\nDeJb6Qt6C+i+nRX7i8XYM19q2HIVcBcUnAe510YlAoGAN8wdgjflt3gV0Jl2TTxb\nON96geOgh/qECJS7p4wcB+s51oQXb0WNsgbtHAl1ZRxXQVfTVT0I8WPJrD1M6pfB\nXhtiZEVRsRzrOAhnGX7Dd23O0YJSMc7qnHF5Xs9T64pva+cnbTjsSBMBPUMvWnrz\nYhq9cMsCZWDibSmhoyN5Cfc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "kzm-storage@thematic-gift-242113.iam.gserviceaccount.com",
+  "client_id": "101472600942717197097",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kzm-storage%40thematic-gift-242113.iam.gserviceaccount.com"
+}

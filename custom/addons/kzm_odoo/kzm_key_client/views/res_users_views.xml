@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_user_mobile_form" model="ir.ui.view">
+        <field name="name">res.user.mobile.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_title']//field[@name='share']" position="after">
+                <field name="is_mobile_user" groups="kzm_base.group_karizma_administrator"/>
+            </xpath>
+
+            <xpath expr="/form/sheet/notebook" position="inside">
+                <page string="Utilisateur Mobile" name="mobile_users" groups="kzm_base.group_karizma_administrator">
+
+                    <field name="db_res_user_id" nolabel="1">
+                        <tree editable="bottom"
+                              delete="false">
+                            <field name="employee_ids"/>
+                            <!--                            <field name="client_user_id"/>-->
+                            <field name="key_licence"/>
+                            <field name="used" readonly="1"/>
+                            <field name="is_active" string="Active"/>
+                            <field name="activation_date"/>
+                            <field name="expiration_date"/>
+                            <field name="modules_accessible" string="Module Accessible" invisible="1"/>
+                            <field name="accessible_modules_ids" widget="many2many_tags" required="1" options="{'color_field': 'color'}"/>
+
+                        </tree>
+
+
+                    </field>
+
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

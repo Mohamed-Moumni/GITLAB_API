@@ -1,0 +1,247 @@
+<odoo>
+    <data>
+        <!-- KANBAN SERVER CONFIG -->
+        <record model="ir.ui.view" id="config_kanban_view">
+            <field name="name">config.kanban</field>
+            <field name="model">odoo.server.config</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="name" create="0">
+                    <field name="name" readonly="1"/>
+                    <field name="disk_capacity" invisible="1"/>
+                    <field name="max_cpu_consumption" invisible="1"/>
+                    <field name="max_ram_consumption" invisible="1"/>
+                    <field name="color" invisible="1"/>
+                    <field name="disk_consumption" invisible="1"/>
+                    <field name="ping_status" invisible="1"/>
+                    <field name="disk_consumption_text" invisible="1"/>
+                    <field name="ram_consumption_text" invisible="1"/>
+                    <field name="cpu_consumption_text" invisible="1"/>
+                    <gauge field="state"
+                           colors='{"1": "success", "0": "danger"}'/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div
+                                t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.value)}">
+                                <b>
+                                    <h2>
+                                        <center>
+                                            <field name="host_name"/>
+                                        </center>
+                                        <div class="oe_kanban_details">
+                                            <strong>
+                                                <ul>
+                                                    <li class="text-success float-right mb4"
+                                                        t-if="record.ping_status">
+                                                        <i class="fa fa-circle"
+                                                           role="img"
+                                                           aria-label="Online"
+                                                           title="Online"></i>
+                                                    </li>
+                                                    <li class="text-danger float-right mb4"
+                                                        t-if="!record.ping_status">
+                                                        <i class="fa fa-circle"
+                                                           role="img"
+                                                           aria-label="Offline"
+                                                           title="Offline"></i>
+                                                    </li>
+                                                </ul>
+                                            </strong>
+                                        </div>
+                                    </h2>
+                                </b>
+                                <br/>
+                                Checking Date:
+                                <b>
+                                    <field name="check_date"/>
+                                </b>
+                                <br/>
+                                <div class="text-center">
+                                    <div>
+                                        Disk :
+                                        <b>
+                                            <field name="disk_used"/>/
+                                            <field
+                                                name="disk_capacity"/>
+                                            GB
+                                        </b>
+                                    </div>
+                                    <div>
+                                        <field name="disk_used"
+                                               widget="gauge"
+                                               options="{'max_field': 'disk_capacity',
+                                                'title' :' ',
+                                                'style': 'position: relative;
+                                                          margin-top: -44px;
+                                                          width:40%;
+                                                          height: 120px;
+                                                        '}"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <div>
+                                        <div class="d-inline">
+                                            CPU :
+                                            <b>
+                                                <field
+                                                    name="cpu_consumption_text"/>
+                                            </b>
+                                        </div>
+                                        <div class="d-inline"
+                                             style="margin-left: 30px;">
+                                            RAM :
+                                            <b>
+                                                <field name="ram_available"/>/
+                                                <field
+                                                    name="ram_capacity"/>
+                                                GB
+                                            </b>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <field name="cpu_consumption"
+                                               widget="gauge"
+                                               options="{'max_field': 'max_cpu_consumption',
+                                                'title' :' ',
+                                                'style': 'position: relative;
+                                                          margin-top: -44px;
+                                                          width:40%;
+                                                          height: 120px;
+                                                        '}"
+                                        />
+                                        <field name="ram_consumption"
+                                               widget="gauge"
+                                               options="{'max_field': 'max_ram_consumption',
+                                                'title' :' ',
+                                                'style': 'position: relative;
+                                                          margin-top: -44px;
+                                                          width:40%;
+                                                          height: 120px;
+                                                        '}"
+                                        />
+                                    </div>
+                                </div>
+
+                                <button string="Refresh"
+                                        class="btn btn-primary btn-lg btn-block"
+                                        name="refresh_config" type="object">Refresh
+                                </button>
+                                <button string="Ping"
+                                        class="btn btn-primary btn-lg btn-block"
+                                        name="ping_config" type="object">Ping
+                                </button>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- FORM SERVER CONFIG -->
+        <record model="ir.ui.view" id="config_form_view">
+            <field name="name">config.form</field>
+            <field name="model">odoo.server.config</field>
+            <field name="arch" type="xml">
+                <form string="Form" create="0">
+                    <header>
+                        <button name="refresh_config"
+                                string="Update Config and Create instance"
+                                type="object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <div class="o_td_label">
+                                <label for="name" string="Configuration Name"
+                                       style="font-weight:bold;"/>
+                            </div>
+                            <field name="name"/>
+                        </h1>
+                        <h3>
+                            <div class="o_td_label">
+                                <label for="responsible_id" string="Responsible"
+                                       style="font-weight:bold;"/>
+                            </div>
+                            <field name="responsible_id"/>
+                        </h3>
+                        <group>
+                            <group>
+                                <field name="hostname"/>
+                                <field name="username"/>
+                                <field name="private_key"/>
+                                <field name="cmd_path"/>
+                                <field name="max_day"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="host_name" readonly="1"/>
+                                <field name="check_date" readonly="1"/>
+                                <field name="state" readonly="1"/>
+                                <field name="ping_status" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="ram_capacity" readonly="1"/>
+                                <field name="ram_available" readonly="1"/>
+                                <field name="ram_consumption" readonly="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="disk_capacity" readonly="1"/>
+                                <field name="disk_used" readonly="1"/>
+                                <field name="disk_available" readonly="1"/>
+                                <field name="disk_consumption" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="cpu_number" readonly="1"/>
+                                <field name="cpu_consumption" readonly="1"/>
+                                <field name="cpu_freq" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE SERVER CONFIG -->
+        <record model="ir.ui.view" id="config_tree_view">
+            <field name="name">config.tree</field>
+            <field name="model">odoo.server.config</field>
+            <field name="arch" type="xml">
+                <tree create="0">
+                    <field name="name"/>
+                    <field name="responsible_id"/>
+                    <field name="hostname"/>
+                    <field name="username"/>
+                    <field name="private_key"/>
+                    <field name="cmd_path"/>
+                    <field name="max_day"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION SERVER CONFIG -->
+        <record model="ir.actions.act_window" id="monitoring_list_action">
+            <field name="name">Monitoring</field>
+            <field name="res_model">odoo.server.config</field>
+            <field name="view_mode">kanban,form,tree,activity</field>
+            <field name="view_ids" eval="
+ [
+ (5, 0, 0),
+ (0, 0, {'view_mode': 'kanban', 'view_id': ref('kzm_server_monitoring.config_kanban_view')}),
+ (0, 0, {'view_mode': 'form', 'view_id': ref('kzm_server_monitoring.config_form_view')}),
+ (0, 0, {'view_mode': 'tree', 'view_id': ref('kzm_server_monitoring.config_tree_view')}),
+ ]"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first Configuration!
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="subscriptions" name="Abonnements">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Abonnements</t>
+            </t>
+            <t t-if="subscription_ids" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Numéro #</th>
+                        <th class="text-end">Date de la commande</th>
+                        <th class="text-end">Client</th>
+                        <th class="text-end">Vendeur</th>
+                        <th class="text-end">Total</th>
+                        <th class="text-end">État de la facture</th>
+                    </tr>
+                </thead>
+                <t t-foreach="subscription_ids" t-as="subscription_id">
+                    <tr>
+                        <td>
+                            <a t-att-href="subscription_id.get_portal_url()">
+                                <t t-out="subscription_id.name"/>
+                            </a>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="subscription_id.date_order"/>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="subscription_id.partner_id.name"/>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="subscription_id.user_id.name"/>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="subscription_id.amount_total"/>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="subscription_id.invoice_status"/>
+                        </td>
+                    </tr>
+                </t>
+            </t>
+            <p t-else="">There are currently no subscriptions for your account.</p>
+        </t>
+    </template>
+</odoo>

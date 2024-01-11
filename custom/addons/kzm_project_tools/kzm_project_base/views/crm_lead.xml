@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Form view -->
+    <record model="ir.ui.view" id="crm_lead_inherited_form_view_ot_1">
+        <field name="name">crm.lead.inherited</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/group[1]/field[@name='partner_id']" position="after">
+                <field name="contract_id" attrs="{'invisible': [('partner_id','=',False)]}"/>
+            </xpath>
+            <xpath expr="//group/group[2]/field[@name='partner_id']" position="after">
+                <field name="contract_id" attrs="{'invisible': [('partner_id','=',False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

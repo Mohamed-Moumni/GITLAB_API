@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="account_tax_form_inherited" model="ir.ui.view">
+        <field name="name">account.tax.form</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='active']"
+                   position="after">
+                <field name="x_id_ext"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_tax_tree_inherited" model="ir.ui.view">
+        <field name="name">account.tax.tree</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='description']"
+                   position="after">
+                <field name="x_id_ext"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

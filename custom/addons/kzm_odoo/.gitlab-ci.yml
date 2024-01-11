@@ -1,0 +1,61 @@
+stages:
+  - docker
+  - publish
+  - deploy
+services:
+  - docker:dind
+Build:
+  stage: docker
+  image: docker:dind
+  script:
+    - docker login registry.gitlab.com/odoo-kzm/gitlab_ci/odoo_images -u $GITLAB_USER -p $GITLAB_PASSWORD
+    # Push to GPC Container registry
+    - echo "Push image to google cloud"
+    - docker build --build-arg CI_COMMIT_BRANCH=$CI_COMMIT_BRANCH --build-arg CI_PIPELINE_ID=$CI_PIPELINE_ID -t us-central1-docker.pkg.dev/$GCP_PROJECT_ID/kzm/$projet:$CI_COMMIT_BRANCH ./gcp/
+    - echo $GCP_SERVICE_KEY > gcloud-service-key.json
+    - cat gcloud-service-key.json | docker login -u _json_key --password-stdin https://us-central1-docker.pkg.dev
+    - docker push us-central1-docker.pkg.dev/$GCP_PROJECT_ID/kzm/$projet:$CI_COMMIT_BRANCH   
+
+    - docker run -d -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -e POSTGRES_DB=postgres --name kzm_odoo_db postgres:13
+    - docker build --no-cache --build-arg CI_COMMIT_BRANCH=$CI_COMMIT_BRANCH -t $CI_REGISTRY_IMAGE:$CI_PROJECT_NAME .
+    - echo "Starting the odoo container "
+
+    - docker run --name $CI_PROJECT_NAME --link kzm_odoo_db:kzm_odoo_db -t $CI_REGISTRY_IMAGE:$CI_PROJECT_NAME sh -c "/usr/bin/odoo -c /etc/odoo/odoo.conf -d $CI_PROJECT_NAME -u base -i account_fiscal_period,kzm_auditlog,kzm_backup,kzm_backup_tracker,kzm_base,kzm_base_setup,kzm_database_cleanup,kzm_datas_migration,kzm_db_res_users,kzm_duplicate_base_safe,kzm_ftp,kzm_image_import,kzm_key_client,kzm_mail_office_365,kzm_partner_separation,kzm_partner_separation,kzm_queue_backup,kzm_referencement,kzm_report_background,kzm_server_monitoring,kzm_sms,odoo-debran --stop-after-init && sonar-scanner -Dsonar.projectKey=kzm_odoo_16.0 -Dsonar.projectName=$CI_PROJECT_NAME -Dsonar.host.url=http://34.66.137.78:9000 -Dsonar.login=sqp_8e50fb2ade23a602c160e368898798f6780c8c01 -Dsonar.sources=./mnt/extra-addons/custom/addons/$CI_PROJECT_NAME/ -Dsonar.language=py -Dsonar.python.pylint=/usr/local/bin/pylint"
+
+publish:
+  stage: publish
+  image: docker
+  services:
+    - docker:dind
+  script:
+    - docker login registry.gitlab.com/odoo-kzm/gitlab_ci/odoo_images -u $GITLAB_USER -p $GITLAB_PASSWORD
+    - docker build --no-cache --build-arg CI_COMMIT_BRANCH=$CI_COMMIT_BRANCH -t $CI_REGISTRY_IMAGE:$CI_PROJECT_NAME .
+    - echo $CI_REGISTRY_PASSWORD | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
+    - docker push $CI_REGISTRY_IMAGE:$CI_PROJECT_NAME
+  only:
+    - /^16\.0$/
+  
+Deploy Odoo:
+  stage: deploy
+  image: google/cloud-sdk
+  script:
+    - echo $GCP_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_PROJECT_ID
+    - gcloud builds submit --config=./gcp/cloudbuild.yaml --substitutions=_CI_PIPELINE_ID=$CI_PIPELINE_ID,_BRANCH=$CI_COMMIT_BRANCH,_PROJET=$projet . || true
+    - gcloud run services describe $projet-$CI_PIPELINE_ID --region us-central1
+  when: manual
+  needs:
+    - Build
+    
+Delete Service:
+  stage: deploy
+  image: google/cloud-sdk
+  script:
+    - echo $GCP_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_PROJECT_ID
+    - gcloud run services delete $projet-$CI_PIPELINE_ID --region us-central1 --quiet
+  when: manual
+  needs:
+    - Deploy Odoo

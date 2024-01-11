@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Form view -->
+    <record model="ir.ui.view" id="res_partner_inherited_ot_form_view">
+        <field name="name">res.partner.inherited</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='email']" position="after">
+                <field name="ice"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <field name="customer_rank" invisible="1"/>
+                <button class="oe_stat_button" name="get_contract" type="object" icon="fa-file-text-o"
+                        attrs="{'invisible':[('customer_rank', '=', 0)]}">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="contract_count" nolabel="1"/>
+                        </span>
+                        <span class="o_stat_text">
+                            Contracts
+                        </span>
+                    </div>
+                </button>
+
+                <button class="oe_stat_button" name="get_carnet" type="object" icon="fa-book"
+                        attrs="{'invisible':[('customer_rank', '=', 0)]}">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="carnet_count" nolabel="1"/>
+                        </span>
+                        <span class="o_stat_text">
+                            Carnets
+                        </span>
+                    </div>
+                </button>
+
+                <button class="oe_stat_button" name="get_project" type="object" icon="fa-puzzle-piece"
+                        attrs="{'invisible':[('customer_rank', '=', 0)]}">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="project_count" nolabel="1"/>
+                        </span>
+                        <span class="o_stat_text">
+                            Projects
+                        </span>
+                    </div>
+                </button>
+
+                <button class="oe_stat_button" name="get_databases" type="object" icon="fa-cloud">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="database_count" nolabel="1"/>
+                        </span>
+                        <span class="o_stat_text">
+                            Database
+                        </span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,22 @@
+<odoo>
+    <record id="view_create_instances_wizard_form" model="ir.ui.view">
+        <field name="name">create.instances.wizard.form</field>
+        <field name="model">create.instances.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="sale_order_ids" widget="many2many_tags" />
+                    <field name="cpu" />
+                    <field name="ram" />
+                    <field name="disk" />
+                    <field name="tl_id" />
+                </group>
+                <footer>
+                    <button string="Create Instances" type="object" class="oe_highlight"
+                        name="create_instances" />
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

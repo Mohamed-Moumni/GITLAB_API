@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="account_move_form_inherited" model="ir.ui.view">
+        <field name="name">account.move.form.inherited</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='quick_edit_total_amount']"
+                   position="after">
+                <field name="x_id_ext"/>
+                <field name="old_ref_lettrage"/>
+            </xpath>
+
+            <xpath expr="//field[@name='discount_date']"
+                   position="after">
+                <field name="old_ref_lettrage" optional="hide"/>
+
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_move_line_tree_inherited" model="ir.ui.view">
+        <field name="name">account.move.line.tree.inherited</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='matching_number']"
+                   position="after">
+                <field name="old_ref_lettrage"/>
+
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_lettrage" model="ir.actions.server">
+        <field name="name">Lettrage Factures</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_account_move"/>
+        <field name="binding_model_id" ref="model_account_move"/>
+        <field name="state">code</field>
+        <field name="code">records.action_lettrage()</field>
+    </record>
+
+</odoo>

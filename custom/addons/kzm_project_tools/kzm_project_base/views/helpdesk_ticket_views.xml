@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="portal_helpdesk_ticket_inherited" inherit_id="helpdesk.portal_helpdesk_ticket">
+        <xpath expr="//thead/tr/th[last()]" position="before">
+            <th class="text-end" t-if="show_real_charge_portal">Charge réelle</th>
+            <th class="text-start">Type</th>
+        </xpath>
+        <xpath expr="//t[@t-foreach='tickets']/tr/td[last()]" position="before">
+            <td class="text-end" t-if="show_real_charge_portal">
+                <span t-esc="ticket.real_charge_portal"/>
+            </td>
+            <td class="text-start">
+                <span t-attf-class="badge rounded-pill text-bg-info"
+                      t-esc="ticket.ticket_type_id.name"/>
+            </td>
+        </xpath>
+        <xpath expr="//t[@t-foreach='grouped_tickets']/tbody/tr" position="inside">
+            <th t-if="groupby == 'type'" colspan="5">
+                <span t-field="tickets[0].ticket_type_id.name"/>
+            </th>
+
+        </xpath>
+
+    </template>
+    <template id="tickets_followup_inherited" inherit_id="helpdesk.tickets_followup">
+
+        <xpath expr="//div[@id='card_body']/div[1]" position="before">
+            <div class="row mb-4">
+                <strong class="col-lg-2">Type</strong>
+                <span class="col-sm-2 badge rounded-pill text-bg-success" t-field="ticket.ticket_type_id.name"/>
+            </div>
+
+
+        </xpath>
+
+
+    </template>
+
+</odoo>

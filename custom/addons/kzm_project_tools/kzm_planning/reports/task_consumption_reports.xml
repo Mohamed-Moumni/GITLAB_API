@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="action_task_consumption_report" model="ir.actions.report">
+            <field name="name">Report</field>
+            <field name="model">task.consumption</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">kzm_planning.task_consumption</field>
+            <field name="report_file">kzm_planning.task_consumption</field>
+            <field name="print_report_name">'Task Consumption Report'</field>
+            <field name="binding_model_id" ref="model_task_consumption"/>
+            <field name="binding_type">report</field>
+        </record>
+        <template id="task_consumption">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="kzm_planning.task_consumption_template" t-lang="o.env.lang"/>
+            </t>
+        </template>
+
+        <template id="task_consumption_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page" style="color:black;padding-left:15px; font-size:15px;">
+                        <div class="row">
+                            <h5 class="text-center">
+                                <strong>Task Consumption Report</strong>
+                            </h5>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-auto">
+                                <strong>
+                                    <span style="text-decoration: underline;">Start Date</span>
+                                    :
+                                </strong>
+                                <span t-field="o.start_date"/>
+                            </div>
+                            <div class="col-auto">
+                                <strong>
+                                    <span style="text-decoration: underline;">End Date</span>
+                                    :
+                                </strong>
+                                <span t-field="o.end_date"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <table width="100%" class="table table-bordered table-sm mt-4">
+                            <thead>
+                                <tr>
+                                    <th style="border: 1px solid black;">Created On</th>
+                                    <th style="border: 1px solid black;">ID</th>
+                                    <th style="border: 1px solid black;">Subject</th>
+                                    <th style="border: 1px solid black;">Type</th>
+                                    <th style="border: 1px solid black;">State</th>
+                                    <th style="border: 1px solid black;">Charge</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="total" t-value="0"/>
+                                <t t-foreach="o.consumption_line_ids" t-as="line">
+                                    <tr>
+                                        <td class="text-center" style="border: 1px solid black;">
+                                            <span t-esc="increment"/>
+                                            <t t-esc="line.created_on.strftime('%d-%m-%Y')"/>
+                                        </td>
+                                        <td class="text-center" style="border: 1px solid black;">
+                                            <t t-esc="line.ticket_id"/>
+                                        </td>
+                                        <td class="text-center" style="border: 1px solid black;">
+                                            <t t-esc="line.subject"/>
+                                        </td>
+                                        <td class="text-center" style="border: 1px solid black;">
+                                            <t t-esc="line.type_id.name"/>
+                                        </td>
+                                        <td class="text-center" style="border: 1px solid black;">
+                                            <t t-esc="line.state.name"/>
+                                        </td>
+                                        <td class="text-center" style="border: 1px solid black;">
+                                            <t t-esc="'{0:,.2f}'.format(line.estimated_charge).replace(',',' ').replace('.', ',')"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="total" t-value="total + line.estimated_charge"/>
+                                </t>
+                                <tr>
+                                    <td colspan="5" class="text-center" style="border: 1px solid black;">
+                                        Total charges
+                                    </td>
+                                    <td class="text-center" style="border: 1px solid black;">
+                                        <t t-esc="'{0:,.2f}'.format(total).replace(',',' ').replace('.', ',')"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

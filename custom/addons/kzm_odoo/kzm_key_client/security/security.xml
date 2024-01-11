@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    <record id="group_admin_karizma" model="res.groups">-->
+<!--        <field name="name">KARIZMA ADMIN</field>-->
+<!--    </record>-->
+
+    <record model="ir.rule" id="res_users_rule">
+        <field name="name">res.users.rule</field>
+        <field name="model_id" ref="model_res_users"/>
+        <field
+            name="domain_force"
+        >[('is_mobile_user', '=', False)]
+        </field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+
+    </record>
+
+    <record model="ir.rule" id="res_users_rule_see_all">
+        <field name="name">res.users.rule.see.all</field>
+        <field name="model_id" ref="model_res_users"/>
+        <field
+            name="domain_force"
+        >[(1, '=', 1)]
+        </field>
+        <field name="groups" eval="[(4, ref('kzm_base.group_karizma_administrator'))]"/>
+
+    </record>
+</odoo>

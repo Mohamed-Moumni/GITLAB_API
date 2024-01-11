@@ -1,0 +1,227 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* kzm_project_evaluat
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-09 16:36+0000\n"
+"PO-Revision-Date: 2018-10-09 16:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: kzm_project_evaluat
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.view_project_kanban_kzm_eval_2
+msgid "<span class=\"o_label\">Teams project</span>"
+msgstr "<span class=\"o_label\">Équipes projet</span>"
+
+#. module: kzm_project_evaluat
+#: model:ir.actions.act_window,help:kzm_project_evaluat.team_eval_action
+#: model:ir.actions.act_window,help:kzm_project_evaluat.team_eval_action_kanban
+msgid "Click to add a team eval project."
+msgstr "Clique pour ajouter une équipes de projet."
+
+#. module: kzm_project_evaluat
+#: model:ir.actions.act_window,help:kzm_project_evaluat.evaluation_eval_action_kanban
+#: model:ir.actions.act_window,help:kzm_project_evaluat.task_evolution_action
+msgid "Click to add an Evaluation."
+msgstr "Cliquer pour ajouter une évaluation."
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_team_line_eval_create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_team_line_eval_create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_hr_employee_days_week_works
+msgid "Days works / Week"
+msgstr "Nbr Jrs travail/semaine"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_team_line_eval_display_name
+msgid "Display Name"
+msgstr "Nom à afficher"
+
+#. module: kzm_project_evaluat
+#: model:ir.model,name:kzm_project_evaluat.model_hr_employee
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_team_line_eval_employee_id
+msgid "Employee"
+msgstr "Employé"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_project_hr_modele_id
+msgid "Evaluation Model"
+msgstr "Modèle d'évaluation"
+
+#. module: kzm_project_evaluat
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.eval_edit_project_form_inherited_2
+msgid "Evaluation project"
+msgstr "Évaluation du projet"
+
+#. module: kzm_project_evaluat
+#: model:ir.actions.act_window,name:kzm_project_evaluat.evaluation_eval_action_kanban
+#: model:ir.actions.act_window,name:kzm_project_evaluat.task_evolution_action
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_project_hr_evaluation_ids
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_task_hr_evaluation_ids
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.eval_edit_project_form_inherited_2
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.eval_view_task_form2_inherited_2
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.view_edit_project_kzm_inherited_2
+msgid "Evaluations"
+msgstr "Évaluations"
+
+#. module: kzm_project_evaluat
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.view_project_kanban_kzm_eval_2
+msgid "Evaluations ("
+msgstr "Évaluations ("
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_task_evolutions_count
+msgid "Evolution count"
+msgstr "Nbr. évaluations"
+
+#. module: kzm_project_evaluat
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.eval_view_task_form2_inherited_2
+msgid "Evolutions"
+msgstr "Évaluations"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_team_line_eval_id
+msgid "ID"
+msgstr "ID"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_team_line_eval___last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_team_line_eval_write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_team_line_eval_write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_project_mean_note_team
+msgid "Mean note team"
+msgstr "Note moyenne équipe"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_team_line_eval_name
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.team_line_eval_search_view
+msgid "Name"
+msgstr "Nom"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_project_nb_evaluations
+msgid "Nbr Evaluations"
+msgstr "Nbr Évaluations"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_project_nb_team_line
+msgid "Nbr project teams"
+msgstr "Nbr équipe projet"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_hr_employee_plan_evaluation_ids
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.view_hr_employee_kzm_inherited_2
+msgid "Periodic plan evaluations"
+msgstr "Plan évaluation périodique"
+
+#. module: kzm_project_evaluat
+#: model:ir.model,name:kzm_project_evaluat.model_project_project
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_kzm_hr_evaluation_eval_project_id
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_team_line_eval_project_id
+msgid "Project"
+msgstr "Projet"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_team_line_eval_mean_note
+msgid "Project Mean note"
+msgstr "Note moyenne projet"
+
+#. module: kzm_project_evaluat
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.eval_edit_project_form_inherited_2
+msgid "Project team line"
+msgstr "Ligne d'équipe projet"
+
+#. module: kzm_project_evaluat
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.view_edit_project_kzm_inherited_2
+msgid "Project teams"
+msgstr "Équipes projet"
+
+#. module: kzm_project_evaluat
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.team_line_eval_search_view
+msgid "Search team line"
+msgstr "Recherche équipe projet"
+
+#. module: kzm_project_evaluat
+#: model:ir.model,name:kzm_project_evaluat.model_project_task
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_kzm_hr_evaluation_eval_task_id
+msgid "Task"
+msgstr "Tâche"
+
+#. module: kzm_project_evaluat
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.eval_edit_project_form_inherited_2
+msgid "Team Project"
+msgstr "Cherche équipe projet"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_team_line_eval_team_availability
+msgid "Team availability"
+msgstr "Disponibilité équipe"
+
+#. module: kzm_project_evaluat
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.team_line_project_form_view
+msgid "Team eval project"
+msgstr "Équipe Projet"
+
+#. module: kzm_project_evaluat
+#: model:ir.actions.act_window,name:kzm_project_evaluat.team_eval_action
+#: model:ir.actions.act_window,name:kzm_project_evaluat.team_eval_action_kanban
+msgid "Team project eval"
+msgstr "Équipe projet"
+
+#. module: kzm_project_evaluat
+#: model:ir.ui.menu,name:kzm_project_evaluat.menu_team_line_eval
+msgid "Team project evaluation"
+msgstr "Équipe projet évaluation"
+
+#. module: kzm_project_evaluat
+#: model:ir.model.fields,field_description:kzm_project_evaluat.field_project_project_team_line_ids
+msgid "Team projects"
+msgstr "Équipes projet"
+
+#. module: kzm_project_evaluat
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.team_line_eval_tree_view
+msgid "Teams eval project"
+msgstr "Équipe projet évaluation"
+
+#. module: kzm_project_evaluat
+#: model:ir.ui.view,arch_db:kzm_project_evaluat.view_project_kanban_kzm_eval_2
+msgid "Teams project ("
+msgstr "Équipes projet ("
+
+#. module: kzm_project_evaluat
+#: model:ir.model,name:kzm_project_evaluat.model_kzm_hr_evaluation_eval
+msgid "kzm.hr.evaluation.eval"
+msgstr "kzm.hr.evaluation.eval"
+
+#. module: kzm_project_evaluat
+#: model:ir.model,name:kzm_project_evaluat.model_project_team_line_eval
+msgid "project.team.line.eval"
+msgstr "project.team.line.eval"
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ticket_closing_activity" model="mail.activity.type">
+            <field name="name">Close ticket</field>
+            <field name="icon">fa-sun-o</field>
+            <field name="res_model">helpdesk.ticket</field>
+        </record>
+    </data>
+</odoo>

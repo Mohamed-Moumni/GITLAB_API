@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem name="Chat GPT" id="chatgpt_request_main_menu"/>
+
+    <menuitem name="Requests" id="chatgpt_request_menu" parent="chatgpt_request_main_menu" sequence="1"/>
+    <menuitem name="Requests" id="chatgpt_request_treatment_menu" parent="chatgpt_request_menu" sequence="1"
+              action="chatgpt_request_action"/>
+    <menuitem name="Request Details" id="chatgpt_request_detail_menu" parent="chatgpt_request_menu" sequence="2"
+              action="chatgpt_request_line_action"/>
+
+    <menuitem name="Configuration" id="chatgpt_config_menu" parent="chatgpt_request_main_menu" sequence="2"/>
+    <menuitem name="Configuration" id="chatgpt_config_submenu" parent="chatgpt_config_menu" sequence="1"
+              action="chatgpt_configuration_action"/>
+    <menuitem name="Pricing" id="benefits_type_menu" parent="chatgpt_config_menu" sequence="2"
+              action="chatgpt_pricing_action"/>
+    <menuitem name="Models" id="chatgpt_model_menu" parent="chatgpt_config_menu" sequence="2"
+              action="chatgpt_model_action"/>
+</odoo>

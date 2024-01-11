@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+
+        <!-- Vue Liste -->
+        <record id="view_kzm_controle_data_master" model="ir.ui.view">
+            <field name="name">database.metadata.form.inherited</field>
+            <field name="model">database.metadata</field>
+            <field name="inherit_id" ref="kzm_key_server.view_database_meatadata"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='password']" position="after">
+                    <field name="api_key" attrs="{'invisible': [('client_authentication', '!=', 'key')]}"
+                           password="True" string="Clé API"/>
+                </xpath>
+
+                <xpath expr="//field[@name='password']" position="replace">
+                    <field name="password" attrs="{'invisible': [('client_authentication', '!=', 'login')]}"
+                           password="True"/>
+                </xpath>
+
+                <xpath expr="//group[field[@name='user']]" position="after">
+
+                    <group>
+                            <field name="client_authentication" widget="radio" options="{'horizontal': false}"/>
+                    </group>
+                </xpath>
+
+
+                <xpath expr="//notebook/page[@name='db_usres']" position="after">
+                    <page name="ping_data" string="Ping Data">
+                        <group>
+                            <field name="url"/>
+                            <field name="nmbr_users"/>
+                            <field name="nbr_active_users"/>
+                            <field name="nbr_share_users"/>
+                            <field name="nbr_active_share_users"/>
+                            <field name="database_expiration_date" placeholder="Format : 2030-10-10 10:20:44"/>
+                        </group>
+                        <group>
+                            <style>
+                                .horizontal-buttons .oe_button {
+                                margin-right: 15px;
+                                }
+                            </style>
+                            <div class="btn-group horizontal-buttons">
+                                <button type="object" name="sync_value_from_remote_config"
+                                        class="oe_highlight oe_button btn" string="Récupérer les paramètres Ping"
+                                        icon="fa-refresh"/>
+                                <button type="object" name="update_notification" class="oe_highlight oe_button btn"
+                                        string="Ping Odoo" icon="fa-external-link"
+                                        confirm="Êtes-vous sûr de vouloir lancer le Ping Odoo ?"/>
+                                <button type="object" name="sync_parameters" class="oe_highlight oe_button btn"
+                                        string="Synchroniser les paramètres Ping"
+                                        confirm="Êtes-vous sûr de vouloir synchroniser les paramètres?"
+                                        icon="fa-cloud-upload"/>
+                            </div>
+                        </group>
+
+
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,12 @@
+<odoo>
+    <record id="group_token_balance_access" model="res.groups">
+        <field name="name">Accès Solde Token</field>
+        <field name="category_id" ref="kzm_project_base.module_portail_management"/>
+    </record>
+
+    <record id="group_online_chat_access" model="res.groups">
+        <field name="name">Accès Chat en ligne</field>
+        <field name="category_id" ref="kzm_project_base.module_portail_management"/>
+    </record>
+
+</odoo>

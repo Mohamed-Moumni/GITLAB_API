@@ -1,0 +1,145 @@
+<odoo>
+    <template id="my_kzm_request_template">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1 class="h1">My Requests</h1>
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+
+                    <div class="d-flex justify-content-between gap-6">
+                        <div>
+                            <button type="button" class="btn btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Create Instance</button>
+                                                    </div>
+
+
+
+                        <div id="navbarSupportedContent">
+                            <form class="d-flex" role="search">
+                                
+                                <input class="form-control me-2" name="partner_id" type="text"
+                                    placeholder="client id"
+                                    aria-label="Search" />
+                                <select id="state" name="state" class="form-select">
+                                    <option></option>
+                                    <option>Brouillon</option>
+                                    <option>Soumise</option>
+                                    <option>En traitement</option>
+                                    <option>Traitee</option>
+                                </select>
+                                <input class="form-control me-2" name="url" type="text"
+                                    placeholder="url"
+                                    aria-label="Search" />
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+
+                <table class="table">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">NAME</th>
+                            <th scope="col">CPU</th>
+                            <th scope="col">RAM</th>
+                            <th scope="col">DISK</th>
+                            <th scope="col">URL</th>
+                            <th scope="col">State</th>
+                            <th scope="col">LIMIT DATE</th>
+                            <th scope="col">TREAT DATE</th>
+                            <th scope="col">TREAT DURATION</th>
+                            <th scope="col">DELETE</th>
+                        </tr>
+                    </thead>
+                    <t t-foreach="instances" t-as="instance">
+                        <tbody>
+                            <td>
+                                <t t-esc="instance.name" />
+                            </td>
+                            <td>
+                                <t t-esc="instance.cpu" />
+                            </td>
+                            <td>
+                                <t t-esc="instance.ram" />
+                            </td>
+                            <td>
+                                <t t-esc="instance.disk" />
+                            </td>
+                            <td>
+                                <t t-esc="instance.url" />
+                            </td>
+                            <td>
+                                <t t-esc="instance.state" />
+                            </td>
+                            <td>
+                                <t t-esc="instance.limit_date" />
+                            </td>
+                            <td>
+                                <t t-esc="instance.treat_date" />
+                            </td>
+                            <td>
+                                <t t-esc="instance.treat_duration" />
+                            </td>
+                            <td>
+                                <form
+                                    t-att-action="'/my/delete_kzm_instance_request/' + str(instance.id) "
+                                    method="post">
+                                    <button class="btn btn-danger" type="submit"
+                                        onclick="return confirm('Are you sure you want to delete this instance request?')">
+                                        Delete</button>
+                                </form>
+                            </td>
+                        </tbody>
+                    </t>
+                </table>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Create Instance</h1>
+                            <button type="button" class="btn-close"
+                                data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/create_instance" method="post">
+                                <div class="mb-3">
+                                    <label class="form-label" for="cpu">CPU</label>
+                                    <input type="text" id="cpu" name="cpu" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="ram">RAM</label>
+                                    <input type="text" id="ram" name="ram" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="url">URL</label>
+                                    <input type="text" id="url" name="url" />
+
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="limit_date">LIMIT DATE</label>
+                                    <input type="date" id="limit_date" name="limit_date" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="treat_date">TREAT DATE</label>
+                                    <input type="date" id="treat_date" name="treat_date" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="treat_duration">TREAT DURATION</label>
+                                    <input type="text" id="treat_duration" name="treat_duration" />
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

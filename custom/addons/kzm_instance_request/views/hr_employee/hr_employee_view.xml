@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="view_hr_employee_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_show_instances"
+                    class="oe_stat_button"
+                    icon="fa-bandcamp"
+                    type="object">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Instances</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

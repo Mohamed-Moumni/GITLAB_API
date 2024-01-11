@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="kzm_instance_request_view" model="ir.ui.view">
+            <field name="name">kzm.instance.request.view</field>
+            <field name="model">kzm.instance.request</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="create_uid" />
+                    <field name="name" />
+                    <field name="treat_date" />
+                    <field name="cpu" />
+                    <field name="ram" />
+                    <field name="disk" />
+                    <field name="state" />
+                    <field name="partner_id" />
+                    <field name="tl_id" />
+                    <field name="tl_user_id" />
+                    <field name="odoo_id" />
+                    <field name="perimeters_ids" />
+                    <field name="perimeters_nums" />
+                    <button
+                        name="change_to_Brouillon"
+                        type="object"
+                        string="Remettre en Bruouillon"
+                        class="oe_highlight"
+                        attrs="{
+                                'invisible': [
+                                ('state', 'in', ['Soumise', 'Traitee']),
+                                ],
+                                'readonly': [
+                                    ('state', 'in', ['Brouillon']),
+                                ]
+                                }"
+                    />
+
+                    <button
+                        name="change_to_Soumise"
+                        type="object"
+                        string="Soumise"
+                        class="oe_highlight"
+                        attrs="{
+                                'invisible': [
+                                ('state', 'in', ['Brouillon',]),
+                                ],
+                                'readonly': [
+                                    ('state', 'in', ['Soumise']),
+                                ]
+                                }"
+                    />
+
+                    <button
+                        name="change_to_En_Traitement"
+                        type="object"
+                        string="To En Traitement"
+                        class="oe_highlight"
+                        attrs="{
+                                'invisible': [
+                                ('state', 'in', ['Soumise', 'Brouillon', 'Traitee']),
+                                ],
+                                'readonly': [
+                                    ('state', 'in', ['En traitement']),
+                                ]
+                                }"
+                        groups="kzm_instance_request.instance_group_manager"
+                    />
+
+                    <button
+                        name="change_to_Traitee"
+                        type="object"
+                        string="Traiter"
+                        class="oe_highlight"
+                        attrs="{
+                                'invisible': [
+                                ('state', 'in', ['En traitement']),
+                                ],
+                                'readonly': [
+                                    ('state', 'in', ['Traitee']),
+                                ]
+                                }"
+                        groups="kzm_instance_request.instance_group_manager"
+                    />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_kzm_instance_request_kanban" model="ir.ui.view">
+            <field name="name">kzm.instance.request.kanban</field>
+            <field name="model">kzm.instance.request</field>
+            <field name="arch" type="xml">
+                <kanban>
+                        <field name="state" />
+                        <field name="name" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_card">
+                                    <div class="oe_kanban_card_content">
+                                        <div class="oe_kanban_card_header">
+                                            <div class="oe_kanban_card_title">
+                                                <t t-esc="record.name.value"/>
+                                            </div>
+                                             <div class="o_kanban_subtitle">
+                                                <field name="state"/>
+                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_kzm_instance_request_pivot" model="ir.ui.view">
+            <field name="name">kzm.instance.request.pivot</field>
+            <field name="model">kzm.instance.request</field>
+            <field name="arch" type="xml">
+                <pivot string="Requests by Treat Duration">
+                    <field name="name" type="row" />
+                    <field name="treat_duration" type="measure" operator="count"/>
+                </pivot>
+            </field>
+        </record>
+
+         <record id="view_kzm_instance_request_graph" model="ir.ui.view">
+            <field name="name">kzm.instance.request.graph</field>
+            <field name="model">kzm.instance.request</field>
+            <field name="arch" type="xml">
+                <graph string="Number of Requests by Creation Date" type="bar">
+                    <field name="create_date" type="row"  interval="day"/>
+                    <field name="id" type="measure" operator="count"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="view_kzm_instance_request_gantt" model="ir.ui.view">
+           <field name="name">view.kzm.instance.request.gantt</field>
+           <field name="model">kzm.instance.request</field>
+           <field name="arch" type="xml">
+               <gantt
+                       date_start="limit_date"
+                       date_stop="treat_date"
+                       >
+               </gantt>
+            </field>
+        </record>
+    </data>
+</odoo>

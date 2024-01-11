@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+        <template id="myinvoices" name="Mes Factures">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Mes Factures</t>
+            </t>
+            <t t-if="invoices" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Numéro #</th>
+                        <th class="text-end">Date d'échéance</th>
+                        <th class="text-end">Total</th>
+                        <th class="text-end">État</th>
+                    </tr>
+                </thead>
+                <t t-foreach="invoices" t-as="invoice">
+                    <tr>
+                        <td><a t-att-href="invoice.get_portal_url()"><t t-out="invoice.name"/></a></td>
+                        <td class="text-end"><span t-field="invoice.invoice_date_due"/></td>
+                        <td class="text-end"><span t-field="invoice.amount_total_signed"/></td>
+                        <td class="text-end">
+                            <span t-field="invoice.payment_state"/>
+                        </td>
+                    </tr>
+                </t>
+            </t>
+            <p t-else="">There are currently no invoices for your account.</p>
+        </t>
+    </template>
+</odoo>

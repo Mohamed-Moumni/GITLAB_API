@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="ticket_derogation_list_view">
+            <field name="name">Ticket Derogation</field>
+            <field name="model">sold.ticket.derogation</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="create_date" string="Creation date"/>
+                    <field name="create_uid" string="Created by"/>
+                    <field name="ticket_id"/>
+                    <field name="task_id"/>
+                    <field name="contract_id"/>
+                    <field name="existing_charge" widget="float_time"/>
+                    <field name="additional_charge" widget="float_time"/>
+                    <field name="reason"/>
+                    <field name="manager_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ticket_derogation_form_view">
+            <field name="name">Ticket Derogation</field>
+            <field name="model">sold.ticket.derogation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_to_validate" string="To validate" type="object" class="oe_highlight"
+                                attrs="{'invisible': ['|', ('additional_charge', '&lt;=', 0), ('state', '!=', 'draft')]}"/>
+                        <button name="button_validated" string="Validate" type="object" class="oe_highlight"
+                                attrs="{'invisible': ['|', ('state', '!=', 'to_validate'), ('not_to_show', '=', False)]}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="not_to_show" invisible="1"/>
+                                <field name="create_date" string="Creation date"
+                                       attrs="{'invisible': [('create_date', '=', False)]}"/>
+                                <field name="create_uid" string="Created by"
+                                       attrs="{'invisible': [('create_uid', '=', False)]}"/>
+                                <field name="task_id" readonly="1"/>
+                                <field name="contract_id" readonly="1"/>
+                                <field name="existing_charge" readonly="1" widget="float_time"/>
+                                <field name="additional_charge" widget="float_time" required="1"
+                                       attrs="{'readonly': [('state', '=', 'validated')]}"/>
+                            </group>
+                            <group>
+
+                                <field name="reason" required="1" attrs="{'readonly': [('state', '=', 'validated')]}"/>
+                                <field name="manager_id" widget="many2one_avatar_user"/>
+                                <field name="ticket_id" readonly="1" invisible="0"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

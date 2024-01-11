@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_kzm_datas_migration_form" model="ir.ui.view">
+        <field name="name">kzm.datas.migration.form</field>
+        <field name="model">kzm.datas.migration</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button
+                        type="object"
+                        string="Test connexion"
+                        name="test_connexion"
+                        class="oe_highlight"
+                    />
+                    <button
+                        type="object"
+                        string="Nombre d'enregistrements"
+                        name="count_number"
+                        class="oe_highlight"
+
+                    />
+                    <button
+                        type="object"
+                        string="Synchroniser Partenaires"
+                        name="sync_ref"
+                        class="oe_highlight"
+                    />
+                    <button
+                        type="object"
+                        string="Synchroniser Taxes"
+                        name="sync_taxes"
+                        class="oe_highlight"
+                    />
+                    <button
+                        type="object"
+                        string="Synchroniser Comptes Bancaires"
+                        name="sync_compte_bnk"
+                        class="oe_highlight"
+                    />
+                    <button
+                        type="object"
+                        string="Synchroniser Position Fiscales"
+                        name="sync_fiscale"
+                        class="oe_highlight"
+                    />
+                    <button
+                        type="object"
+                        string="Synchroniser Journaux"
+                        name="sync_journaux"
+                        class="oe_highlight"
+                    />
+                    <button
+                        type="object"
+                        string="Synchroniser Articles"
+                        name="sync_article"
+                        class="oe_highlight"
+                    />
+                    <button
+                        type="object"
+                        string="Synchroniser Plans Comptables"
+                        name="sync_plan_comptable"
+                        class="oe_highlight"
+                    />
+                    <button
+                        type="object"
+                        string="Synchroniser Devises"
+                        name="sync_currencies"
+                        class="oe_highlight"
+                    />
+
+                    <button
+                        type="object"
+                        string="Synchroniser Taux de change"
+                        name="sync_taux_change"
+                        class="oe_highlight"
+                    />
+                    <button
+                        type="object"
+                        string="Synchronize Data"
+                        name="create_records"
+                        class="oe_highlight"
+                    />
+                </header>
+                <sheet>
+                    <group>
+                        <group name="main" string="Login Data">
+                            <field name="url" required="1"/>
+                            <field name="login" required="1"/>
+                            <field name="pwd" password="True" required="1"/>
+                            <field name="db_name" required="1"/>
+
+
+                        </group>
+
+                        <group name="main2" string="Synchronization Data">
+                            <field name="model_to_synchronize" required="1"/>
+                            <field name="model_to_synchronize_equiv" required="1"/>
+                            <field name="synch_operation" required="1"/>
+                            <!--                            <field name="condition" widget="domain"-->
+                            <!--                                   options="{'model': model_to_synchronize, 'in_dialog': True}"/>-->
+                            <!--                            <field name="condition"/>-->
+                            <field name="condition" widget="domain"
+                                   options="{'model': 'model_to_synchronize_equiv', 'in_dialog': True}"/>
+
+
+                            <field name="nbr_facture"/>
+
+                            <field name="synchronization_key"
+                                   attrs="{'invisible': [('synch_operation','!=','update')]}"/>
+                            <field name="fields_to_synchronize" widget="many2many_tags"/>
+
+                            <button
+                                type="object"
+                                string="Synchroniser Attachements"
+                                name="synch_pj"
+                                class="oe_highlight"
+                            />
+
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_ids"/>
+                </div>
+
+            </form>
+
+        </field>
+    </record>
+
+    <record id="view_kzm_datas_migration_list" model="ir.ui.view">
+        <field name="name">kzm.datas.migration.tree</field>
+        <field name="model">kzm.datas.migration</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="model_to_synchronize"/>
+                <field name="synch_operation"/>
+                <field name="url"/>
+                <field name="condition"/>
+
+            </tree>
+        </field>
+    </record>
+    <record id="action_kzm_datas_migration" model="ir.actions.act_window">
+        <field name="name">Kzm Datas Migration</field>
+        <field name="res_model">kzm.datas.migration</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem
+        parent="base.next_id_9"
+        action="action_kzm_datas_migration"
+        name="Synchronisation XML-RPC"
+        id="kzm_datas_migration_menu"
+    />
+
+
+</odoo>

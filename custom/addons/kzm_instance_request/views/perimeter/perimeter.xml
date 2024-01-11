@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="perimeter_view_id" model="ir.ui.view">
+        <field name="name">Perimeter View</field>
+        <field name="model">perimeter.perimeter</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+        </record>
+
+        <record id="perimeter_instance_action_id" model="ir.actions.act_window">
+            <field name="name">Perimeter</field>
+            <field name="res_model">perimeter.perimeter</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="perimeter_view_id" />
+        </record>
+
+        <menuitem id="perimeter_instance_menu" name="Perimeter"
+            action="perimeter_instance_action_id"
+            parent="kzm_instance_request.kzm_instance_configuration_menu" sequence="2" />
+    </data>
+</odoo>

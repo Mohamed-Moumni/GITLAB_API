@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.base.setup</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="100"/>
+        <field name="inherit_id" ref="kzm_base.karizma_config"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='module_kzm_database_cleanup']" position="inside">
+                <div class="content-group">
+                    <div class="mt8">
+                        <div class='mt8'>
+                            <button name="cleanup_invoices" icon="fa-lg fa-refresh" type="object"
+                                    string="Cleanup invoices"
+                                    class="btn-link"/>
+                        </div>
+                        <div class='mt8'>
+                            <button name="cleanup_payments" icon="fa-lg fa-refresh" type="object"
+                                    string="Cleanup Payments"
+                                    class="btn-link"/>
+                        </div>
+                        <div class='mt8'>
+                            <button name="cleanup_stock" icon="fa-lg fa-refresh" type="object"
+                                    string="Cleanup Stock"
+                                    class="btn-link"/>
+                        </div>
+                        <div class='mt8'>
+                            <button name="cleanup_so_po"
+                                    icon="fa-lg fa-refresh" type="object"
+                                    string="Cleanup SO &amp; PO"
+                                    class="btn-link"/>
+                        </div>
+                        <div class='mt8'>
+                            <button name="cleanup_so"
+                                    icon="fa-lg fa-refresh" type="object"
+                                    string="Cleanup SO"
+                                    class="btn-link"/>
+                        </div>
+                        <div class='mt8'>
+                            <button name="cleanup_po"
+                                    icon="fa-lg fa-refresh" type="object"
+                                    string="Cleanup PO"
+                                    class="btn-link"/>
+                        </div>
+                        <div class='mt8'>
+                            <button name="cleanup_production"
+                                    icon="fa-lg fa-refresh" type="object"
+                                    string="Cleanup Production"
+                                    class="btn-link"/>
+                        </div>
+                        <div class='mt8'>
+                            <button name="cleanup_pos"
+                                    icon="fa-lg fa-refresh" type="object"
+                                    string="Cleanup POS"
+                                    class="btn-link"/>
+                        </div>
+                        <div class='mt8'>
+                            <button name="cleanup_all"
+                                    icon="fa-lg fa-refresh" type="object"
+                                    string="Cleanup All"
+                                    class="btn-link"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

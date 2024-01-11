@@ -1,0 +1,158 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="module_info_tree">
+            <field name="name">module.info.tree</field>
+            <field name="model">module.info</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false">
+                    <field name="name"/>
+                    <field name="repository"/>
+                    <field name="url"/>
+                    <field name="has_a_readme"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="module_info_form">
+            <field name="name">module.info.form</field>
+            <field name="model">module.info</field>
+            <field name="arch" type="xml">
+                <form create="false">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" default_focus="1" readonly="1" placeholder="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="repository" readonly="1"/>
+                                <field name="url" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="has_a_readme" readonly="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Descriptions">
+                                <field name="description" readonly="1"/>
+                            </page>
+                            <page string="Notes">
+                                <field name="notes"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="module_info_action">
+            <field name="name">Module infos</field>
+            <field name="res_model">module.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="module_info_menu_0" name="Modules infos" sequence="200"
+                  web_icon="kzm_repos_infos,static/description/icons8-info-256.png"/>
+        <menuitem id="module_info_menu_1" name="Modules" parent="module_info_menu_0" sequence="1"/>
+
+        <menuitem id="module_info_menu" name="Informations"
+                  parent="module_info_menu_1" action="module_info_action" sequence="1"/>
+
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.base.setup</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="100"/>
+            <field name="inherit_id" ref="kzm_base.karizma_config"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='partner_cin_required']" position="inside">
+                    <div class="col-12 col-lg-6 o_setting_box" id="token_map_view">
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Repositories modules updating</span>
+                            <div class="content-group">
+                                <div class="text-muted mb8">
+                                    Load and update or create modules that are set on the indicated repository
+                                </div>
+                                <label for="access_token" string="Token"/>
+                                <field name="access_token"/>
+                                <div class="content-group">
+                                    <div class="mt8">
+                                        <button type="object" name="queue_synchro"
+                                                string="Synchronize informations" icon="fa-arrow-right"
+                                                class="btn-link"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+
+<!--
+        <record model="ir.ui.view" id="res_config_settings_form_view">
+            <field name="name">res.config.settings.form.view</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Repos infos" data-key="kzm_repos_infos"
+                         string="Repos infos">
+                        <h2>Modules infos</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box" id="token_map_view">
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">Repositories modules updating</span>
+                                    <div class="content-group">
+                                        <div class="text-muted mb8">
+                                            Load and update or create modules that are set on the indicated repository
+                                        </div>
+                                        <label for="access_token" string="Token"/>
+                                        <field name="access_token"/>
+                                        <div class="content-group">
+                                            <div class="mt8">
+                                                <button type="object" name="queue_synchro"
+                                                        string="Synchronize informations" icon="fa-arrow-right"
+                                                        class="btn-link"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </xpath>
+            </field>
+        </record>
+-->
+
+        <record id="action_module_info_configuration" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'kzm_base'}</field>
+        </record>
+
+        <!--        <record id="ir_cron_synchro" model="ir.cron">-->
+        <!--            <field name="name">Synchro Module infos</field>-->
+        <!--            <field name="interval_number">1</field>-->
+        <!--            <field name="interval_type">days</field>-->
+        <!--            <field name="numbercall">-1</field>-->
+        <!--            <field name="model_id" ref="kzm_repos_infos.model_module_info"/>-->
+        <!--            <field name="priority" eval="0"/>-->
+        <!--&lt;!&ndash;            <field name="activity_user_type" eval="'generic'"/>&ndash;&gt;-->
+        <!--            <field name="state">code</field>-->
+        <!--            <field name="code">model.synchronize_modules_infos()</field>-->
+        <!--        </record>-->
+
+        <menuitem id="module_info_configuration" name="Configuration"
+                  parent="module_info_menu_0" sequence="100"/>
+
+        <menuitem id="module_info_config" name="Configuration"
+                  parent="module_info_configuration" action="action_module_info_configuration" sequence="1"/>
+    </data>
+</odoo>

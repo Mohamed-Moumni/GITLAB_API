@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="helpdesk_ticket_view_kanban_extended_kzm" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.kanban.kzm</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//progressbar" position="before">
+                    <field name="is_planned"/>
+                    <field name="is_late"/>
+                    <field name="is_not_planned"/>
+                </xpath>
+                <xpath expr="//t[@t-name='kanban-box']//div//div//div[4]" position="after">
+                    <div>
+                        <t t-if="record.is_planned.raw_value">
+                            <span style="color: green;">Planned</span>
+                        </t>
+                        <t t-if="record.is_late.raw_value">
+                            <span style="color: red;">In Late</span>
+                        </t>
+                        <t t-if="record.is_not_planned.raw_value">
+                            <span style="color: blue;">Not Planned</span>
+                        </t>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="helpdesk_ticket_view_inherits_kzm_2_extended" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.form.kzm</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="kzm_project_base.helpdesk_ticket_view_inherits_ot1"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='estimated_charge']" position="after">
+                    <field name="is_estimated_charge_readonly" invisible="1" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='estimated_charge']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('is_estimated_charge_readonly', '=', True)]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="helpdesk_ticket_view_form_extended" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.form</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//widget[@name='web_ribbon']" position="before">
+                    <field name="is_late" invisible="1"/>
+                    <field name="is_planned" invisible="1"/>
+                    <field name="is_not_planned" invisible="1"/>
+                    <field name="track_ids_count" invisible="1"/>
+                    <widget name="web_ribbon" title="In late" bg_color="bg-danger"
+                            attrs="{'invisible': [('is_late', '=', False)]}"/>
+                    <widget name="web_ribbon" title="Planned" bg_color="bg-success"
+                            attrs="{'invisible': [('is_planned', '=', False)]}"/>
+                    <widget name="web_ribbon" title="Not Planned" bg_color="bg-primary"
+                            attrs="{'invisible': [('is_not_planned', '=', False)]}"/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                </xpath>
+                <field name="ticket_type_id" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="action_ticket_derogations_sm_view" type="object" class="oe_stat_button"
+                            icon="fa-chain" attrs="{'invisible': [('is_estimated_charge_readonly', '=', False)]}">
+                        <div class="o_stat_info">
+                            <field name="ticket_derogations_count" class="o_stat_value"/>
+                            <span class="o_stat_text">Ticket derogations</span>
+                        </div>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="helpdesk_ticket_view_form_inherit">
+            <field name="name">helpdesk.ticket</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="helpdesk_timesheet.helpdesk_ticket_view_form_inherit_helpdesk_timesheet"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Traçabilité planning" groups="planning.group_planning_manager">
+                        <field name="track_ids" readonly="1">
+                            <tree>
+                                <field name="planification_id"/>
+                                <field name="first_date"/>
+                                <field name="last_date"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

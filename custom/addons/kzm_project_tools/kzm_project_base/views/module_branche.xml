@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="module_branche_form">
+            <field name="name">module branche form</field>
+            <field name="model">module.branche</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="git_link" widget="url"/>
+                            </group>
+                            <group>
+                                <field name="version"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="dependances" string="Dépendances">
+                                <field name="dependance_ids" nolabel="1">
+                                    <tree>
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="module_branche_list">
+            <field name="name">Branches list</field>
+            <field name="model">module.branche</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="git_link"/>
+                    <field name="version"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="module_branche_action_window">
+            <field name="name">Branches</field>
+            <field name="res_model">module.branche</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Données techniques" id="connaissance_project_root" web_icon="kzm_project_base,static/icon.png"/>
+
+        <menuitem name="Modules" id="connaissance_project_menu_1" parent="connaissance_project_root" sequence="2"/>
+
+        <menuitem name="Branche" id="module_branche_base_menu" parent="connaissance_project_menu_1"
+                  sequence="2"
+                  action="module_branche_action_window"/>
+    </data>
+</odoo>

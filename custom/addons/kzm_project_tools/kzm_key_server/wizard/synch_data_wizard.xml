@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="synch_data_wizard_view_form" model="ir.ui.view">
+        <field name="name">synch.data.wizard.view.form</field>
+        <field name="model">synch.data.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button
+                            name="action_pwd_reset"
+                            type="object"
+                            string="Réinitialiser Mot de passe"
+                            class="oe_highlight"
+                    />
+                </header>
+                <sheet>
+                    <group>
+                        <group name="main" string="Login Data">
+                            <field name="link" readonly="1"/>
+                            <field name="db_name" readonly="1"/>
+                            <field name="login"/>
+                            <field name="pwd" password="true" string="Mot de passe"/>
+                            <field name="database_metadata_id" invisible="1"/>
+                            <field name="protocole" invisible="1"/>
+
+
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="synch_data" string="Synchroniser" type="object"
+                                class="oe_highlight" icon="fa-refresh"/>
+                        <button string="Cancel" class="oe_link " special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_synch_data_wizard">
+        <field name="name">Synch Data</field>
+        <field name="res_model">synch.data.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

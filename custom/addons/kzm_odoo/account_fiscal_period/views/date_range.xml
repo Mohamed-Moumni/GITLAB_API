@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_date_range_fiscalperiod_form_view" model="ir.ui.view">
+            <field name="name">date.range.period.form</field>
+            <field name="model">date.range</field>
+            <field name="inherit_id" ref="date_range.view_date_range_form_view"/>
+            <field name="arch" type="xml">
+
+                <form position="replace">
+                    <form>
+                        <header>
+                            <button name="create_period"
+                                    invisible="1"
+                                    string="Créer périodes mensuelles"
+                                    type="object" class="oe_highlight"
+                            />
+                            <!--                        attrs="{'invisible': [('kzm_is_fiscalyear', '!=', True)]}"-->
+                            <button name="create_period3"
+                                    string="Créer périodes trimestrielle"
+                                    invisible="1"
+                                    type="object" class="oe_highlight"
+                            />
+                            <!--                        -->
+                        </header>
+                        <sheet>
+                            <group>
+                                <group>
+                                    <field name="name"/>
+                                    <field name="type_id"/>
+                                </group>
+                                <group>
+                                    <!-- pylint : disable=duplicate-xml-fields -->
+                                    <label for="date_start"/>
+                                    <div class="w-100">
+                                        <div class="o_row">
+                                            <field name="date_start" widget="daterange"
+                                                   options="{'related_end_date': 'date_end'}"/>
+                                            <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon"
+                                               title="Arrow"/>
+                                            <field name="date_end" widget="daterange"
+                                                   options="{'related_start_date': 'date_start'}"/>
+                                        </div>
+                                    </div>
+                                    <field name="previous_fiscal_year"/>
+                                    <field name="next_fiscal_year"/>
+                                    <field name="company_id" invisible="1"/>
+                                    <field name="company_id" groups="base.group_multi_company"
+                                           options="{'no_create': True}"/>
+                                    <field name="active" invisible="1"/>
+
+                                </group>
+                            </group>
+                        </sheet>
+                    </form>
+                </form>
+            </field>
+        </record>
+        <record id="view_date_range_fiscalperiod_tree_view" model="ir.ui.view">
+            <field name="name">date.range.period.form</field>
+            <field name="model">date.range</field>
+            <field name="inherit_id" ref="date_range.view_date_range_tree"/>
+            <field name="arch" type="xml">
+                <tree position="replace">
+                    <tree>
+                        <field name="name"/>
+                        <field name="type_id"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <!-- pylint : disable=duplicate-xml-fields -->
+                        <field name="company_id" invisible="1"/>
+                        <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                        <field name="active"/>
+                    </tree>
+                </tree>
+
+            </field>
+        </record>
+
+
+
+
+    </data>
+</odoo>

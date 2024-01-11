@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.add.fields</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="sales_team.res_partner_view_team"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='container_row_2']" position="before">
+                <group>
+                    <group>
+                        <field name="is_customer"/>
+                    </group>
+                    <group>
+                        <field name="is_supplier"/>
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//group[@name='sale']" position="attributes">
+                <attribute name="attrs">{'invisible': [('is_customer', '=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//group[@name='purchase']" position="attributes">
+                <attribute name="attrs">{'invisible': [('is_supplier', '=', False)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

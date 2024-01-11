@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- bareme -->
+        <record id="bareme_eval_form_view" model="ir.ui.view">
+            <field name="name">kzm.hr.bareme.eval.form</field>
+            <field name="model">kzm.hr.bareme.eval</field>
+            <field name="arch" type="xml">
+                <form string="Baremes">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="note"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="bareme_eval_tree_view" model="ir.ui.view">
+            <field name="name">kzm.hr.bareme.eval.tree</field>
+            <field name="model">kzm.hr.bareme.eval</field>
+            <field name="arch" type="xml">
+                <tree string="Bareme">
+                    <field name="name"/>
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="bareme_eval_search_view" model="ir.ui.view">
+            <field name="name">kzm.hr.bareme.eval.search</field>
+            <field name="model">kzm.hr.bareme.eval</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Bareme">
+                    <field name="name" string="Name"/>
+                    <field name="note"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="bareme_eval_action" model="ir.actions.act_window">
+            <field name="name">Baremes</field>
+            <field name="res_model">kzm.hr.bareme.eval</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="bareme_eval_search_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a bareme.
+                </p>
+            </field>
+        </record>
+
+        <!-- axe -->
+        <record id="axe_eval_form_view" model="ir.ui.view">
+            <field name="name">kzm.hr.axe.eval.form</field>
+            <field name="model">kzm.hr.axe.eval</field>
+            <field name="arch" type="xml">
+                <form string="Axe">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="axe_eval_tree_view" model="ir.ui.view">
+            <field name="name">kzm.hr.axe.eval.tree</field>
+            <field name="model">kzm.hr.axe.eval</field>
+            <field name="arch" type="xml">
+                <tree string="Axes">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="axe_eval_search_view" model="ir.ui.view">
+            <field name="name">kzm.hr.axe.eval.search</field>
+            <field name="model">kzm.hr.axe.eval</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Axe">
+                    <field name="name" string="Name"/>
+                    <field name="code"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="axe_eval_action" model="ir.actions.act_window">
+            <field name="name">Axes</field>
+            <field name="res_model">kzm.hr.axe.eval</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="axe_eval_search_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add an axe.
+                </p>
+            </field>
+        </record>
+
+        <!-- critere -->
+        <record id="critere_eval_form_view" model="ir.ui.view">
+            <field name="name">kzm.hr.critere.eval.form</field>
+            <field name="model">kzm.hr.critere.eval</field>
+            <field name="arch" type="xml">
+                <form string="Critere">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="coef"/>
+                                <field name="hr_axe_id"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                        <notebook>
+                            <page string="Baremes">
+                                <field name="hr_bareme_ids" widget="one2many_list">
+                                    <tree string="Baremes" editable="top">
+                                        <field name="name"/>
+                                        <field name="note"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="critere_eval_tree_view" model="ir.ui.view">
+            <field name="name">kzm.hr.critere.eval.tree</field>
+            <field name="model">kzm.hr.critere.eval</field>
+            <field name="arch" type="xml">
+                <tree string="Criteres">
+                    <field name="name"/>
+                    <field name="coef"/>
+                    <field name="hr_axe_id"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="critere_eval_search_view" model="ir.ui.view">
+            <field name="name">kzm.hr.critere.eval.search</field>
+            <field name="model">kzm.hr.critere.eval</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Critere">
+                    <field name="name" string="Name"/>
+                    <field name="coef"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="critere_eval_action" model="ir.actions.act_window">
+            <field name="name">Criteres</field>
+            <field name="res_model">kzm.hr.critere.eval</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="critere_eval_search_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a Critere.
+                </p>
+            </field>
+        </record>
+
+        <!-- Modele -->
+        <record id="modele_eval_form_view" model="ir.ui.view">
+            <field name="name">kzm.hr.modele.eval.form</field>
+            <field name="model">kzm.hr.modele.eval</field>
+            <field name="arch" type="xml">
+                <form string="Modele">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="hr_axe_id"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="hr_critere_ids" widget="many2many_tags"/>
+                        </group>
+                        <!--notebook>
+                            <page string="Criteres">
+                                <field name="hr_critere_ids" widget="one2many_list">
+                                    <tree string="Criteres" editable="top">
+                                        <field name="name"/>
+                                        <field name="description"/>
+                                        <field name="coef"/>
+                                        <field name="hr_axe_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="modele_eval_tree_view" model="ir.ui.view">
+            <field name="name">kzm.hr.modele.eval.tree</field>
+            <field name="model">kzm.hr.modele.eval</field>
+            <field name="arch" type="xml">
+                <tree string="Modeles">
+                    <field name="name"/>
+                    <field name="hr_axe_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="modele_eval_search_view" model="ir.ui.view">
+            <field name="name">kzm.hr.modele.eval.search</field>
+            <field name="model">kzm.hr.modele.eval</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Modele">
+                    <field name="name" string="Name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="modele_eval_action" model="ir.actions.act_window">
+            <field name="name">Modeles</field>
+            <field name="res_model">kzm.hr.modele.eval</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="modele_eval_search_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a Model.
+                </p>
+            </field>
+        </record>
+
+        <!-- Evaluation -->
+        <record id="evaluation_eval_form_view" model="ir.ui.view">
+            <field name="name">kzm.hr.evaluation.eval.form</field>
+            <field name="model">kzm.hr.evaluation.eval</field>
+            <field name="arch" type="xml">
+                <form string="Evaluation">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="date_eval"/>
+                                <field name="employe_id"/>
+                                <field name="mean_note"/>
+                            </group>
+                            <group>
+                                <field name="hr_modele_id"/>
+                                <field name="hr_axe_id" readonly="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Evaluation lines">
+                                <field name="hr_evaluation_line_ids">
+                                    <tree string="Evaluation" editable="top">
+                                        <field name="name"/>
+                                        <field name="note" required="1"/>
+                                        <field name="coef" readonly="1"/>
+                                        <field name="computed_note"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="evaluation_eval_tree_view" model="ir.ui.view">
+            <field name="name">kzm.hr.evaluation.eval.tree</field>
+            <field name="model">kzm.hr.evaluation.eval</field>
+            <field name="arch" type="xml">
+                <tree string="Evaluations">
+                    <field name="name"/>
+                    <field name="date_eval"/>
+                    <field name="hr_modele_id"/>
+                    <field name="employe_id"/>
+                    <field name="hr_axe_id"/>
+                    <field name="mean_note"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="evaluation_eval_search_view" model="ir.ui.view">
+            <field name="name">kzm.hr.evaluation.eval.search</field>
+            <field name="model">kzm.hr.evaluation.eval</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Evaluation">
+                    <field name="name" string="Name"/>
+                    <field name="date_eval"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="evaluation_eval_action" model="ir.actions.act_window">
+            <field name="name">Evaluations</field>
+            <field name="res_model">kzm.hr.evaluation.eval</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="evaluation_eval_search_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add an Evaluation.
+                </p>
+            </field>
+        </record>
+
+        <!-- Evaluation line -->
+        <record id="evaluation_line_eval_form_view" model="ir.ui.view">
+            <field name="name">kzm.hr.evaluation.line.eval.form</field>
+            <field name="model">kzm.hr.evaluation.line.eval</field>
+            <field name="arch" type="xml">
+                <form string="Axe">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="note" required="1"/>
+                                <field name="computed_note"/>
+                            </group>
+                            <group>
+                                <field name="hr_evaluation_id" invisible="0"/>
+                                <field name="coef" readonly="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="commentaire"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="evaluation_line_eval_tree_view" model="ir.ui.view">
+            <field name="name">kzm.hr.evaluation.line.eval.tree</field>
+            <field name="model">kzm.hr.evaluation.line.eval</field>
+            <field name="arch" type="xml">
+                <tree string="Axes">
+                    <field name="name"/>
+                    <field name="note" required="1"/>
+                    <field name="coef"/>
+                    <field name="computed_note"/>
+                    <field name="hr_evaluation_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="evaluation_line_eval_search_view" model="ir.ui.view">
+            <field name="name">kzm.hr.evaluation.line.eval.search</field>
+            <field name="model">kzm.hr.evaluation.line.eval</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Axe">
+                    <field name="name" string="Name"/>
+                    <field name="coef"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="evaluation_line_eval_action" model="ir.actions.act_window">
+            <field name="name">Evaluation lines</field>
+            <field name="res_model">kzm.hr.evaluation.line.eval</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="evaluation_line_eval_search_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add an Evaluation Line.
+                </p>
+            </field>
+        </record>
+
+    <!-- plan -->
+        <record id="plan_evaluation_eval_form_view" model="ir.ui.view">
+            <field name="name">kzm.hr.plan.evaluation.eval.form</field>
+            <field name="model">kzm.hr.plan.evaluation.eval</field>
+            <field name="arch" type="xml">
+                <form string="Modele">
+                    <sheet>
+                        <center>
+                            <field name="name"/>
+                        </center>
+                        <group>
+                            <group>
+                                <field name="employe_id"/>
+                                <field name="note"/>
+                            </group>
+                            <group>
+                                <field name="date_plan"/>
+                                <field name="classe"/>
+                            </group>
+                        </group>
+                        <group>
+                            <label for="date_start" string="Period"/>
+                                <div>
+                                    <field name="date_start" class="oe_inline" nolabel="1"/> -
+                                    <field name="date_end" nolabel="1" class="oe_inline"/>
+                                </div>
+                        </group>
+                        <notebook>
+                            <page string="Evaluation lines">
+                                <field name="hr_evaluation_plan_line_ids">
+                                    <tree string="Plan lines" editable="top">
+                                        <field name="name"/>
+                                        <field name="note"/>
+                                        <field name="coef"/>
+                                        <field name="computed_note"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="plan_evaluation_eval_tree_view" model="ir.ui.view">
+            <field name="name">kzm.hr.plan.evaluation.eval.tree</field>
+            <field name="model">kzm.hr.plan.evaluation.eval</field>
+            <field name="arch" type="xml">
+                <tree string="Evaluation plans">
+                    <field name="date_plan"/>
+                    <field name="employe_id"/>
+                    <field name="period_str"/>
+                    <field name="note"/>
+                    <field name="classe"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="plan_evaluation_eval_search_view" model="ir.ui.view">
+            <field name="name">kzm.hr.plan.evaluation.eval.search</field>
+            <field name="model">kzm.hr.plan.evaluation.eval</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Modele">
+                    <field name="name" string="Name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="plan_evaluation_eval_action" model="ir.actions.act_window">
+            <field name="name">Evaluation Plans</field>
+            <field name="res_model">kzm.hr.plan.evaluation.eval</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="plan_evaluation_eval_search_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add an Evaluation Plan.
+                </p>
+            </field>
+        </record>
+
+        <!-- Plan line -->
+        <record id="plan_evaluation_line_eval_form_view" model="ir.ui.view">
+            <field name="name">kzm.hr.plan.evaluation.line.eval.form</field>
+            <field name="model">kzm.hr.plan.evaluation.line.eval</field>
+            <field name="arch" type="xml">
+                <form string="Plan Evaluation Line">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="note"/>
+                                <field name="computed_note"/>
+                            </group>
+                            <group>
+                                <field name="hr_plan_evaluation_id"/>
+                                <field name="coef"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="plan_evaluation_line_eval_tree_view" model="ir.ui.view">
+            <field name="name">kzm.hr.plan.evaluation.line.eval.tree</field>
+            <field name="model">kzm.hr.plan.evaluation.line.eval</field>
+            <field name="arch" type="xml">
+                <tree string="Plan Evaluation Lines">
+                    <field name="name"/>
+                    <field name="note"/>
+                    <field name="coef"/>
+                    <field name="computed_note"/>
+                    <field name="hr_plan_evaluation_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="plan_evaluation_line_eval_search_view" model="ir.ui.view">
+            <field name="name">kzm.hr.plan.evaluation.line.eval.search</field>
+            <field name="model">kzm.hr.plan.evaluation.line.eval</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Plan Evaluation Line">
+                    <field name="name" string="Name"/>
+                    <field name="coef"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="plan_evaluation_line_eval_action" model="ir.actions.act_window">
+            <field name="name">Plan Evaluation lines</field>
+            <field name="res_model">kzm.hr.plan.evaluation.line.eval</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="plan_evaluation_line_eval_search_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add an Evaluation Plan Line.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

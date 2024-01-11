@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_chatgpt_request,chatgpt_request,model_chatgpt_request,,1,1,1,1
+access_chatgpt_request_line,chatgpt_request_line,model_chatgpt_request_line,,1,1,1,1
+access_chatgpt_pricing,chatgpt_pricing,model_chatgpt_pricing,,1,1,1,1
+access_chatgpt_model,chatgpt_model,model_chatgpt_model,,1,1,1,1
+access_chatgpt_training_data,chatgpt_training_data,model_chatgpt_training_data,,1,1,1,1

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_project_database_form_inherited" model="ir.ui.view">
+        <field name="name">project.database.form.inherited</field>
+        <field name="model">project.database</field>
+        <field name="inherit_id" ref="kzm_project_base.project_database_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='link']" position="replace">
+                <label for="protocole" string="Link"/>
+                <div class="o_row">
+                    <field name="protocole"/>
+                    <field name="link"/>
+                </div>
+
+            </xpath>
+
+            <xpath expr="//page[@name='Modules']" position="before">
+
+                <page name="db_records" string="Bases de données">
+                    <field name="db_record_ids" nolabel="1" readonly="1">
+                        <tree editable="bottom" width="100%">
+                            <button name="action_open_database_metadata_form" type="object" icon="fa-external-link"
+                                    title="Open Contract"/>
+
+                            <field name="name"/>
+                            <field name="size"/>
+                            <field name="db_creation_date"/>
+                            <field name="is_backup_active"/>
+
+                            <button
+                                    string="Sync Data"
+                                    name="synch_data"
+                                    type="object"
+                                    invisible="1"
+                                    icon="fa-refresh"
+
+                            />
+
+
+                        </tree>
+                    </field>
+
+
+                </page>
+                <page name="postgres_identifiants" string="Identifiants Postgres">
+                    <group>
+                        <group>
+                            <field name="db_user" string="User"/>
+
+                            <field name="db_password" password="True" string="Password"/>
+                        </group>
+                    </group>
+
+                </page>
+                <page name="config_file" string="Fichier de Configuration">
+                    <button
+                            string="Fichier de Conf"
+                            name="get_config_file"
+                            type="object"
+                            class="btn-primary"
+
+                    />
+
+                    <br/>
+                    <group>
+                        <br/>
+                        <br/>
+                        <field name="config_file" readonly="1"/>
+                    </group>
+
+
+                </page>
+
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button class="btn-primary" type="object" name="test_ping" string="Test ping" icon="fa-server"/>
+                <button class="btn-primary" type="object" name="test_ssh" string="Test SSH" icon="fa-server"/>
+                <button class="btn-primary" type="object" name="test_odoo_service" icon="fa-server"
+                        string="Test Odoo Service"/>
+                <button class="btn-primary" type="object" name="get_all_dbs" icon="fa-database"
+                        string="Générer Bases de Données"/>
+                <button class="btn-primary" type="object" name="start_odoo_service" icon="fa-play"
+                        string="Lancer Service Odoo"/>
+                <button class="btn-primary" type="object" name="stop_odoo_service" icon="fa-stop"
+                        string="Arreter Service Odoo"/>
+
+
+            </xpath>
+
+
+        </field>
+    </record>
+
+
+</odoo>

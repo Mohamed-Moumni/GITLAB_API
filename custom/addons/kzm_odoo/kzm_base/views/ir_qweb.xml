@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <template id="contact" inherit_id="base.contact">
+            <xpath expr="//address/div" position="after">
+                <div t-if="object.ice and 'ice' in fields"
+                     class='css_editable_mode_hidden'>
+                    <span itemprop="ice" t-esc="object.ice"
+                         />
+                </div>
+                
+            </xpath>
+        </template>
+    </data>
+</odoo>

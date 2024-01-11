@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="account_analytic_line_view_inherits_ots">
+            <field name="name">Time.sheet</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date']" position="before">
+                    <field name="contract_id"/>
+                    <field name="project_id" invisible="0"/>
+                    <field name="task_id"/>
+                    <field name="helpdesk_ticket_id"/>
+                    <field name="type"/>
+                </xpath>
+            </field>
+        </record>
+     
+         <record model="ir.ui.view" id="hr_timesheet_line_tree_inherits_ots">
+            <field name="name">Time.sheet.TS</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="helpdesk_ticket_id" readonly="1"/>
+                    <field name="task_id" readonly="1" required="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

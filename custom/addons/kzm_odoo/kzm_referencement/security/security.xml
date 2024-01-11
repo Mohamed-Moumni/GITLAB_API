@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.module.category" id="referencement_category">
+            <field name="name">Referencement</field>
+        </record>
+
+        <record id="group_referencement_product" model="res.groups">
+            <field name="name">Gestionnaire référentiel article</field>
+            <field name="category_id" ref="kzm_referencement.referencement_category"/>
+        </record>
+
+        <record id="group_referencement_client" model="res.groups">
+            <field name="name">Gestionnaire référentiel client</field>
+            <field name="category_id" ref="kzm_referencement.referencement_category"/>
+        </record>
+
+        <record id="group_referencement_fournisseur" model="res.groups">
+            <field name="name">Gestionnaire référentiel fournisseur</field>
+            <field name="category_id" ref="kzm_referencement.referencement_category"/>
+        </record>
+
+    </data>
+</odoo>

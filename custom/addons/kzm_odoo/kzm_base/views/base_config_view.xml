@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="karizma_config" model="ir.ui.view">
+        <field name="name">KARIZMA Modules configs base</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="kzm_base.kzm_res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Paramètres Généraux" string="Paramètres Généraux"
+                     data-key="general_settings">
+                    <div id="kzm_base">
+                        <h2>Paramètres Généraux</h2>
+                        <div class="row mt16 o_settings_container" id="partner_cin_required"
+                             name="partner_cin_required">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="cin_partenaire_obligatoire"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label string="CIN" for="cin_partenaire_obligatoire"/>
+                                    <div class="text-muted">
+                                        CIN obligatoire pour les partenaires
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="module_kzm_duplicate_base_safe"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label string="Duplication bases"
+                                           for="module_kzm_duplicate_base_safe"/>
+                                    <div class="text-muted">
+                                        Dupliquer les bases sans serveurs/crons
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="module_oca_auto_backup_extension"/>
+                                </div>
+                                <div class="o_setting_right_pane" id="module_oca_auto_backup_extension">
+                                    <label string="Activer les backups"
+                                           for="module_oca_auto_backup_extension"/>
+                                    <div class="text-muted">
+                                        Permets de gérer les backups automatisées avec Gcloud
+                                    </div>
+                                    <div class="content-group" name="kzm_queue_backup">
+                                        <div class="d-flex">
+                                            <field name="module_kzm_queue_backup" class="ml16"/>
+                                            <label for="module_kzm_queue_backup" class="o_light_label"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="module_kzm_backup"/>
+                                </div>
+                                <div class="o_setting_right_pane" id="module_kzm_backup">
+                                    <label string="Activer l'interface des backups"
+                                           for="module_kzm_backup"/>
+                                    <div class="text-muted">
+                                        Permets de gérer les interfaces de backups automatisées.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="module_kzm_mail_office_365"/>
+                                </div>
+                                <div class="o_setting_right_pane" id="module_kzm_mail_office_365">
+                                    <label string="Activer la MAJ Office 365."
+                                           for="module_kzm_mail_office_365"/>
+                                    <div class="text-muted">
+                                        Permet de régler les problèmes Office 365 sur l'envoi d'email.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="module_kzm_image_import"/>
+                                </div>
+                                <div class="o_setting_right_pane" id="module_kzm_image_import">
+                                    <label string="Activer l'import d'image"
+                                           for="module_kzm_image_import"/>
+                                    <div class="text-muted">
+                                        Permet d'importer les images sur cette base.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="module_kzm_database_cleanup"/>
+                                </div>
+                                <div class="o_setting_right_pane" id="module_kzm_database_cleanup">
+                                    <label string="Cleaner la base"
+                                           for="module_kzm_database_cleanup"/>
+                                    <div class="text-muted">
+                                        Pouvoir vider les données
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

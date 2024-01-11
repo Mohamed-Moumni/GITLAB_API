@@ -1,0 +1,499 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kzm_key_server
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-23 13:00+0000\n"
+"PO-Revision-Date: 2023-02-23 13:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Active"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.constraint,message:kzm_key_server.constraint_project_database_link_uniq
+msgid "Adresse IP/Url doit être unique!"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+msgid "Arreter Service Odoo"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Backup activé"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+msgid "Bases de données"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__c_user_ids
+msgid "C User"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.synch_data_wizard_view_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_db_res_users__client_employee_id
+msgid "Client Employee"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model,name:kzm_key_server.model_client_hr_employee
+msgid "Client Hr Employee"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_db_res_users__client_res_user_id
+msgid "Client Res User"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model,name:kzm_key_server.model_client_res_users
+msgid "Client Res Users"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_project_database__config_file
+msgid "Config File"
+msgstr "Fichier de configuration"
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_hr_employee__create_uid
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_res_users__create_uid
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__create_uid
+#: model:ir.model.fields,field_description:kzm_key_server.field_installed_modules__create_uid
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard__create_uid
+msgid "Created by"
+msgstr "Crée par"
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_hr_employee__create_date
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_res_users__create_date
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__create_date
+#: model:ir.model.fields,field_description:kzm_key_server.field_installed_modules__create_date
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard__create_date
+msgid "Created on"
+msgstr "Crée le"
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Créer"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.actions.act_window,name:kzm_key_server.action_database_metadata
+msgid "DataBase Metadata"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model,name:kzm_key_server.model_database_metadata
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Database MetaData"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_hr_employee__database_metadata_id
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_res_users__database_metadata_id
+#: model:ir.model.fields,field_description:kzm_key_server.field_db_res_users__database_metadata_id
+#: model:ir.model.fields,field_description:kzm_key_server.field_installed_modules__database_metadata_id
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard__database_metadata_id
+msgid "Database Metadata"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model,name:kzm_key_server.model_db_res_users
+msgid "Database Users"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Date de Création"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__db_creation_date
+msgid "Db Creation Date"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard__db_name
+msgid "Db Name"
+msgstr "Base de donnée"
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_project_database__db_password
+msgid "Db Password"
+msgstr "Mot de passe"
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_project_database__db_record_ids
+msgid "Db Record"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_project_database__db_user
+msgid "Db User"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_installed_modules__dependencies
+msgid "Dependencies"
+msgstr "Dépendances"
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_hr_employee__display_name
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_res_users__display_name
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__display_name
+#: model:ir.model.fields,field_description:kzm_key_server.field_installed_modules__display_name
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__employee_ids
+msgid "Employee"
+msgstr "Employés"
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Employé"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+msgid "Fichier de Conf"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+msgid "Fichier de Configuration"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+msgid "Générer Bases de Données"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields.selection,name:kzm_key_server.selection__project_database__protocole__http
+msgid "HTTP"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields.selection,name:kzm_key_server.selection__project_database__protocole__https
+msgid "HTTPS"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_hr_employee__id
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_res_users__id
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__id
+#: model:ir.model.fields,field_description:kzm_key_server.field_installed_modules__id
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_hr_employee__id_ext
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_res_users__id_ext
+msgid "Id Ext"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Id Externe"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+msgid "Identifiants Postgres"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__installed_module_ids
+msgid "Installed Module"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model,name:kzm_key_server.model_installed_modules
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__installed_modules_ids
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard__installed_modules_ids
+msgid "Installed Modules"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__is_backup_active
+msgid "Is Backup Active"
+msgstr "Backup activé"
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_res_users__is_mobile
+msgid "Is Mobile"
+msgstr "Est un mobile"
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+msgid "Lancer Service Odoo"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_hr_employee____last_update
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_res_users____last_update
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata____last_update
+#: model:ir.model.fields,field_description:kzm_key_server.field_installed_modules____last_update
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_hr_employee__write_uid
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_res_users__write_uid
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__write_uid
+#: model:ir.model.fields,field_description:kzm_key_server.field_installed_modules__write_uid
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_hr_employee__write_date
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_res_users__write_date
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__write_date
+#: model:ir.model.fields,field_description:kzm_key_server.field_installed_modules__write_date
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Licences mobiles"
+msgstr ""
+
+#. module: kzm_key_server
+#. odoo-python
+#: code:addons/kzm_key_server/wizard/synch_data_wizard.py:0
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__link
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard__link
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+#, python-format
+msgid "Link"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Liste App installées"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard__login
+msgid "Login"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.synch_data_wizard_view_form
+msgid "Login Data"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "MAJ"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.synch_data_wizard_view_form
+msgid "Mot de passe"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "NB Utilisateurs"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_hr_employee__name
+#: model:ir.model.fields,field_description:kzm_key_server.field_client_res_users__name
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__name
+#: model:ir.model.fields,field_description:kzm_key_server.field_installed_modules__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__nbr_users
+msgid "Nbr Users"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__odoo_version
+msgid "Odoo Version"
+msgstr ""
+
+#. module: kzm_key_server
+#. odoo-python
+#: code:addons/kzm_key_server/models/db_res_users.py:0
+#, python-format
+msgid ""
+"On ne peut pas avoir deux lignes différentes avec la même clé et deux "
+"employés différents!"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+msgid "Open Contract"
+msgstr "Ouvrir"
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__password
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+msgid "Password"
+msgstr "Mot de passe"
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_installed_modules__path
+msgid "Path"
+msgstr "Chemin"
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__project_database_id
+msgid "Project Database"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__protocole
+#: model:ir.model.fields,field_description:kzm_key_server.field_project_database__protocole
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard__protocole
+msgid "Protocole"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_synch_data_wizard__pwd
+msgid "Pwd"
+msgstr "Mot de passe"
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.synch_data_wizard_view_form
+msgid "Réinitialiser Mot de passe"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__size
+msgid "Size"
+msgstr "Taille"
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Supprimer"
+msgstr ""
+
+#. module: kzm_key_server
+#. odoo-python
+#: code:addons/kzm_key_server/models/database_metadata.py:0
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+#, python-format
+msgid "Sync Data"
+msgstr "Synchroniser"
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Sync Modules Paths"
+msgstr "Synchroniser les chemins"
+
+#. module: kzm_key_server
+#: model:ir.actions.act_window,name:kzm_key_server.action_synch_data_wizard
+msgid "Synch Data"
+msgstr "Synchroniser"
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_db_res_users__synched_with_client
+msgid "Synched with client"
+msgstr "Synchroniser client"
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.synch_data_wizard_view_form
+msgid "Synchroniser"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Taille"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+msgid "Test Odoo Service"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+msgid "Test SSH"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+msgid "Test ping"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__user
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_project_database_form_inherited
+msgid "User"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "User Id"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_db_res_users__user_id_ext
+msgid "User Id Ext"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_database_metadata__users_ids
+msgid "Users"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Utilisateurs"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model.fields,field_description:kzm_key_server.field_installed_modules__version
+msgid "Version"
+msgstr ""
+
+#. module: kzm_key_server
+#: model_terms:ir.ui.view,arch_db:kzm_key_server.view_database_meatadata
+msgid "Version Odoo"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model,name:kzm_key_server.model_project_database
+msgid "project database"
+msgstr ""
+
+#. module: kzm_key_server
+#: model:ir.model,name:kzm_key_server.model_synch_data_wizard
+msgid "synch.data.wizard"
+msgstr ""

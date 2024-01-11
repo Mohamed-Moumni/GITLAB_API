@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="dashboard_template" name="Dashboard">
+        <t t-call="portal.portal_layout">
+            <t t-set="no_breadcrumbs" t-value="1"/>
+            <div class="container mb-64">
+                <br/>
+                <div class="row">
+                    <div class="col-12 md-5">
+                        <a class="btn btn-primary btn-lg" href="/openticket" name="openticket">
+                            <i class="fa fa-ticket"></i>
+                            Ouvrir un Ticket
+                        </a>
+                    </div>
+
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="p-3">
+                            <div class="row">
+                                <button type="button" class="btn"
+                                        style="border-radius: 5px 5px 0px 0px; background-color:#603b5b; color:white; font-weight: bold;">
+                                    Mes Tickets
+                                </button>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <table class="table table-striped table-hover table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>Réf</th>
+                                                    <th>Nom</th>
+                                                    <th>État</th>
+                                                    <th>Dernier message de</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <t t-foreach="tickets" t-as="ticket">
+                                                    <tr>
+                                                        <th>
+                                                            <a t-attf-href="/helpdesk/ticket/#{ticket.id}">
+                                                                <t t-esc="ticket.id"/>
+                                                            </a>
+                                                        </th>
+                                                        <td>
+                                                            <a t-attf-href="/helpdesk/ticket/#{ticket.id}">
+                                                                <t t-esc="ticket.name"/>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="ticket.stage_id.name"/>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="ticket.last_message.name"/>
+                                                        </td>
+
+                                                    </tr>
+
+                                                </t>
+
+
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+                                    <a href="/my/tickets" class="link-primary"
+                                       style="margin-bottom:10px; margin-left:15px;">Voir Plus
+                                    </a>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div class="row">
+                                <button type="button" class="btn"
+                                        style="border-radius: 5px 5px 0px 0px; background-color:#603b5b; color:white; font-weight: bold;">
+                                    Votre compagnie
+                                </button>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+
+                                            <img t-if="contract.customer_id.image_1920"
+                                                 t-att-src="image_data_uri(contract.customer_id.image_1920)"
+                                                 alt="Télécharger le contrat d'entreprise Odoo"
+                                                 style="width:150px;" class="img-responsive"/>
+
+                                        </div>
+                                        <div class="row" style="margin-top:5px;">
+                                            <div class="col-md-7">
+                                                <div class="row">
+                                                    <p class="text-muted mb-4">
+                                                        <t t-esc="contract.customer_id.sudo().street"/>
+                                                        <br/>
+                                                        <t t-esc="contract.customer_id.sudo().street2"/>
+                                                        <br/>
+                                                        <t t-esc="contract.customer_id.sudo().city"/>,
+                                                        <t t-esc="contract.customer_id.sudo().country_id.name"/>
+                                                    </p>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="fa fa-phone fa-fw mr-1"></div>
+                                                            <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                                                            <span>
+                                                                <t t-esc="contract.customer_id.phone"/>
+                                                            </span>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <hr/>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="fa fa-globe fa-fw mr-1"></div>
+                                                            <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                                                            <a t-attf-href="{{contract.customer_id.website}}">
+                                                                <t t-esc="contract.customer_id.website"/>
+                                                            </a>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <hr/>
+
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="fa fa-envelope fa-fw mr-1"></div>
+                                                            <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                                                            <span>
+                                                                <t t-esc="contract.customer_id.email"/>
+                                                            </span>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5" style="border-left: 3px solid #603b5b;">
+                                                <div groups="kzm_project_base.group_ticket_access">
+                                                    <div class="row">
+                                                        <div class="col-sm-8">
+                                                            <p class="mb-0">
+                                                                <i class="fa fa-ticket" style="color:#603b5b;"></i>
+                                                                <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>Tickets
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <h6>
+
+                                                                <a href="/my/tickets" class="link-primary">
+                                                                    <span class="badge rounded-pill text-bg-info">
+                                                                        <i class="fa fa-ticket" aria-label="Paid"
+                                                                           title="Carnet" role="img"></i>
+                                                                        <span class="d-none d-md-inline">
+                                                                            <![CDATA[&nbsp;]]>
+                                                                            <t t-esc="contract.ticket_count"/>
+                                                                        </span>
+                                                                    </span>
+                                                                </a>
+                                                            </h6>
+
+                                                        </div>
+                                                    </div>
+                                                    <hr/>
+                                                </div>
+                                                <div groups="kzm_project_base.group_tasks_access">
+                                                    <div class="row">
+                                                        <div class="col-sm-8">
+                                                            <p class="mb-0">
+                                                                <i class="fa fa-tasks" style="color:#603b5b;"></i>
+                                                                <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>Tâches
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <h6>
+
+                                                                <a href="/tasks" class="link-primary">
+                                                                    <span class="badge rounded-pill text-bg-info">
+                                                                        <i class="fa fa-tasks" aria-label="Paid"
+                                                                           title="Carnet" role="img"></i>
+                                                                        <span class="d-none d-md-inline">
+                                                                            <![CDATA[&nbsp;]]>
+                                                                            <t t-esc="contract.task_count"/>
+                                                                        </span>
+                                                                    </span>
+                                                                </a>
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+                                                    <hr/>
+                                                </div>
+                                                <div groups="kzm_project_base.group_invoice_access">
+                                                    <div class="row">
+                                                        <div class="col-sm-8">
+                                                            <p class="mb-0">
+                                                                <i class="fa fa-info-circle"
+                                                                   style="color:#603b5b;"></i>
+                                                                <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>Factures
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <h6>
+                                                                <a href="/my/invoices" class="link-primary">
+                                                                    <span class="badge rounded-pill text-bg-info">
+                                                                        <i class="fa fa-info-circle"
+                                                                           aria-label="Paid"
+                                                                           title="Factures" role="img"></i>
+                                                                        <span class="d-none d-md-inline">
+                                                                            <![CDATA[&nbsp;]]>
+                                                                            <t t-esc="contract.move_count"/>
+                                                                        </span>
+                                                                    </span>
+                                                                </a>
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+                                                    <hr/>
+                                                </div>
+                                                <div groups="kzm_project_base.group_order_access">
+                                                    <div class="row">
+                                                        <div class="col-sm-8">
+                                                            <p class="mb-0">
+                                                                <i class="fa fa-pencil-square-o"
+                                                                   style="color:#603b5b;"></i>
+                                                                <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>Commandes
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <h6>
+                                                                <a href="/my/orders" class="link-primary">
+                                                                    <span class="badge rounded-pill text-bg-info">
+                                                                        <i class="fa fa-pencil-square-o"
+                                                                           aria-label="Paid"
+                                                                           title="Commandes" role="img"></i>
+                                                                        <span class="d-none d-md-inline">
+                                                                            <![CDATA[&nbsp;]]>
+                                                                            <t t-esc="contract.order_count"/>
+                                                                        </span>
+                                                                    </span>
+                                                                </a>
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="button" class="btn"
+                                            style="border-radius: 5px 5px 0px 0px; background-color:#603b5b; color:white; font-weight: bold;">
+                                        Documents Légaux
+                                    </button>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6" style="font-weight:bold;">
+                                                    Contrat Projet
+                                                </div>
+                                                <div class="col-md-6" align="center">
+                                                    <a href="#"
+                                                       class="external reference">
+                                                        <img src="/kzm_project_base/static/pdf.png"
+                                                             alt="Télécharger le contrat d'entreprise Odoo"
+                                                             style="width:36px;" class="img-responsive"/>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row">
+                                                <div class="col-md-6" style="font-weight:bold;">
+                                                    Contrat TMA
+                                                </div>
+                                                <div class="col-md-6" align="center">
+                                                    <a href="#"
+                                                       class="external reference">
+                                                        <img src="/kzm_project_base/static/pdf.png"
+                                                             alt="Télécharger le contrat d'entreprise Odoo"
+                                                             style="width:36px;" class="img-responsive"/>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row">
+                                                <div class="col-md-6" style="font-weight:bold;">
+                                                    Contrat Licences
+                                                </div>
+                                                <div class="col-md-6" align="center">
+                                                    <a href="#"
+                                                       class="external reference">
+                                                        <img src="/kzm_project_base/static/pdf.png"
+                                                             alt="Télécharger le contrat d'entreprise Odoo"
+                                                             style="width:36px;" class="img-responsive"/>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row">
+                                                <div class="col-md-6" style="font-weight:bold;">
+                                                    Autres
+                                                </div>
+                                                <div class="col-md-6" align="center">
+                                                    <a href="#"
+                                                       class="external reference">
+                                                        <img src="/kzm_project_base/static/pdf.png"
+                                                             alt="Télécharger le contrat d'entreprise Odoo"
+                                                             style="width:36px;" class="img-responsive"/>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button" class="btn"
+                                            style="border-radius: 5px 5px 0px 0px; background-color:#603b5b; color:white; font-weight: bold;">
+                                        Livrables Projet
+                                    </button>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6" style="font-weight:bold;">
+                                                    Avant projet
+                                                </div>
+                                                <div class="col-md-6" align="center">
+                                                    <a href="#"
+                                                       class="external reference">
+                                                        <img src="/kzm_project_base/static/pdf.png"
+                                                             alt="Télécharger le contrat d'entreprise Odoo"
+                                                             style="width:36px;" class="img-responsive"/>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row">
+                                                <div class="col-md-6" style="font-weight:bold;">
+                                                    Projet
+                                                </div>
+                                                <div class="col-md-6" align="center">
+                                                    <a href="#"
+                                                       class="external reference">
+                                                        <img src="/kzm_project_base/static/pdf.png"
+                                                             alt="Télécharger le contrat d'entreprise Odoo"
+                                                             style="width:36px;" class="img-responsive"/>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row">
+                                                <div class="col-md-6" style="font-weight:bold;">
+                                                    Après Projet
+                                                </div>
+                                                <div class="col-md-6" align="center">
+                                                    <a href="#"
+                                                       class="external reference">
+                                                        <img src="/kzm_project_base/static/pdf.png"
+                                                             alt="Télécharger le contrat d'entreprise Odoo"
+                                                             style="width:36px;" class="img-responsive"/>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row">
+                                                <div class="col-md-6" style="font-weight:bold;">
+                                                    Support
+                                                </div>
+                                                <div class="col-md-6" align="center">
+                                                    <a href="#"
+                                                       class="external reference">
+                                                        <img src="/kzm_project_base/static/pdf.png"
+                                                             alt="Télécharger le contrat d'entreprise Odoo"
+                                                             style="width:36px;" class="img-responsive"/>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3">
+                            <div class="row">
+                                <button type="button" class="btn"
+                                        style="border-radius: 5px 5px 0px 0px; background-color:#603b5b; color:white; font-weight: bold;">
+                                    Votre Partenaire
+                                </button>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <p>Logo</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <img t-att-src="image_data_uri(company.logo)"
+                                                     alt="Télécharger le contrat d'entreprise Odoo"
+                                                     style="width:90px;" class="img-responsive"/>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <p>Société</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p class="text-muted">
+                                                    <t t-esc="company.partner_id.sudo().name"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <p>Email</p>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <p class="text-muted">
+                                                    <t t-esc="company.partner_id.sudo().email"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <p>Mobile</p>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <p class="text-muted">
+                                                    <t t-esc="company.partner_id.sudo().phone"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <p>Adresse</p>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <p class="text-muted">
+                                                    <t t-esc="company.partner_id.sudo().street"/>
+                                                    <br/>
+                                                    <t t-esc="company.partner_id.sudo().street2"/>
+                                                    <br/>
+                                                    <t t-esc="company.partner_id.sudo().city"/>,
+                                                    <t t-esc="company.partner_id.sudo().country_id.name"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <button type="button" class="btn"
+                                        style="border-radius: 5px 5px 0px 0px; background-color:#603b5b; color:white; font-weight: bold;">
+                                    Votre Contrat
+                                </button>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Date début</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">
+                                                    <t t-esc="contract.first_date"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Statut</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">
+                                                    <t t-set="status"
+                                                       t-value="dict([('draft','Brouillon'),('actif','Actif'),('resilie','Résilié'), (False,False)])"/>
+                                                    <t t-esc="status[contract.state]"/>
+
+                                                    <!--                                                    <t t-esc="contract.state"/>-->
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <button type="button" class="btn"
+                                        style="border-radius: 5px 5px 0px 0px; background-color:#603b5b; color:white; font-weight: bold;">
+                                    Votre Contact
+                                </button>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Contact</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">
+                                                    <t t-esc="contract.product_owner.partner_id.name"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Email</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">
+                                                    <t t-esc="contract.product_owner.partner_id.email"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Mobile</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">
+                                                    <t t-esc="contract.product_owner.partner_id.mobile"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <p class="mb-0">Fix</p>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <p class="text-muted mb-0">
+                                                    <t t-esc="contract.product_owner.partner_id.phone"/>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </t>
+    </template>
+    <!--    <template id="tickets_followup_kzm" inherit_id="helpdesk.tickets_followup">-->
+    <!--        <xpath expr="//div[@id='card_header']/div/div/h5/div[1]" position="attributes">-->
+    <!--            <attribute name="class">col-6 text-truncate</attribute>-->
+    <!--        </xpath>-->
+    <!--        <xpath expr="//div[@id='card_header']/div/div/h5/div[2]" position="before">-->
+    <!--            <div class="col-3">-->
+    <!--                <a role="button" class="btn btn-primary" t-att-href="'/my/ticket/close/%s/%s' % (ticket.id, ticket.access_token)">Close the ticket</a>-->
+    <!--            </div>-->
+    <!--        </xpath>-->
+    <!--    </template>-->
+</odoo>

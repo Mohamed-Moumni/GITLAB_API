@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="project_ressource_form">
+            <field name="name">Project ressource form</field>
+            <field name="model">project.ressource</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="description"/>
+                                <field name="client_id"/>
+
+                            </group>
+                            <group>
+                                <field name="type"/>
+                                <field name="contract_id"
+                                       domain="['|', ('customer_id', '=', client_id), ('secondary_customer_ids', '=', client_id)]"/>
+                                <field name="cost"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="project_ressource_list">
+            <field name="name">Project ressource list</field>
+            <field name="model">project.ressource</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="type"/>
+                    <field name="cost"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="project_ressource_action_window">
+            <field name="name">Project ressource</field>
+            <field name="res_model">project.ressource</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Ressource" id="project_ressource_base_menu" parent="project_database_root_menu" sequence="2"
+                  action="project_ressource_action_window"/>
+
+
+    </data>
+</odoo>

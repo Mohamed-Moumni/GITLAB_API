@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="res_config_settings_project_view_inherits_ot1">
+            <field name="name">Project</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="project.res_config_settings_view_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='analytic']" position="after">
+                    <h2>Project</h2>
+                    <div class="row mt16 o_settings_container" style="margin-left:20px">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <group>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="subscription_id"/>
+                                        <field name="subscription_id"/>
+
+                                    </div>
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="carnet_id"/>
+                                        <field name="carnet_id"/>
+                                    </div>
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="show_real_charge_portal"/>
+                                        <field name="show_real_charge_portal"/>
+                                    </div>
+                                </div>
+                            </group>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="subscription_services_template" inherit_id="sale_subscription.subscription" name="Subscription">
+            <xpath expr="//h4[@class='mb-1']" position="before">
+                <div class="row">
+                                <div class="col-12 mt-4">
+                                    <h5 class="mb-1">Services</h5>
+                                    <table class="table table-sm table-responsive-lg" id="wc-account-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-left">Service</th>
+                                                <th class="text-left">Type</th>
+                                                <th class="text-left">SLA Average</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody >
+                                            <tr t-foreach="services" t-as="line">
+                                                <td class="text-left"><t t-esc="line.service_id.name"/></td>
+                                                <td class="text-left"><t t-esc="line.type_id.name"/></td>
+                                                <td class="text-left"><t t-esc="line.sla_average_id.name"/></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+        </xpath>
+        </template>
+</odoo>

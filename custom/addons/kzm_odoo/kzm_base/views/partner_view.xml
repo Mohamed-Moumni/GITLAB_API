@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_kzm_partner_form_inherit_base">
+            <field name="name">partner.form.kzm</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='website']" position="before">
+                    <field name="ice" attrs="{'invisible':[('company_type','=', 'person')]}"/>
+                    <field name="patente_code" attrs="{'invisible':[('company_type','=', 'person')]}"/>
+                    <field name="fax" widget="phone"/>
+                    <field name="cin" attrs="{'invisible':[('company_type','=', 'company')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='ref']" position="replace"/>
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="ref" string="RC/Code"/>
+                </xpath>
+
+<!--                <xpath expr="//field[@name='vat']" position="attributes">-->
+<!--                    -->
+<!--                </xpath>-->
+
+            </field>
+        </record>
+    </data>
+</odoo>

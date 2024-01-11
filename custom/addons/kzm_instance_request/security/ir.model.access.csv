@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_kzm_instance_request_user,Access KZM Instance Request User,model_kzm_instance_request,kzm_instance_request.instance_group_user,1,1,1,0
+access_kzm_instance_request_manager,Access KZM Instance Request Manager,model_kzm_instance_request,kzm_instance_request.instance_group_manager,1,1,1,1
+access_odoo_version_user,Access Odoo Version User,model_odoo_version,kzm_instance_request.instance_group_user,1,0,0,0
+access_odoo_version_manager,Access Odoo Version Manager,model_odoo_version,kzm_instance_request.instance_group_manager,1,1,1,1
+access_perimeter_perimeter,Access Perimeter Perimeter,model_perimeter_perimeter,,1,1,1,1
+access_create_instances_wizard,Access Create Instance Wizard,model_create_instances_wizard,,1,1,1,1

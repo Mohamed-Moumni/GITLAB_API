@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<template>
+    <div t-name="GanttView.Row"
+         t-inherit="web_gantt.GanttView.Row"
+         t-inherit-mode="extension"
+         owl="1"
+    >
+        <xpath expr="//t[@t-foreach='slot.pills']//div[3]//t[@t-call='GanttView.PillsConnectors']//div"
+               position="replace">
+            <t t-if="'task_id' in pill and 'description' in pill">
+                <div
+                        t-att-data-id="pill.id"
+                        t-attf-class="o_gantt_pill position-relative #{'_color' in pill ? 'o_gantt_color_' + pill._color : ''}"
+                        t-attf-style="#{widget.options.isGroup ? pill.style : ''}"
+                        t-att-title="pill.task_id[1] +'-'+ pill.description"
+                >
+                    <span
+                            t-if="widget.progressField"
+                            t-attf-class="position-absolute o_gantt_progress"
+                            t-attf-data-progress="#{pill._progress}%;"
+                            t-attf-style="width:#{pill._progress}%;"
+                    >
+                        &amp;nbsp;
+                    </span>
+                    <!-- README: be careful when modifying the DOM inside the pill ; @_onMouseMove is strongly dependant of it -->
+                    <p class="text-truncate position-relative mb-0 o_gantt_pill_title"
+                       t-esc="pill.task_id[1] +'-'+ pill.description"/>
+                </div>
+            </t>
+            <t t-else="">
+                <div
+                        t-att-data-id="pill.id"
+                        t-attf-class="o_gantt_pill position-relative #{!widget.options.isGroup ? pill.decorations.join(' ') : ''}  #{'_color' in pill ? 'o_gantt_color_' + pill._color : ''}"
+                        t-attf-style="#{widget.options.isGroup ? pill.style : ''}"
+                        t-att-title="pill.display_name"
+                >
+                    <span
+                            t-if="widget.progressField"
+                            t-attf-class="position-absolute o_gantt_progress"
+                            t-attf-data-progress="#{pill._progress}%;"
+                            t-attf-style="width:#{pill._progress}%;"
+                    >
+                        &amp;nbsp;
+                    </span>
+                    <!-- README: be careful when modifying the DOM inside the pill ; @_onMouseMove is strongly dependant of it -->
+                    <p class="text-truncate position-relative mb-0 o_gantt_pill_title"
+                       t-esc="pill.label ? pill.label : pill.display_name"/>
+                </div>
+            </t>
+
+        </xpath>
+
+    </div>
+</template>

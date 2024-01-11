@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <menuitem sequence="2" id="server_monitoring" name="Monitoring"
+                  parent="kzm_backup_tracker.kzm_backup_tracker_root"/>
+
+        <menuitem sequence="2" id="server_monitoring_configuration"
+                  name="Monitoring Server"
+                  parent="kzm_backup_tracker.kzm_backup_tracker_config"
+                  action="config_list_action"
+                  groups="kzm_server_monitoring.group_manager"
+        />
+
+        <menuitem sequence="1" id="server_monitoring_monitoring"
+                  name="Monitoring"
+                  parent="server_monitoring"
+                  action="monitoring_list_action"/>
+
+        <menuitem sequence="2" id="server_monitoring_history"
+                  name="History"
+                  parent="server_monitoring"
+                  action="instance_list_action"/>
+    </data>
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_kzm_instance_request">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <div class="oe_structure"/>
+                <h2 class="mt-4">
+                    <span t-field="docs.name"/>
+                </h2>
+                <div class="row mt-4 mb-4" id="informations">
+                    <div class="col-auto col-3 mw-100 mb-2" name="informations_reference">
+                        <strong>IP Address:</strong>
+                        <p class="m-0" t-field="docs.address_ip"/>
+                    </div>
+                    <div class="col-auto col-3 mw-100 mb-2">
+                        <strong>State:</strong>
+                        <p class="m-0" t-field="docs.state"/>
+                    </div>
+                    <div class="col-auto col-3 mw-100 mb-2">
+                        <strong>Limit Date:</strong>
+                        <p class="m-0" t-field="docs.limit_date"/>
+                    </div>
+                    <div class="col-auto col-3 mw-100 mb-2">
+                        <strong>Treat Date:</strong>
+                        <p class="m-0" t-field="docs.treat_date"/>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <strong>Perimeters:</strong>
+                    <ul>
+                        <t t-foreach="docs.perimeters_ids" t-as="perimeter">
+                            <li><span t-field="perimeter.name"/></li>
+                        </t>
+                    </ul>
+                </div>
+                <div t-if="docs.sale_order_id">
+                    <strong>Sale Order:</strong>
+                    <p t-field="docs.sale_order_id.name"/>
+                </div>
+                <div class="text-center mt-4">
+                    <p>Thank you for choosing our services.</p>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

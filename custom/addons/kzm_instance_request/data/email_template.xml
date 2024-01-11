@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="email_template_instance_creation" model="mail.template">
+            <field name="name">Instance Creation Email</field>
+            <field name="email_from">${object.create_uid.email}</field>
+            <field name="subject">Instance Creation</field>
+            <field name="email_to">${object.create_uid.email}</field>
+            <field name="lang">${object.create_uid.lang}</field>
+            <field name="model_id" ref="model_kzm_instance_request" />
+            <field name="auto_delete" eval="True" />
+            <field name="body_html" type="xml">
+                <div> Bonjour, Veuillez bien créer une instance avec comme performances : <br /> -
+                    Name: ${object.name} <br /> - CPU: ${object.cpu} <br /> - RAM: ${object.ram} <br />
+                    - Disk: ${object.disk} <br /> Cordialement </div>
+            </field>
+        </record>
+
+        <record id="email_template_instance_created" model="mail.template">
+            <field name="name">Instance created Email</field>
+            <field name="email_from">${object.create_uid.email}</field>
+            <field name="subject">Instance Created</field>
+            <field name="email_to">${object.create_uid.email}</field>
+            <field name="lang">${object.create_uid.lang}</field>
+            <field name="model_id" ref="model_kzm_instance_request" />
+            <field name="auto_delete" eval="True" />
+            <field name="body_html" type="html">
+               <div> Bonjour, Votre instance <br/>
+                ${object.name} a bien été crée. Elle est accessible sur le lien ${object.address_ip}<br/> Cordialement </div>
+            </field>
+        </record>
+
+    </data>
+</odoo>

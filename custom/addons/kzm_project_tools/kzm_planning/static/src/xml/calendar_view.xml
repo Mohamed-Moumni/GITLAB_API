@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<template>
+    <div t-name="CalendarCommonRenderer.event"
+         t-inherit="web.CalendarCommonRenderer.event"
+         t-inherit-mode="extension"
+         owl="1"
+    >
+        <xpath expr="//div[hasclass('o_event_title')]" position="attributes">
+            <attribute name="t-esc">rawRecord.task_id[1] +'-'+ rawRecord.description</attribute>
+        </xpath>
+    </div>
+
+    <t t-name="CalendarCommonPopover.popover"
+         t-inherit="web.CalendarCommonPopover.popover"
+         t-inherit-mode="extension"
+         owl="1"
+    >
+        <xpath expr="//div[1]//h4//span" position="attributes">
+            <attribute name="t-esc">props.record.rawRecord.task_id[1] +'-'+ props.record.rawRecord.description</attribute>
+        </xpath>
+    </t>
+</template>

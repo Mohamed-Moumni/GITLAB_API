@@ -1,0 +1,506 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* kzm_hr_evaluation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-09 16:34+0000\n"
+"PO-Revision-Date: 2018-10-09 16:34+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: kzm_hr_evaluation
+#: sql_constraint:kzm.hr.plan.evaluation.line.eval:0
+msgid "Another plan line already exists in this plan with the same (axe, plan)!"
+msgstr "Une autre ligne existe déjà dans ce plan avec le même (Axe)!"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.axe_eval_form_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.evaluation_line_eval_form_view
+msgid "Axe"
+msgstr "Axe"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_line_eval_name
+msgid "Axe Eval"
+msgstr "Axe Evaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval_hr_axe_id
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_modele_eval_hr_axe_id
+msgid "Axe Evaluation"
+msgstr "Axe Evaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,name:kzm_hr_evaluation.axe_eval_action
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.axe_eval_tree_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.evaluation_line_eval_tree_view
+msgid "Axes"
+msgstr "Axes"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.bareme_eval_tree_view
+msgid "Bareme"
+msgstr "Barème"
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,name:kzm_hr_evaluation.bareme_eval_action
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_critere_eval_hr_bareme_ids
+#: model:ir.ui.menu,name:kzm_hr_evaluation.menu_bareme_eval
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.bareme_eval_form_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.critere_eval_form_view
+msgid "Baremes"
+msgstr "Barèmes"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_classe
+msgid "Classification"
+msgstr "Classification"
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,help:kzm_hr_evaluation.critere_eval_action
+msgid "Click to add a Critere."
+msgstr "Cliquer pour ajouter un Critère."
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,help:kzm_hr_evaluation.modele_eval_action
+msgid "Click to add a Model."
+msgstr "Cliquer pour ajouter un Modèle."
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,help:kzm_hr_evaluation.bareme_eval_action
+msgid "Click to add a bareme."
+msgstr "Cliquer pour ajouter un barème."
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,help:kzm_hr_evaluation.evaluation_line_eval_action
+msgid "Click to add an Evaluation Line."
+msgstr "Cliquer pour ajouter une ligne d'évaluation."
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,help:kzm_hr_evaluation.plan_evaluation_line_eval_action
+msgid "Click to add an Evaluation Plan Line."
+msgstr "Cliquer pour ajouter une ligne du plan d'évaluation."
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,help:kzm_hr_evaluation.plan_evaluation_eval_action
+msgid "Click to add an Evaluation Plan."
+msgstr "Cliquer pour ajouter un plan d'évaluation."
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,help:kzm_hr_evaluation.evaluation_eval_action
+msgid "Click to add an Evaluation."
+msgstr "Cliquer pour ajouter une évaluation."
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,help:kzm_hr_evaluation.axe_eval_action
+msgid "Click to add an axe."
+msgstr "Cliquer pour ajouter un axe."
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_axe_eval_code
+msgid "Code"
+msgstr "Code"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_critere_eval_coef
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_line_eval_coef
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_line_eval_coef
+msgid "Coef"
+msgstr "Coef"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_line_eval_commentaire
+msgid "Commentaire"
+msgstr "Commentaire"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_axe_eval_create_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_bareme_eval_create_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_critere_eval_create_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval_create_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_line_eval_create_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_modele_eval_create_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_create_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_line_eval_create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_axe_eval_create_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_bareme_eval_create_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_critere_eval_create_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval_create_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_line_eval_create_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_modele_eval_create_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_create_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_line_eval_create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.critere_eval_form_view
+msgid "Critere"
+msgstr "Critère"
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,name:kzm_hr_evaluation.critere_eval_action
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_axe_eval_critere_eval_ids
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_modele_eval_hr_critere_ids
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.critere_eval_tree_view
+msgid "Criteres"
+msgstr "Critères"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval_date_eval
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_date_plan
+msgid "Date"
+msgstr "Date "
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_date_end
+msgid "Date end"
+msgstr "Date fin"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_date_start
+msgid "Date start"
+msgstr "Date debut"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_critere_eval_description
+msgid "Description"
+msgstr "Description"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_critere_eval_name
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval_name
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_modele_eval_name
+msgid "Designation"
+msgstr "Désignation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_axe_eval_display_name
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_bareme_eval_display_name
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_critere_eval_display_name
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval_display_name
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_line_eval_display_name
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_modele_eval_display_name
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_display_name
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_line_eval_display_name
+msgid "Display Name"
+msgstr "Nom à afficher"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_line_eval_hr_evaluation_id
+#: model:ir.ui.menu,name:kzm_hr_evaluation.menu_evaluation_eval
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.evaluation_eval_form_view
+msgid "Evaluation"
+msgstr "Évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_critere_eval_hr_axe_id
+msgid "Evaluation Axe"
+msgstr "Axe d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.menu,name:kzm_hr_evaluation.menu_axe_eval
+msgid "Evaluation Axes"
+msgstr "Axes d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.menu,name:kzm_hr_evaluation.menu_evaluation_line_eval
+msgid "Evaluation Lines"
+msgstr "Lignes d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval_hr_modele_id
+msgid "Evaluation Model"
+msgstr "Modèle d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_line_eval_hr_plan_evaluation_id
+msgid "Evaluation Plan"
+msgstr "Plan d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_hr_evaluation_plan_line_ids
+msgid "Evaluation Plan lines"
+msgstr "Lignes de plan d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,name:kzm_hr_evaluation.plan_evaluation_eval_action
+msgid "Evaluation Plans"
+msgstr "Plans d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.menu,name:kzm_hr_evaluation.menu_config_eval
+msgid "Evaluation composants"
+msgstr "Composantes d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.menu,name:kzm_hr_evaluation.menu_critere_eval
+msgid "Evaluation criteria"
+msgstr "Critère d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,name:kzm_hr_evaluation.evaluation_line_eval_action
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval_hr_evaluation_line_ids
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.evaluation_eval_form_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.plan_evaluation_eval_form_view
+msgid "Evaluation lines"
+msgstr "Lignes d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_axe_eval_modele_eval_ids
+#: model:ir.ui.menu,name:kzm_hr_evaluation.menu_modele_eval
+msgid "Evaluation models"
+msgstr "Modèles d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.plan_evaluation_eval_tree_view
+msgid "Evaluation plans"
+msgstr "Plans d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,name:kzm_hr_evaluation.evaluation_eval_action
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.evaluation_eval_tree_view
+msgid "Evaluations"
+msgstr "Évaluations"
+
+#. module: kzm_hr_evaluation
+#: model:ir.module.category,name:kzm_hr_evaluation.hr_eval_catgory
+msgid "HR Evaluation"
+msgstr "Évaluation RH"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.menu,name:kzm_hr_evaluation.menu_hr_eval
+msgid "HR Evaluation "
+msgstr "Évaluation RH"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_axe_eval_id
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_bareme_eval_id
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_critere_eval_id
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval_id
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_line_eval_id
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_modele_eval_id
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_id
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_line_eval_id
+msgid "ID"
+msgstr "ID"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_axe_eval___last_update
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_bareme_eval___last_update
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_critere_eval___last_update
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval___last_update
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_line_eval___last_update
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_modele_eval___last_update
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval___last_update
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_line_eval___last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_axe_eval_write_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_bareme_eval_write_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_critere_eval_write_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval_write_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_line_eval_write_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_modele_eval_write_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_write_uid
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_line_eval_write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_axe_eval_write_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_bareme_eval_write_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_critere_eval_write_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval_write_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_line_eval_write_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_modele_eval_write_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_write_date
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_line_eval_write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: kzm_hr_evaluation
+#: model:ir.module.category,description:kzm_hr_evaluation.hr_eval_catgory
+msgid "Manage HR Evaluation"
+msgstr "Géréer évaluation RH"
+
+#. module: kzm_hr_evaluation
+#: model:res.groups,name:kzm_hr_evaluation.group_hr_eval_manager
+msgid "Manager"
+msgstr "Gestionnaire"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval_mean_note
+msgid "Mean note"
+msgstr "Note moyenne"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.modele_eval_form_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.plan_evaluation_eval_form_view
+msgid "Modele"
+msgstr "Modèle"
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,name:kzm_hr_evaluation.modele_eval_action
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.modele_eval_tree_view
+msgid "Modeles"
+msgstr "Modèles"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_axe_eval_name
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_bareme_eval_name
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_line_eval_name
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_name
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.axe_eval_search_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.bareme_eval_search_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.critere_eval_search_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.evaluation_eval_search_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.evaluation_line_eval_search_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.modele_eval_search_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.plan_evaluation_eval_search_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.plan_evaluation_line_eval_search_view
+msgid "Name"
+msgstr "Nom"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_bareme_eval_note
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_line_eval_note
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_note
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_line_eval_note
+msgid "Note"
+msgstr "Note"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_line_eval_computed_note
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_line_eval_computed_note
+msgid "Note * Coef"
+msgstr "Note * Coef"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_period_str
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.plan_evaluation_eval_form_view
+msgid "Period"
+msgstr "Période"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.menu,name:kzm_hr_evaluation.menu_plan_evaluation_eval
+msgid "Plan Evaluation"
+msgstr "Plan d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.plan_evaluation_line_eval_form_view
+msgid "Plan Evaluation Line"
+msgstr "Ligne de plan d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.menu,name:kzm_hr_evaluation.menu_plan_evaluation_line_eval
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.plan_evaluation_line_eval_tree_view
+msgid "Plan Evaluation Lines"
+msgstr "Lignes de plan d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.actions.act_window,name:kzm_hr_evaluation.plan_evaluation_line_eval_action
+msgid "Plan Evaluation lines"
+msgstr "Lignes de plan d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.plan_evaluation_eval_form_view
+msgid "Plan lines"
+msgstr "Lignes de plan"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_evaluation_eval_employe_id
+#: model:ir.model.fields,field_description:kzm_hr_evaluation.field_kzm_hr_plan_evaluation_eval_employe_id
+msgid "Salary"
+msgstr "Salarié"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.axe_eval_search_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.evaluation_line_eval_search_view
+msgid "Search Axe"
+msgstr "Recharche axe"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.bareme_eval_search_view
+msgid "Search Bareme"
+msgstr "Recherche Barème"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.critere_eval_search_view
+msgid "Search Critere"
+msgstr "Recherche Critère"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.evaluation_eval_search_view
+msgid "Search Evaluation"
+msgstr "Recherche Évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.modele_eval_search_view
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.plan_evaluation_eval_search_view
+msgid "Search Modele"
+msgstr "Recherche Modèle"
+
+#. module: kzm_hr_evaluation
+#: model:ir.ui.view,arch_db:kzm_hr_evaluation.plan_evaluation_line_eval_search_view
+msgid "Search Plan Evaluation Line"
+msgstr "Recherche Ligne du plan d'évaluation"
+
+#. module: kzm_hr_evaluation
+#: model:res.groups,name:kzm_hr_evaluation.group_hr_eval_user
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model,name:kzm_hr_evaluation.model_kzm_hr_axe_eval
+msgid "kzm.hr.axe.eval"
+msgstr "kzm.hr.axe.eval"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model,name:kzm_hr_evaluation.model_kzm_hr_bareme_eval
+msgid "kzm.hr.bareme.eval"
+msgstr "kzm.hr.bareme.eval"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model,name:kzm_hr_evaluation.model_kzm_hr_critere_eval
+msgid "kzm.hr.critere.eval"
+msgstr "kzm.hr.critere.eval"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model,name:kzm_hr_evaluation.model_kzm_hr_evaluation_eval
+msgid "kzm.hr.evaluation.eval"
+msgstr "kzm.hr.evaluation.eval"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model,name:kzm_hr_evaluation.model_kzm_hr_evaluation_line_eval
+msgid "kzm.hr.evaluation.line.eval"
+msgstr "kzm.hr.evaluation.line.eval"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model,name:kzm_hr_evaluation.model_kzm_hr_modele_eval
+msgid "kzm.hr.modele.eval"
+msgstr "kzm.hr.modele.eval"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model,name:kzm_hr_evaluation.model_kzm_hr_plan_evaluation_eval
+msgid "kzm.hr.plan.evaluation.eval"
+msgstr "kzm.hr.plan.evaluation.eval"
+
+#. module: kzm_hr_evaluation
+#: model:ir.model,name:kzm_hr_evaluation.model_kzm_hr_plan_evaluation_line_eval
+msgid "kzm.hr.plan.evaluation.line.eval"
+msgstr "kzm.hr.plan.evaluation.line.eval"
+

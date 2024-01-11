@@ -1,0 +1,262 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kzm_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19 10:01+0000\n"
+"PO-Revision-Date: 2019-11-19 11:03+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fr\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#. module: kzm_base
+#: model_terms:ir.ui.view,arch_db:kzm_base.kzm_footer
+msgid "&amp;bull;"
+msgstr ""
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_partner_bank__acc_number
+msgid "Account Number"
+msgstr "Numéro de compte"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_company__activity
+#: model:ir.model.fields,help:kzm_base.field_res_company__activity
+msgid "Activity"
+msgstr ""
+
+#. module: kzm_base
+#: model:ir.model,name:kzm_base.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Comptes bancaires"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_company__cimr
+#: model:ir.model.fields,help:kzm_base.field_res_company__cimr
+msgid "CIMR"
+msgstr ""
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_company__cnss
+#: model:ir.model.fields,help:kzm_base.field_res_company__cnss
+msgid "CNSS"
+msgstr ""
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_company__capital
+msgid "Capital"
+msgstr ""
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_l10n_ma_commune__code
+#: model:ir.model.fields,field_description:kzm_base.field_res_company_forme_juridique__code
+msgid "Code"
+msgstr ""
+
+#. module: kzm_base
+#: model:ir.actions.act_window,name:kzm_base.act_open_l10n_ma_commune_view
+#: model:ir.model,name:kzm_base.model_l10n_ma_commune
+#: model:ir.model.fields,field_description:kzm_base.field_res_company__commune_id
+#: model_terms:ir.ui.view,arch_db:kzm_base.view_l10n_ma_commune_form
+#: model_terms:ir.ui.view,arch_db:kzm_base.view_l10n_ma_commune_search
+#: model_terms:ir.ui.view,arch_db:kzm_base.view_l10n_ma_commune_tree
+msgid "Commune"
+msgstr ""
+
+#. module: kzm_base
+#: model:ir.model,name:kzm_base.model_res_company
+msgid "Company"
+msgstr "Scoiété"
+
+#. module: kzm_base
+#: model:ir.model,name:kzm_base.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_l10n_ma_commune__create_uid
+#: model:ir.model.fields,field_description:kzm_base.field_res_company_forme_juridique__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_l10n_ma_commune__create_date
+#: model:ir.model.fields,field_description:kzm_base.field_res_company_forme_juridique__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: kzm_base
+#: model:ir.model.fields.selection,name:kzm_base.selection__res_company__based_on__invoices
+msgid "Debit"
+msgstr "Débit"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_l10n_ma_commune__display_name
+#: model:ir.model.fields,field_description:kzm_base.field_res_company_forme_juridique__display_name
+msgid "Display Name"
+msgstr "Nom"
+
+#. module: kzm_base
+#: model_terms:ir.ui.view,arch_db:kzm_base.kzm_footer
+msgid "Email:"
+msgstr "Email:"
+
+#. module: kzm_base
+#: model:ir.model.fields.selection,name:kzm_base.selection__res_company__based_on__payments
+msgid "Encaissement"
+msgstr "Encaissement"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_company__fax
+#: model:ir.model.fields,field_description:kzm_base.field_res_partner__fax
+#: model:ir.model.fields,field_description:kzm_base.field_res_users__fax
+msgid "Fax"
+msgstr "Fax"
+
+#. module: kzm_base
+#: model_terms:ir.ui.view,arch_db:kzm_base.kzm_footer
+msgid "Fax:"
+msgstr "Fax:"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_company__forme_juridique_id
+msgid "Forme juridique"
+msgstr "Forme juridique"
+
+#. module: kzm_base
+#: model:ir.model,name:kzm_base.model_res_company_forme_juridique
+msgid "Formes juridiques"
+msgstr "Formes juridiques"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_partner_bank__iban
+msgid "IBAN"
+msgstr "IBAN"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_company__ice
+#: model:ir.model.fields,field_description:kzm_base.field_res_partner__ice
+#: model:ir.model.fields,field_description:kzm_base.field_res_users__ice
+msgid "ICE"
+msgstr "ICE"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_l10n_ma_commune__id
+#: model:ir.model.fields,field_description:kzm_base.field_res_company_forme_juridique__id
+msgid "ID"
+msgstr "ID"
+
+#. module: kzm_base
+#: model_terms:ir.ui.view,arch_db:kzm_base.view_res_company_kzm_base_inherit_form
+msgid "Identifiant Fiscal"
+msgstr "Identifiant Fiscal"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_company__identifiant_tp
+msgid "Identifiant TP"
+msgstr "Identifiant TP"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_company__vat
+msgid "Identifiant fiscal"
+msgstr "Identifiant fiscal"
+
+#. module: kzm_base
+#: code:addons/kzm_base/controllers/tools.py:0
+#, python-format
+msgid "La date %d doit être supérieur à %s"
+msgstr "La date %d doit être supérieur à %s"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_l10n_ma_commune____last_update
+#: model:ir.model.fields,field_description:kzm_base.field_res_company_forme_juridique____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_l10n_ma_commune__write_uid
+#: model:ir.model.fields,field_description:kzm_base.field_res_company_forme_juridique__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_l10n_ma_commune__write_date
+#: model:ir.model.fields,field_description:kzm_base.field_res_company_forme_juridique__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: kzm_base
+#: model:ir.model.fields.selection,name:kzm_base.selection__res_company__declaration_type__m
+msgid "Mensuelle"
+msgstr ""
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_l10n_ma_commune__name
+#: model:ir.model.fields,field_description:kzm_base.field_res_company_forme_juridique__name
+msgid "Nom"
+msgstr ""
+
+#. module: kzm_base
+#: model_terms:ir.ui.view,arch_db:kzm_base.kzm_footer
+#: model_terms:ir.ui.view,arch_db:kzm_base.kzm_page
+msgid "Page:"
+msgstr "Page:"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_company__patente
+#: model:ir.model.fields,help:kzm_base.field_res_company__patente
+msgid "Patente"
+msgstr ""
+
+#. module: kzm_base
+#: model_terms:ir.ui.view,arch_db:kzm_base.kzm_footer
+msgid "Phone:"
+msgstr "Téléphone :"
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_company__based_on
+msgid "Regime"
+msgstr "Régime"
+
+#. module: kzm_base
+#: model_terms:ir.ui.view,arch_db:kzm_base.view_res_company_kzm_base_inherit_form
+msgid "Registre de commerce"
+msgstr ""
+
+#. module: kzm_base
+#: model:ir.model.fields,help:kzm_base.field_res_company__vat
+msgid ""
+"The Tax Identification Number. Complete it if the contact is subjected to "
+"government taxes. Used in some legal statements."
+msgstr ""
+"Le numéro d'identification fiscale. Complétez-le si le contact est soumis "
+"aux taxes gouvernementales. Utilisé dans certaines déclarations juridiques."
+
+#. module: kzm_base
+#: code:addons/kzm_base/models/res_bank.py:0
+#, python-format
+msgid "The length sould be 24 number not %s"
+msgstr "La longueur devrait être 24 nombre et non %s"
+
+#. module: kzm_base
+#: model:ir.model.fields.selection,name:kzm_base.selection__res_company__declaration_type__t
+msgid "Trimestrielle"
+msgstr ""
+
+#. module: kzm_base
+#: model:ir.model.fields,field_description:kzm_base.field_res_company__declaration_type
+msgid "Type de la declaration"
+msgstr ""
+
+#. module: kzm_base
+#: model_terms:ir.ui.view,arch_db:kzm_base.kzm_footer
+msgid "Website:"
+msgstr "Siteweb:"

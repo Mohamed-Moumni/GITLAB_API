@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record id="odoo_version_action" model="ir.actions.act_window">
+            <field name="name">Odoo Version</field>
+            <field name="res_model">odoo.version</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="odoo_version_list_view"/>
+        </record>
+
+        <menuitem id="odoo_version_menu" name="Versions" action="odoo_version_action" parent="kzm_instance_request.kzm_instance_configuration_menu"/>
+    </data>
+</odoo>

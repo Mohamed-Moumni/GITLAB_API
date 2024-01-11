@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="0">
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="Forum Assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/kzm_support/static/src/js/website_support.js"/>
+        </xpath>
+    </template>
+
+    <template id="portal_helpdesk_ticket" inherit_id="helpdesk.portal_helpdesk_ticket">
+        <xpath expr="//t[@t-call='portal.portal_searchbar']" position="before">
+            <div class="row mb16">
+                <div class="col-sm-3" id="right-column">
+                    <t t-if="team">
+                        <t t-if="team.use_website_helpdesk_form">
+                            <div class="btn-group btn-block mb16" style="margin-top: 2em">
+                                <a id="submit-ticket" t-attf-href="/helpdesk/#{team.id}/submit">
+                                 <button t-attf-class="btn btn-primary btn-lg #{'col-sm-10' if multi_type else 'col-sm-12'}">Submit an Issue</button>
+                                </a>
+                            </div>
+                        </t>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//t[@t-if='tickets']//th[last()]" position="before">
+            <th>Contract state</th>
+            <th>Ticket Type</th>
+            <th>Charge</th>
+
+        </xpath>
+        <xpath expr="////t[@t-if='tickets']//td[last()]" position="before">
+            <t t-if="ticket.contract_state == 'under'">
+                <td><span t-field="ticket.contract_state" class="pull-right label label-success"/></td>
+            </t>
+            <t t-if="ticket.contract_state == 'out'">
+                <td><span t-field="ticket.contract_state" class="pull-right label label-danger"/></td>
+            </t>
+            <t t-if="ticket.contract_state == false">
+                <td></td>
+            </t>
+            <td><span t-field="ticket.ticket_type_id.name"/></td>
+            <td><span t-field="ticket.estimated_charge" widget="float_time"/></td>
+        </xpath>
+    </template>
+    <template id="tickets_followup" inherit_id="helpdesk.tickets_followup">
+        <xpath expr="//t[@t-set='card_body']//div[3]" position="after">
+            <div class="row">
+                <strong class="col-md-2">Ticket Type</strong>
+                <div class="col-md-10" t-field="ticket.ticket_type_id.name"/>
+            </div>
+            <div class="row">
+                <strong class="col-md-2">Charge</strong>
+                <div class="col-md-10" t-field="ticket.estimated_charge" widget="float_time"/>
+            </div>
+        </xpath>
+        <xpath expr="//span[hasclass('badge-info')]" position="before">
+            <t t-if="ticket.contract_state == 'under'">
+                <span t-field="ticket.contract_state" class="pull-right label label-success"/>
+            </t>
+            <t t-if="ticket.contract_state == 'out'">
+                <span t-field="ticket.contract_state" class="pull-right label label-danger"/>
+            </t>
+        </xpath>
+    </template>
+    <template id="ticket_submit" name="Helpdesk: Submit a Ticket" inherit_id="website_helpdesk_form.ticket_submit">
+        <xpath expr="//div[@class='form-group row form-field o_website_form_required'][2]" position="after">
+            <div class="form-group row form-field o_website_form_required">
+                <div class="col-lg-3 col-md-4 text-right">
+                    <label class="control-label" for="name">Type</label>
+                </div>
+                <div class="col-lg-7 col-md-8">
+                    <select class="form-control o_website_form_input" name="ticket_type_id">
+                        <t t-foreach="default_values.get('type', '')" t-as="t">
+                          <option t-attf-value="#{t.id}"><t t-esc="t.name"/></option>
+                        </t>
+                    </select>
+                </div>
+            </div>
+        </xpath>
+        <!--xpath expr="//div[@class='form-group row form-field o_website_form_required'][3]" position="after">
+            <div id="fieldList">
+                <div class="form-group form-field o_website_form_custom">
+                  <div class="col-md-3 col-sm-4 text-right">
+                    <label class="control-label" for="Resume">Attached files</label>
+                  </div>
+                  <div class="col-md-7 col-sm-8">
+                    <input type="file" class="form-control o_website_form_input" name="File"/>
+                    <a id="addMore">Add more fields</a>
+                  </div>
+                </div>
+            </div>
+        </xpath-->
+    </template>
+</data>
+</odoo>

@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <!--project.lot.line-->
+        <record id="line_lot_tree_view" model="ir.ui.view">
+            <field name="name">lot.line.tree</field>
+            <field name="model">project.lot.line</field>
+            <field name="arch" type="xml">
+                <tree string="Lot lines">
+                    <field name="name"/>
+                    <field name="estim_charges" widget="float_time"/>
+                    <field name="estim_charges_dy"/>
+                    <field name="lot_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="line_lot_from_view" model="ir.ui.view">
+            <field name="name">lot.line.form</field>
+            <field name="model">project.lot.line</field>
+            <field name="arch" type="xml">
+                <form string="Lot lines">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="estim_charges" widget="float_time"/>
+                            </group>
+                            <group>
+                                <field name="lot_id"/>
+                                <field name="estim_charges_dy"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="lot_line_search_view" model="ir.ui.view">
+            <field name="name">lot.line.search</field>
+            <field name="model">project.lot.line</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Lot line">
+                    <field name="name" string="Name"/>
+                    <field name="project_id" string="Project"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="lot_line_action" model="ir.actions.act_window">
+            <field name="name">Lot lines</field>
+            <field name="res_model">project.lot.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="lot_line_search_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a project lot Line.
+                </p>
+            </field>
+        </record>
+
+
+        <!--project.template.phase-->
+        <record id="template_phase_tree_view" model="ir.ui.view">
+            <field name="name">template.phase.tree</field>
+            <field name="model">project.template.phase</field>
+            <field name="arch" type="xml">
+                <tree string="Phase templates">
+                    <field name="name"/>
+                    <field name="sequence"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="template_phase_from_view" model="ir.ui.view">
+            <field name="name">template.phase.form</field>
+            <field name="model">project.template.phase</field>
+            <field name="arch" type="xml">
+                <form string="Phase Templates">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="sequence"/>
+                                <field name="auto_load"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="template_phase_search_view" model="ir.ui.view">
+            <field name="name">template.phase.search</field>
+            <field name="model">project.template.phase</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Template phase">
+                    <field name="name" string="Name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="template_phase_action" model="ir.actions.act_window">
+            <field name="name">Phase templates</field>
+            <field name="res_model">project.template.phase</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="template_phase_search_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a project template phase.
+                </p>
+            </field>
+        </record>
+
+        <!-- project.lot-->
+        <record id="lot_tree_view" model="ir.ui.view">
+            <field name="name">lot.tree</field>
+            <field name="model">project.lot</field>
+            <field name="arch" type="xml">
+                <tree string="Lots">
+                    <field name="name"/>
+                    <!--field name="template_lot_id"/-->
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="planned_charges" widget="float_time" sum="F1"/>
+                    <field name="estimated_charges" widget="float_time" sum="F2"/>
+                    <field name="realised_charges" widget="float_time" sum="F3"/>
+                    <field name="advancement"/>
+                    <field name="resp_tech_id"/>
+                    <field name="resp_fonc_id"/>
+                    <field name="project_id"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="lot_from_view" model="ir.ui.view">
+            <field name="name">lot.form</field>
+            <field name="model">project.lot</field>
+            <field name="arch" type="xml">
+                <form string="Lot lines">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <!--field name="template_lot_id"/-->
+                                <field name="date_start"/>
+                                <field name="resp_tech_id"/>
+                                <field name="planned_charges" widget="float_time"/>
+                                <field name="realised_charges" widget="float_time"/>
+                            </group>
+                            <group>
+                                <field name="project_id"/>
+                                <field name="date_end"/>
+                                <field name="resp_fonc_id"/>
+                                <field name="estimated_charges" widget="float_time"/>
+                                <field name="advancement" widget="progressbar"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <field name="id" invisible="1"/>
+                            <page string="Lot lines">
+                                <field name="lot_eval_line_ids">
+                                    <tree editable="top">
+                                        <field name="name"/>
+                                        <field name="estim_charges" widget="float_time" sum="F12"/>
+                                        <field name="estim_charges_dy" sum="F13"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Tasks">
+                                <field name="task_ids" domain="[('project_id','=',project_id)]"
+                                       context="{'default_project_id': project_id, 'default_lot_id':id}">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="phase_id"/>
+                                        <field name="stage_id"/>
+                                        <field name="planned_hours" widget="float_time" sum="F33"/>
+                                        <field name="effective_hours" widget="float_time" sum="F22"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="lot_search_view" model="ir.ui.view">
+            <field name="name">lot.search</field>
+            <field name="model">project.lot</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Lot line">
+                    <field name="name" string="Name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="lot_action" model="ir.actions.act_window">
+            <field name="name">Lot</field>
+            <field name="res_model">project.lot</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="lot_search_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a project lot.
+                </p>
+            </field>
+        </record>
+
+        <record id="lot_action_kanban" model="ir.actions.act_window">
+            <field name="name">Lots</field>
+            <field name="res_model">project.lot</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="lot_search_view"/>
+            <field name="context">{'default_project_id': active_id, 'search_project_id':active_id}</field>
+            <field name="domain">[('project_id','=', active_id)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a project lot.
+                </p>
+            </field>
+        </record>
+
+        <!-- project.phase -->
+        <record id="phase_tree_view" model="ir.ui.view">
+            <field name="name">phase.tree</field>
+            <field name="model">project.phase</field>
+            <field name="arch" type="xml">
+                <tree string="Phases" decoration-danger="is_late == True" decoration-bf="overtaking == True">
+                    <field name="name" invisible="1"/>
+                    <field name="template_phase_id"/>
+                    <field name="date_start" string="Date début réelle"/>
+                    <field name="date_end" string="Date fin réelle"/>
+                    <field name="date_start_scheduled" string="Date début planifiée"/>
+                    <field name="date_end_scheduled" string="Date fin planifiée"/>
+                    <field name="charge_qty"/>
+                    <field name="charge_qty"/>
+                    <field name="estimated_charges" widget="float_time"/>
+                    <field name="realised_charges" widget="float_time"/>
+                    <field name="time_delay" string="Durée retard"/>
+                    <field name="advancement"/>
+                    <field name="project_id"/>
+                    <field name="is_late" invisible="1"/>
+                    <field name="overtaking" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="phase_from_view" model="ir.ui.view">
+            <field name="name">phase.form</field>
+            <field name="model">project.phase</field>
+            <field name="arch" type="xml">
+                <form string="Lot lines">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" invisible="1"/>
+                                <field name="template_phase_id"/>
+                                <field name="date_start" string="Date début réelle"/>
+                                <field name="date_start_scheduled" string="Date début planifiée"/>
+                                <field name="realised_charges" widget="float_time"/>
+                                <field name="estimated_charges" widget="float_time"/>
+                            </group>
+                            <group>
+                                <field name="project_id"/>
+                                <field name="date_end" string="Date fin réelle"/>
+                                <field name="date_end_scheduled" string="Date fin planifiée"/>
+                                <field name="charge_qty"/>
+                                <field name="advancement" widget="progressbar"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Tasks">
+                                <field name="task_ids" widget="many2many"
+                                       domain="[('project_id','=',project_id)]"
+                                       context="{'default_project_id': project_id}"
+                                       options="{'no_create':1, 'no_create_edit':True}">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="user_id"/>
+                                        <field name="phase_id"/>
+                                        <field name="planned_hours" widget="float_time"/>
+                                        <field name="effective_hours" widget="float_time"/>
+                                        <field name="stage_id"/>
+                                        <field name="progress" widget="progressbar"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="phase_search_view" model="ir.ui.view">
+            <field name="name">phase.search</field>
+            <field name="model">project.phase</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Phase">
+                    <field name="name" string="Name"/>
+                    <field name="project_id" string="Project"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="phase_action" model="ir.actions.act_window">
+            <field name="name">Phases</field>
+            <field name="res_model">project.phase</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="phase_search_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a project phase.
+                </p>
+            </field>
+        </record>
+        
+        <record id="stage_action" model="ir.actions.act_window">
+            <field name="name">Etape</field>
+            <field name="res_model">project.stage</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a project phase.
+                </p>
+            </field>
+        </record>
+
+        <record id="phase_action_kanban" model="ir.actions.act_window">
+            <field name="name">Phases</field>
+            <field name="res_model">project.phase</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="phase_search_view"/>
+            <field name="context">{'default_project_id': active_id, 'search_project_id': active_id}</field>
+            <field name="domain">[('project_id','=', active_id)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a project phase.
+                </p>
+            </field>
+        </record>
+
+        <!-- project.task -->
+        <record model="ir.ui.view" id="eval_view_task_form2_inherited">
+            <field name="name">project.task.form.kzm.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="lot_id" domain="[('project_id','=',project_id)]"/>
+                </xpath>
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="phase_id" domain="[('project_id','=',project_id)]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- project.project -->
+        <record model="ir.ui.view" id="eval_edit_project_form_inherited">
+            <field name="name">project.project.form.kzm.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Project costing" name="chiffProject" groups="project.group_project_manager">
+                        <field name="id" invisible="1"/>
+                        <group>
+                            <group>
+                                <label string="Charges estimées" for="esch_fields"  class="o_form_label"/>
+                                <div class="o_row" name="esch_fields">
+                                    <field name="estimated_charges" widget="float_time"/>
+                                    Heures --
+                                    <field name="estimated_charges_dy"/>
+                                    Jours
+                                </div>
+                                <label string="Charges plannifiées" for="planned_charges" class="o_form_label"/>
+                                <div class="o_row" name="plch_fields">
+                                    <field name="planned_charges" widget="float_time"/>
+                                    Heures --
+                                    <field name="planned_charges_dy"/>
+                                    Jours
+                                </div>
+                                <label string="Charges réalisée" for="realised_charges" class="o_form_label"/>
+                                <div class="o_row" name="rch_fields">
+                                    <field name="realised_charges" widget="float_time"/>
+                                    Heures --
+                                    <field name="realised_charges_dy"/>
+                                    Jours
+                                </div>
+                                <field name="ordered_amount" invisible="0" readonly="False"/>
+                                <field name="invoiced_amount" invisible="1"/>
+                            </group>
+                            <group>
+                                <label string="Tarif moyen" for="hours_budgets" class="o_form_label"/>
+                                <div class="o_row" name="budgets_fields">
+                                    <field name="hours_budgets"/>
+                                    Horaires --
+                                    <field name="day_budgets"/>
+                                    Journalier
+                                </div>
+                                <field name="advancement" widget="progressbar"/>
+                                <field name="advancement_inv" widget="progressbar"/>
+                            </group>
+                            <field name="line_ids" invisible="1"/>
+                        </group>
+
+                        <h2 class="o_horizontal_separator">Sale orders</h2>
+
+                        <field name="sale_order_ids" widget="many2many"
+                               domain="[('partner_id', '=', partner_id)]"
+                               context="{'default_our_project_id': id, 'default_partner_id': partner_id}">
+                            <tree>
+                                <field name="name"/>
+                                <field name="confirmation_date"/>
+                                <field name="partner_id"/>
+                                <field name="user_id"/>
+                                <field name="amount_untaxed" sum="untaxed total"/>
+                                <field name="amount_total" sum="amount total"/>
+                                <field name="state"/>
+                            </tree>
+                        </field>
+
+                        <h2 class="o_horizontal_separator">Phases</h2>
+                        <button string="Load Phases" name="get_phase" class="btn btn-primary" type="object" />
+                        <field name="phase_ids" domain="[('project_id','=',id)]"
+                               context="{'default_project_id': id}">
+                            <tree string="Phases" editable="top" >
+                                <field name="name" invisible="1"/>
+                                <field name="sequence" widget="handle"/>
+                                <field name="template_phase_id"/>
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                                <field name="charge_qty" sum="total"/>
+                                <field name="estimated_charges" widget="float_time" sum="total"/>
+                                <field name="realised_charges" widget="float_time" sum="total"/>
+                                <field name="advancement" widget="progressbar"/>
+
+                            </tree>
+                        </field>
+
+                        <h2 class="o_horizontal_separator">Lots</h2>
+
+                        <field name="lot_ids" domain="[('project_id','=',id)]" context="{'default_project_id': id}">
+                            <tree string="Lots" editable="top">
+                                <field name="name"/>
+
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                                <field name="planned_charges" widget="float_time" sum="Total"/>
+                                <field name="estimated_charges" widget="float_time" sum="Total"/>
+                                <field name="realised_charges" widget="float_time" sum="Total"/>
+
+                                <field name="resp_tech_id"/>
+                                <field name="resp_fonc_id"/>
+                                <field name="advancement" widget="progressbar"/>
+                            </tree>
+                        </field>
+
+                    </page>
+                    <page string="Taches-Timesheet"  groups="project.group_project_manager">
+                        <h2 class="o_horizontal_separator">Tasks</h2>
+                        <field name="tasks" domain="[('project_id','=',id)]" context="{'default_project_id': id}">
+                            <tree string="Task line" editable="top">
+                                <field name="code"/>
+                                <field name="name"/>
+                                <field name="phase_id" domain="[('project_id','=',parent.id)]"/>
+                                <field name="lot_id" domain="[('project_id','=',parent.id)]"/>
+                                <field name="user_id"/>
+                                <field name="planned_hours" sum="total"/>
+                                <field name="effective_hours" sum="total"/>
+                                <field name="stage_id"/>
+                                <field name="project_id" invisible="1"/>
+                            </tree>
+                        </field>
+                        <h2 class="o_horizontal_separator">Timesheet</h2>
+                        <field name="line_ids" domain="[('project_id','=',id)]" context="{'default_project_id': id}"/>
+                    </page>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='settings']/group[@name='misc']/group[1]/field[@name='sequence']" position="after">
+                    <field name="stage_id" string="Etape" help="Etape d'avancement du projet"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- sale order -->
+        <record model="ir.ui.view" id="view_order_form_kzm_project_eval">
+            <field name="name">sale.order.form.kzm.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath position="after" expr="//field[@name='partner_id']">
+                    <field name="our_project_id" readonly="0"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="sale_order_action_kanban" model="ir.actions.act_window">
+            <field name="name">Sale orders</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_our_project_id': active_id, 'search_our_project_id':active_id}</field>
+            <field name="domain">[('our_project_id','=', active_id)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a sale order associated with this project.
+                </p>
+            </field>
+        </record>
+
+        <!-- account invoice -->
+        <record model="ir.ui.view" id="kzm_invoice_form_inherited_eval">
+            <field name="name">account.invoice.form.kzm.inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath position="after" expr="//field[@name='partner_id']">
+                    <field name="project_id" readonly="0"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="account_view_account_invoice_filter_inherited">
+            <field name="name">account.invoice.filter.inherited</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <xpath position="after" expr="//field[@name='number']">
+                    <field name="project_id"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="account_invoice_action_kanban" model="ir.actions.act_window">
+            <field name="name">Invoices</field>
+            <field name="res_model">account.invoice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="account.invoice_tree"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('account.invoice_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('account.invoice_form')})]"/>
+            <field name="context">{'default_project_id': active_id, 'type':'out_invoice',
+                'journal_type': 'sale', 'search_project_id':active_id}
+            </field>
+            <field name="domain">[('project_id','=', active_id),('type', '=', 'out_invoice')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add an invoice associated with this project.
+                </p>
+            </field>
+        </record>
+        <!-- project views and action -->
+
+        <record id="view_edit_project_kzm_inherited" model="ir.ui.view">
+            <field name="name">project.project.form.kzm.inherited</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@ class='oe_button_box']/button [2]" position="after">
+                    <button groups="project.group_project_manager" class="oe_stat_button" name="%(lot_action_kanban)d"
+                            type="action" icon="fa-th-large">
+                        <field string="Lots" name="lots_count" widget="statinfo"/>
+                    </button>
+                    <button groups="project.group_project_manager" class="oe_stat_button" name="%(phase_action_kanban)d"
+                            type="action" icon="fa-th-large">
+                        <field string="Phases" name="phases_count" widget="statinfo"/>
+                    </button>
+                    <button groups="project.group_project_manager" class="oe_stat_button"
+                            name="%(sale_order_action_kanban)d" type="action" icon="fa-th-large">
+                        <field string="Sale orders" name="sale_orders_count" widget="statinfo"/>
+                    </button>
+
+                    <button groups="project.group_project_manager" class="oe_stat_button"
+                            name="%(account_invoice_action_kanban)d" type="action"
+                            icon="fa-th-large">
+                        <field string="Invoices" name="account_inv_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_project_kanban_kzm_eval">
+            <field name="name">project.project.kanban.kzm.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban" position="attributes">
+                        <attribute name="default_group_by">stage_id</attribute>
+
+                </xpath>
+                <xpath expr="/kanban/field[@name='task_count']" position="after">
+                    <field groups="project.group_project_manager" name="lots_count"/>
+                    <field groups="project.group_project_manager" name="phases_count"/>
+                    <field groups="project.group_project_manager" name="sale_orders_count"/>
+                    <field groups="project.group_project_manager" name="account_inv_count"/>
+                </xpath>
+
+                <xpath expr="//div[contains(@class, 'o_kanban_manage_reports')]/div[last()]" position="after">
+                    <div groups="project.group_project_manager">
+                        <a class="o_project_kanban_box" name="%(kzm_project_followup.phase_action_kanban)d"
+                           type="action"
+                           context="{'default_project_id': active_id, 'search_project_id': active_id}"
+                           domain="[('project_id','=', active_id)]">
+                            <span class="o_label">Phases (<t t-esc="record.phases_count.value"/>)
+                            </span>
+                        </a>
+                        <a class="o_project_kanban_box" name="%(kzm_project_followup.lot_action_kanban)d"
+                           type="action"
+                           context="{'default_project_id': active_id, 'search_project_id':active_id}"
+                           domain="[('project_id','=', active_id)]">
+                            <span class="o_label">Lots (<t t-esc="record.lots_count.value"/>)
+                            </span>
+                        </a>
+                        <a class="o_project_kanban_box" name="%(kzm_project_followup.sale_order_action_kanban)d"
+                           type="action"
+                           context="{'default_our_project_id': active_id, 'search_our_project_id':active_id}"
+                           domain="[('our_project_id','=', active_id),('type','=','out_invoice')]">
+                            <span class="o_label">Sale orders (<t t-esc="record.sale_orders_count.value"/>)
+                            </span>
+                        </a>
+                        <a class="o_project_kanban_box" name="%(kzm_project_followup.account_invoice_action_kanban)d"
+                           type="action"
+                           context="{'default_project_id': active_id, 'type':'out_invoice', 'journal_type': 'sale','search_project_id':active_id}"
+                           domain="[('project_id','=', active_id)]">
+                            <span class="o_label">Invoices (<t t-esc="record.account_inv_count.value"/>)
+                            </span>
+                        </a>
+                    </div>
+                </xpath>
+
+                <xpath expr="//div[contains(@class, 'o_project_kanban_box')]" position="before">
+                    <a class="o_project_kanban_box" name="%(kzm_project_followup.phase_action_kanban)d"
+                       type="action"
+                       context="{'default_project_id': active_id, 'search_project_id': active_id}"
+                       domain="[('project_id','=', active_id)]" groups="project.group_project_manager">
+                        <span class="o_value">
+                            <t t-esc="record.phases_count.value"/>
+                        </span>
+                        <span class="o_label">Phases</span>
+                    </a>
+                    <a class="o_project_kanban_box" name="%(kzm_project_followup.lot_action_kanban)d"
+                       type="action"
+                       context="{'default_project_id': active_id, 'search_project_id':active_id}"
+                       domain="[('project_id','=', active_id)]" groups="project.group_project_manager">
+                        <span class="o_value">
+                            <t t-esc="record.lots_count.value"/>
+                        </span>
+                        <span class="o_label">Lots</span>
+                    </a>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_project_project_pivot_kzm" model="ir.ui.view">
+            <field name="name">project.project.pivot.kzm</field>
+            <field name="model">project.project</field>
+            <field name="groups" eval="[(4, ref('project.group_project_manager'))]"/>
+            <field name="arch" type="xml">
+                <pivot string="Project Analysis" disable_linking="True">
+                    <field name="name" type="row"/>
+                    <field name="estimated_charges_dy" type="measure"/>
+                    <field name="realised_charges_dy" type="measure"/>
+                    <field name="advancement" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="project.open_view_project_all" model="ir.actions.act_window">
+            <field name="name">Projects</field>
+            <field name="res_model">project.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">kanban,form,pivot</field>
+            <field name="view_id" ref="project.view_project_kanban"/>
+            <field name="search_view_id" ref="project.view_project_project_filter"/>
+            <field name="target">main</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new project.
+                    <br/>
+                    <i>Or <a type="action" name="%(project.ir_actions_server_project_sample)d">activate a sample
+                        project
+                    </a> to play with.
+                    </i>
+                </p>
+            </field>
+        </record>
+
+        <record id="action_server_project_project" model="ir.actions.server">
+            <field name="name">Mis à jours charges</field>
+            <field name="model_id" ref="project.model_project_project"/>
+            <field name="binding_model_id" ref="project.model_project_project"/>
+            <field name="binding_type">action</field>
+            <field name="code">
+                model.update_all_projects_charges()
+            </field>
+        </record>
+
+
+        <!-- hr employee -->
+        <record id="view_hr_employee_kzm_inherited" model="ir.ui.view">
+            <field name="name">hr.employee.form.kzm.inherited</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="before">
+                    <group>
+                        <group>
+                            <field name="tot_in_progress" widget="float_time"/>
+                        </group>
+                        <group>
+                            <field name="tot_planned" widget="float_time"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- stage task -->
+        <record id="task_type_edit_kzm" model="ir.ui.view">
+            <field name="name">project.task.type.form.kzm.inherited</field>
+            <field name="model">project.task.type</field>
+            <field name="inherit_id" ref="project.task_type_edit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='mail_template_id']" position="after">
+                    <field name="is_progress"/>
+                    <field name="is_planned"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="task_type_tree_kzm" model="ir.ui.view">
+            <field name="name">project.task.type.tree.kzm.inherited</field>
+            <field name="model">project.task.type</field>
+            <field name="inherit_id" ref="project.task_type_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='description']" position="after">
+                    <field name="is_progress"/>
+                    <field name="is_planned"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

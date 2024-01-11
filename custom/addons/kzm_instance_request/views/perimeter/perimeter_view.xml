@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="perimeter_view_id" model="ir.ui.view">
+            <field name="name">Perimeter View</field>
+            <field name="model">perimeter.perimeter</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

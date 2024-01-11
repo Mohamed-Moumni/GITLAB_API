@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_backup_conf_form_inherit" model="ir.ui.view">
+            <field name="name">view.backup.conf.form.inherit</field>
+            <field name="model">db.backup</field>
+            <field name="inherit_id" ref="auto_backup.view_backup_conf_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='action_backup']" position="replace">
+                    <button name="action_backup_queue" type="object" string="Execute backup"
+                            class="oe_highlight"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

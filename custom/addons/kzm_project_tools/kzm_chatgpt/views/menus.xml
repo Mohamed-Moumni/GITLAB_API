@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem name="Conversations" id="chatgpt_conversation_menu" parent="kzm_chatgpt_base.chatgpt_request_main_menu" sequence="1"
+              action="chatgpt_conversation_action"/>
+</odoo>

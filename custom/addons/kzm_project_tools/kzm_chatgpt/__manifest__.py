@@ -1,0 +1,25 @@
+{
+    'name': 'KZM GPT Chatbot',
+    'version': '1.0',
+    'category': 'ExtraTools',
+    'summary': 'Integrate GPT Chatbot with Odoo',
+    'author': 'Your Name',
+    'website': 'https://www.example.com',
+
+    'license': 'AGPL-3',
+    'depends': ['kzm_project_base', 'kzm_chatgpt_base', 'helpdesk'],
+    'data': [
+        'security/ir.model.access.csv',
+        'security/security.xml',
+        'views/contract_cadre_views.xml',
+        'views/dashboard_template.xml',
+        'views/online_chat_template.xml',
+        'views/online_chat_form.xml',
+        'views/res_config_settings_views.xml',
+        'views/chatgpt_conversation_views.xml',
+        'views/menus.xml',
+    ],
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+}

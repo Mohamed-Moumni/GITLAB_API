@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record id="record_users" model="auditlog.rule">
+        <field name="name">Users Tracking</field>
+        <field name="log_type">full</field>
+        <field name="state">subscribed</field>
+        <field name="model_id" ref="base.model_res_users"/>
+        <field name="log_read">False</field>
+        <field name="log_create">True</field>
+        <field name="log_unlink">True</field>
+        <field name="log_write">True</field>
+    </record>
+    <record id="record_groups" model="auditlog.rule">
+        <field name="name">Groups Tracking</field>
+        <field name="log_type">full</field>
+        <field name="state">subscribed</field>
+        <field name="model_id" ref="base.model_res_groups"/>
+        <field name="log_read">False</field>
+        <field name="log_create">True</field>
+        <field name="log_unlink">True</field>
+        <field name="log_write">True</field>
+    </record>
+    <record id="record_application" model="auditlog.rule">
+        <field name="name">Applications Tracking</field>
+        <field name="log_type">full</field>
+        <field name="state">subscribed</field>
+        <field name="model_id" ref="base.model_ir_module_module"/>
+        <field name="log_read">False</field>
+        <field name="log_create">True</field>
+        <field name="log_unlink">True</field>
+        <field name="log_write">True</field>
+    </record>
+    <record id="record_companies" model="auditlog.rule">
+        <field name="name">Companies Tracking</field>
+        <field name="log_type">full</field>
+        <field name="state">subscribed</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="log_read">False</field>
+        <field name="log_create">True</field>
+        <field name="log_unlink">True</field>
+        <field name="log_write">True</field>
+    </record>
+    <record id="record_rules" model="auditlog.rule">
+        <field name="name">Record Rules Tracking</field>
+        <field name="state">subscribed</field>
+        <field name="log_type">full</field>
+        <field name="model_id" ref="base.model_ir_rule"/>
+        <field name="log_read">False</field>
+        <field name="log_create">True</field>
+        <field name="log_unlink">True</field>
+        <field name="log_write">True</field>
+    </record>
+    <record id="record_access_rights" model="auditlog.rule">
+        <field name="name">Access Rights Tracking</field>
+        <field name="state">subscribed</field>
+        <field name="log_type">full</field>
+        <field name="model_id" ref="base.model_ir_model_access"/>
+        <field name="log_read">False</field>
+        <field name="log_create">True</field>
+        <field name="log_unlink">True</field>
+        <field name="log_write">True</field>
+    </record>
+
+</odoo>

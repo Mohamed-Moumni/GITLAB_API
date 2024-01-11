@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="action_view_instance" model="ir.actions.act_window">
+        <field name="name">Instances</field>
+        <field name="res_model">kzm.instance.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('tl_id', '=', active_id)]</field>
+    </record>
+</odoo>

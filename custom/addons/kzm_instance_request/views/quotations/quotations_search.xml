@@ -1,0 +1,16 @@
+<odoo>
+    <record id="quotations_search_inherit" model="ir.ui.view">
+        <field name="name">quotations.search.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter" />
+        <field name="arch" type="xml">
+            <search>
+                <field name="version_odoo_id" string="Odoo Version"/>
+                <group expand="0" string="Group by Odoo Version">
+                    <filter string="Odoo Version" name="group_by_odoo_version"
+                        context="{'group_by': 'version_odoo_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

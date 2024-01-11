@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_l10n_ma_commune,access_l10n_ma_commune,model_l10n_ma_commune,base.group_user,1,0,0,0
+access_res_company_forme_juridique,access_res_company_forme_juridique,model_res_company_forme_juridique,base.group_user,1,0,0,0
