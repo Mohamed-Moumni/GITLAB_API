@@ -1,1 +1,0 @@
-from . import instance_wizard
