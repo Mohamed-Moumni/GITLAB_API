@@ -72,10 +72,9 @@ class GitlabData:
         url = "https://gitlab.com/api/v4/projects/" + str(self.project_id) + "/jobs/" + str(job_id) + "/trace"
         headers = {'PRIVATE-TOKEN': self.token}
         trace = requests.get(url, headers=headers).text
-        print(trace)
-        quality_code_line_start_index = trace.find("Your code has been rated at")
-        quality_code_line_end_index = trace[quality_code_line_start_index:].find("\n")
-        quality_code = trace[quality_code_line_start_index:quality_code_line_start_index + quality_code_line_end_index]
+        start = trace.find("Your code has been rated at")
+        end = trace[start:].find("\n")
+        quality_code = trace[start:start + end]
         quality_code = float(quality_code.split()[6].split('/')[0])
         return quality_code
         

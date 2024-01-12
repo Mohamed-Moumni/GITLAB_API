@@ -10,6 +10,7 @@
         'security/ir.model.access.csv',
         'views/gitlab_credential_view.xml',
         'views/project_instance_view.xml',
+        'views/sql_servers_view.xml',
     ],
     'assets': {
         'web.assets_common': [

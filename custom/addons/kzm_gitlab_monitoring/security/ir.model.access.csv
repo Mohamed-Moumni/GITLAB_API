@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_gitlab_credential,Access Gitlab Credential,model_gitlab_credential,,1,1,1,1
 access_gitlab_user,Access Gitlab User,model_gitlab_user,,1,1,1,1
+access_database_server,Access Database Server,model_database_server,,1,1,1,1
