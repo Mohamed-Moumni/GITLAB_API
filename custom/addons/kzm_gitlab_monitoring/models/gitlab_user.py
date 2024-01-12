@@ -1,7 +1,8 @@
 from odoo import models,fields
 
 class GitlabUser(models.Model):
-    """_summary_
+    """
+        GitlabUser model for gitlab member
 
     Args:
         models (_type_): _description_

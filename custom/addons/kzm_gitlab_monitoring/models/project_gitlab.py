@@ -3,7 +3,9 @@ import gitlab
 from .gitlab_data import GitlabData
 
 class ProjectGitlab(models.Model):
-    """_summary_
+    """
+        project Gitlab model contains all the attributes needed from for the Gitlab api
+        and also the business logic
 
     Args:
         models (_type_): _description_
@@ -50,17 +52,23 @@ class ProjectGitlab(models.Model):
                     self.write({'members_ids': [(6,0,self.get_gitlab_members(git_lab_infos.get_gitlab_members()))]})
                     
                 except Exception as e:
-                    raise exceptions.UserError(f'Encountring error while getting Data {e}')
+                    raise exceptions.UserError(f'Encountring error while getting Data from Gitlab: {e}')
             else:
-                raise exceptions.UserError(f'Credentials is not Active {e}')
+                raise exceptions.UserError(f'Credentials is not Active: {e}')
         else:
-            raise exceptions.UserError(f'Credentials Not Found {e}')
+            raise exceptions.UserError(f'Credentials Not Found: {e}')
     
     def get_gitlab_members(self, members:list[str]):
         gitlab_members:list[str] = []
         for member in members:
-            gitlab_user_id = self.env['gitlab.user'].create({'name':member.username, 'username':member.username, 'gitlab_id':member.id}).id
-            gitlab_members.append(gitlab_user_id)
+            memberExist = self.env['gitlab.user'].search([('gitlab_id', '=', member.id)])
+            
+            if len(memberExist) == 0:
+                gitlab_user_id = self.env['gitlab.user'].create({'name':member.username, 'username':member.username, 'gitlab_id':member.id}).id
+                gitlab_members.append(gitlab_user_id)
+            else:
+                #pay attention to this line of code you have to refactor it asap
+                gitlab_members.append(memberExist[1].id)
         return gitlab_members
 
     def calculate_quality_code(self):
