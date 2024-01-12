@@ -31,6 +31,7 @@
                             <field name="pipeline_status" widget="label_selection"
                                 options="{'classes': {'success': 'success', 'failed': 'danger', 'no_pipeline':'normal'}}" />
                             <field name="members_ids" string="Project Members" widget="many2many_tags" />
+                            <field name="quality_code" string="Quality Code"/>
                         </group>
                         <group>
                             <button name="synchronization" type="object" string="SYNCH"

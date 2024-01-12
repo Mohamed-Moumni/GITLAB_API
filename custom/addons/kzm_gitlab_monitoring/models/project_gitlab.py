@@ -25,7 +25,7 @@ class ProjectGitlab(models.Model):
         ('failed', 'Failed'),
         ('no_pipeline', 'No Pipeline')
     ], string='Pipeline Status')
-    
+    quality_code = fields.Float('Quality Code', readonly=True)
     members_ids = fields.Many2many('gitlab.user', string="Members", readonly=True)
 
     def synchronization(self):
@@ -72,4 +72,22 @@ class ProjectGitlab(models.Model):
         return gitlab_members
 
     def calculate_quality_code(self):
-        pass
+        gitlab_credentials = self.env['gitlab.credential'].search(
+            [('id', '=', self.git_lab_credential_id.id)])
+        if gitlab_credentials:
+            credentials = {
+                'username': gitlab_credentials.username,
+                'token': gitlab_credentials.token,
+                'status': gitlab_credentials.status
+            }
+            if credentials['status'] == 'active':
+                try:
+                    git_lab_infos = GitlabData(credentials['username'], credentials['token'])
+                    git_lab_infos.get_gitlab_infos(self.git_link)
+                    self.write({'quality_code':git_lab_infos.get_quality_code()})
+                except Exception as e:
+                    raise exceptions.UserError(f'Encountring error while getting Data from Gitlab: {e}')
+            else:
+                raise exceptions.UserError(f'Credentials is not Active: {e}')
+        else:
+            raise exceptions.UserError(f'Credentials Not Found: {e}')

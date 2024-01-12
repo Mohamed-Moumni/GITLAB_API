@@ -1,6 +1,7 @@
 import gitlab
 from typing import Any
 from gitlab import exceptions
+import requests
 
 class GitlabData:
     """
@@ -30,6 +31,7 @@ class GitlabData:
         self.group = self.project.groups.list()[0].name
     
     def get_project_name(self)->None:
+        self.project_id = self.project.id
         self.project_name = self.project.name
     
     def get_default_branch(self)->None:
@@ -62,8 +64,21 @@ class GitlabData:
         if len(last_mergerequests_list) != 0:
             return last_mergerequests_list[0].title
         return ""
-
     
+    def get_quality_code(self)->float:
+        pipelines = self.project.pipelines.list()
+        pipeline_job = pipelines[0].jobs.list()
+        job_id = pipeline_job[0].id
+        url = "https://gitlab.com/api/v4/projects/" + str(self.project_id) + "/jobs/" + str(job_id) + "/trace"
+        headers = {'PRIVATE-TOKEN': self.token}
+        trace = requests.get(url, headers=headers).text
+        print(trace)
+        quality_code_line_start_index = trace.find("Your code has been rated at")
+        quality_code_line_end_index = trace[quality_code_line_start_index:].find("\n")
+        quality_code = trace[quality_code_line_start_index:quality_code_line_start_index + quality_code_line_end_index]
+        quality_code = float(quality_code.split()[6].split('/')[0])
+        return quality_code
+        
     def get_gitlab_infos(self, _url:str)->None:
         try:
             self.authenticate()
@@ -77,3 +92,14 @@ class GitlabData:
             self.get_pipeline_status()
         except ValueError as e:
             raise e    
+
+# if __name__ == "__main__":
+#     gldata = GitlabData("mmoumni", "glpat-2Jdi539E3QAHEqCWtU7_")
+#     gldata.authenticate()
+#     gldata.get_gitlab_infos("https://gitlab.com/mmoumni10/gitlab_api")
+#     project = gldata.project
+#     pipelines = project.pipelines.list()
+#     pipeline_job = pipelines[0].jobs.list()
+#     print(pipeline_job[0].id)
+#     job = project.jobs.get(pipeline_job[0].id)
+#     print(job)
