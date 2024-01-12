@@ -1,8 +1,6 @@
-from odoo import models, fields, _
-from odoo.exceptions import UserError
+from odoo import models, fields, _, exceptions
 import gitlab
-from .utils import gitlab_authenticate, get_project_namespace, get_gitlab_infos
-
+from .gitlab_data import GitlabData
 
 class ProjectGitlab(models.Model):
     """_summary_
@@ -25,11 +23,12 @@ class ProjectGitlab(models.Model):
         ('failed', 'Failed'),
         ('no_pipeline', 'No Pipeline')
     ], string='Pipeline Status')
+    
+    members_ids = fields.Many2many('gitlab.user', string="Members", readonly=True)
 
     def synchronization(self):
         """Synchronize with gitlab and get all the data needed"""
 
-        # protect against the empty gitlab.credential model
         gitlab_credentials = self.env['gitlab.credential'].search(
             [('id', '=', self.git_lab_credential_id.id)])
         if gitlab_credentials:
@@ -40,22 +39,29 @@ class ProjectGitlab(models.Model):
             }
             if credentials['status'] == 'active':
                 try:
-                    git_lab_infos = get_gitlab_infos(
-                        self.git_link, credentials['token'])
-                    self.branch_number = git_lab_infos['branch_number']
-                    self.group = git_lab_infos['group']
-                    self.project_name = git_lab_infos['project_name']
-                    self.default_branch = git_lab_infos['default_branch']
-                    self.last_merge_request = git_lab_infos['last_merge_request']
-                    self.pipeline_status = git_lab_infos['pipeline_status']
-                except:
-                    raise UserError(_('Credentials is not Active'))
+                    git_lab_infos = GitlabData(credentials['username'], credentials['token'])
+                    git_lab_infos.get_gitlab_infos(self.git_link)
+                    self.write({'branch_number':git_lab_infos.branch_number})
+                    self.write({'group': git_lab_infos.group})
+                    self.write({'project_name': git_lab_infos.project_name})
+                    self.write({'default_branch': git_lab_infos.default_branch})
+                    self.write({'last_merge_request': git_lab_infos.last_merge_request})
+                    self.write({'pipeline_status': git_lab_infos.pipeline_status})
+                    self.write({'members_ids': [(6,0,self.get_gitlab_members(git_lab_infos.get_gitlab_members()))]})
+                    
+                except Exception as e:
+                    raise exceptions.UserError(f'Encountring error while getting Data {e}')
             else:
-                raise UserError(_('Credentials is not Active'))
+                raise exceptions.UserError(f'Credentials is not Active {e}')
         else:
-            raise UserError(_('Credentials is not Active'))
+            raise exceptions.UserError(f'Credentials Not Found {e}')
+    
+    def get_gitlab_members(self, members:list[str]):
+        gitlab_members:list[str] = []
+        for member in members:
+            gitlab_user_id = self.env['gitlab.user'].create({'name':member.username, 'username':member.username, 'gitlab_id':member.id}).id
+            gitlab_members.append(gitlab_user_id)
+        return gitlab_members
 
     def calculate_quality_code(self):
         pass
-    # project_members
-    # code_rating

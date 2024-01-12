@@ -30,6 +30,7 @@
                             <field name="last_merge_request" string="Last Merge Request" />
                             <field name="pipeline_status" widget="label_selection"
                                 options="{'classes': {'success': 'success', 'failed': 'danger', 'no_pipeline':'normal'}}" />
+                            <field name="members_ids" string="Project Members" widget="many2many_tags" />
                         </group>
                         <group>
                             <button name="synchronization" type="object" string="SYNCH"

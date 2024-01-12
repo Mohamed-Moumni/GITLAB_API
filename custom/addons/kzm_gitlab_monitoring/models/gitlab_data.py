@@ -40,6 +40,15 @@ class GitlabData:
     
     def get_pipeline_status(self)->None:
         self.pipeline_status = self.get_pipeline(self.project)
+        
+    def get_access_token_name(self)->None:
+        self.access_token_name = self.gl.personal_access_tokens.get("self").name
+        
+    def get_expiration_date(self)->None:
+        self.expiration_date = self.gl.personal_access_tokens.get("self").expires_at
+    
+    def get_gitlab_members(self)->list[str]:
+        return self.project.members_all.list(get_all=True)
     
     def get_pipeline(self, project:Any)->str:
         pipeline_list:list = project.pipelines.list()
@@ -67,15 +76,4 @@ class GitlabData:
             self.get_last_merge_request()
             self.get_pipeline_status()
         except ValueError as e:
-            raise e
-        
-        
-    
-    
-
-if __name__ == "__main__":
-    gldata = GitlabData("mmoumni", "glpat-2Jdi539E3QAHEqCWtU7_")
-    gldata.authenticate()
-    gldata.get_gitlab_infos("https://gitlab.com/mmoumni10/gitlab_api")
-    for attribute,value in gldata.__dict__.items():
-        print(attribute,value)
+            raise e    
