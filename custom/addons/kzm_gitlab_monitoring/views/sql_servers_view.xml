@@ -30,7 +30,7 @@
     <record model="ir.actions.act_window" id="sql_servers_action">
         <field name="name">Sql Server</field>
         <field name="res_model">database.server</field>
-        <field name="view_mode">tree, form</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem
