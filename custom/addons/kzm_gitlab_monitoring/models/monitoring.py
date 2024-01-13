@@ -16,40 +16,39 @@ class Monitoring(models.Model):
     ssl_expiration_date = fields.Date('SSL Expiration Date')
     disk_usage = fields.Char('Disk Usage')
     ip = fields.Char('Postgresql server IP')
-    
-    
+
+    database_server_id = fields.Many2one(
+        'database.server', string='Database Server')
+
+    def synch_disk_usage(self, _hostname: str, _private_key: str, _username: str, _password: str, _port: int) -> str:
+        ssh = paramiko.SSHClient()
+        private_key = paramiko.RSAKey.from_private_key_file(_private_key)
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        ssh.connect(hostname=_hostname, username=_username, password=_password,
+                    port=_port, pkey=private_key, disabled_algorithms=dict(pubkeys=["rsa-sha2-512", "rsa-sha2-256"]))
+        command: str = "df -hP / | awk 'NR==2 {print $4}'"
+        stdin, stdout, stderr = ssh.exec_command(command)
+        disk_usage: str = stdout.read().decode()
+        ssh.close()
+        return disk_usage
+
+    def get_ssl_cert_expiration_date(self, _domain: str) -> datetime.date:
+        cert = ssl.get_server_certificate((_domain, 443))
+        x509 = OpenSSL.crypto.load_certificate(
+            OpenSSL.crypto.FILETYPE_PEM, cert)
+        bytes = x509.get_notAfter()
+        timestamp = bytes.decode('utf-8')
+        return datetime.strptime(timestamp, '%Y%m%d%H%M%S%z').date().isoformat()
 
     def monitor_synch(self):
         hostname = self.ip
         username = "sshuser"
         password = "password"
-
+        private_key = "/home/mmoumni/.ssh/id_rsa"
+        port = 2222
         try:
-            ssh = paramiko.SSHClient()
-            k = paramiko.RSAKey.from_private_key_file(
-                "/home/mmoumni/.ssh/id_rsa")
-            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            ssh.connect(hostname="localhost", username="sshuser",
-                        password="password", port=2222, pkey=k, disabled_algorithms=dict(pubkeys=["rsa-sha2-512", "rsa-sha2-256"]))
-            command = "df -hP / | awk 'NR==2 {print $4}'"
-            stdin, stdout, stderr = ssh.exec_command(command)
-            diskUsage:str = stdout.read().decode()
-            self.write({'disk_usage': diskUsage})
-            ssh.close()
-            cert=ssl.get_server_certificate(('www.mmoumni.me', 443))
-            x509 = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, cert)
-            bytes=x509.get_notAfter()
-            timestamp = bytes.decode('utf-8')
-            self.write({'ssl_expiration_date': datetime.strptime(timestamp, '%Y%m%d%H%M%S%z').date().isoformat()})
-            return {
-                'type': 'ir.actions.client',
-                'tag': 'display_notification',
-                'params': {
-                    'message': "SSH Connected Successfully!",
-                    'type': 'success',
-                    'sticky': False,
-                }
-            }
+            self.write({'disk_usage': self.synch_disk_usage(
+                hostname, private_key, username, password, port)})
         except Exception as e:
             return {
                 'type': 'ir.actions.client',
@@ -61,3 +60,26 @@ class Monitoring(models.Model):
                         }
 
             }
+        try:
+            self.write(
+                {'ssl_expiration_date': self.get_ssl_cert_expiration_date("www.mmoumni.me")})
+        except Exception as e:
+            return {
+                'type': 'ir.actions.client',
+                        'tag': 'display_notification',
+                        'params': {
+                            'message': "Encountring Error while getting ssl Certification Expiration Date",
+                            'type': 'danger',
+                            'sticky': False,
+                        }
+
+            }
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'message': "synchronized Successfully!",
+                'type': 'success',
+                'sticky': False,
+            }
+        }
