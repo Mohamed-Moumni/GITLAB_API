@@ -14,12 +14,12 @@ class ProjectGitlab(models.Model):
 
     git_link = fields.Char('Git Link')
     branch_number = fields.Integer(string="Branch Number", readonly=True)
-    group = fields.Char('Group')
-    project_name = fields.Char('Group')
-    default_branch = fields.Char('Default Branch')
+    group = fields.Char('Group', readonly=True)
+    project_name = fields.Char('Group', readonly=True)
+    default_branch = fields.Char('Default Branch', readoly=True)
     git_lab_credential_id = fields.Many2one(
         'gitlab.credential', string='Git Lab Token')
-    last_merge_request = fields.Char('Last Merge Request')
+    last_merge_request = fields.Char('Last Merge Request', readonly=True)
     pipeline_status = fields.Selection([
         ('success', 'Success'),
         ('failed', 'Failed'),

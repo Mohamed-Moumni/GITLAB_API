@@ -54,7 +54,6 @@ class ProjectDatabase(models.Model):
     def test_ssh(self):
         try:
             ssh = paramiko.SSHClient()
-            # k = paramiko.RSAKey.from_private_key_file("/home/mac/.ssh/id_rsa")
             k = paramiko.RSAKey.from_private_key_file("/opt/id_rsa")
             ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             ssh.connect(hostname=self.link, username="ubuntu", pkey=k)
