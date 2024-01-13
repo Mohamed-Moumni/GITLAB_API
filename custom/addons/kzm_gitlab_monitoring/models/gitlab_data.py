@@ -136,5 +136,7 @@ class GitlabData:
             self.get_default_branch()
             self.get_last_merge_request()
             self.get_pipeline_status()
+            self.get_access_token_name()
+            self.get_expiration_date()
         except ValueError as e:
             raise e

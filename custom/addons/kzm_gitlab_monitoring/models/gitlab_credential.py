@@ -40,10 +40,14 @@ class GitlabCredential(models.Model):
         """
         try:
             gitlab_data = GitlabData(vals['username'], vals['token'])
+            gitlab_data.authenticate()
+            gitlab_data.get_access_token_name()
+            gitlab_data.get_expiration_date()
             vals['status'] = 'active'
             vals['name'] = gitlab_data.access_token_name
             vals['expiration_date'] = gitlab_data.expiration_date
         except:
+            vals['name'] = "Unknown"
             vals['status'] = 'not_Active'
         return super(GitlabCredential, self).create(vals)
 
@@ -51,13 +55,17 @@ class GitlabCredential(models.Model):
         """
             validate the gitlab entred access_token
         """
-        for record in self:
-            token = record.token
-            username = record.username
-            try:
-                gitlab_data = GitlabData(username, token)
-                gitlab_data.authenticate()
-                record.status = 'active'
-            except:
-                record.status = 'not_Active'
+        token = self.token
+        username = self.username
+        try:
+            gitlab_data = GitlabData(username, token)
+            gitlab_data.authenticate()
+            gitlab_data.get_access_token_name()
+            gitlab_data.get_expiration_date()
+            self.name = gitlab_data.access_token_name
+            self.status = 'active'
+            self.expiration_date = gitlab_data.expiration_date
+        except:
+            self.name = "Unknown"
+            self.status = 'not_Active'
 
