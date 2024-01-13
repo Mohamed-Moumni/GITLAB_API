@@ -10,6 +10,13 @@ import ssl
 
 
 class Monitoring(models.Model):
+    """
+        Monitoring model
+
+    Args:
+        models (_type_): odoo orm model
+
+    """
     _inherit = "project.database"
     _description = "Monitoring Postgresql Server"
 
@@ -21,6 +28,19 @@ class Monitoring(models.Model):
         'database.server', string='Database Server')
 
     def synch_disk_usage(self, _hostname: str, _private_key: str, _username: str, _password: str, _port: int) -> str:
+        """
+            get disk usage server
+
+        Args:
+            _hostname (str): server hostname
+            _private_key (str): ssh private key
+            _username (str): ssh username
+            _password (str): ssh password
+            _port (int): ssh exposed port
+
+        Returns:
+            str: disk usage in GB
+        """
         ssh = paramiko.SSHClient()
         private_key = paramiko.RSAKey.from_private_key_file(_private_key)
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -33,6 +53,15 @@ class Monitoring(models.Model):
         return disk_usage
 
     def get_ssl_cert_expiration_date(self, _domain: str) -> datetime.date:
+        """
+            get the ssl certification expiration date
+
+        Args:
+            _domain (str): domain
+
+        Returns:
+            datetime.date: expiration date
+        """
         cert = ssl.get_server_certificate((_domain, 443))
         x509 = OpenSSL.crypto.load_certificate(
             OpenSSL.crypto.FILETYPE_PEM, cert)
@@ -41,6 +70,9 @@ class Monitoring(models.Model):
         return datetime.strptime(timestamp, '%Y%m%d%H%M%S%z').date().isoformat()
 
     def monitor_synch(self):
+        """
+            monitoring synchronization 
+        """
         hostname = self.ip
         username = "sshuser"
         password = "password"
@@ -58,7 +90,6 @@ class Monitoring(models.Model):
                             'type': 'danger',
                             'sticky': False,
                         }
-
             }
         try:
             self.write(
