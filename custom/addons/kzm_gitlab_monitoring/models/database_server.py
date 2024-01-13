@@ -6,13 +6,13 @@ from odoo import models,fields
 """
 
 class DatabaseServer(models.Model):
-    """_summary_
-
+    """
+        Database Server model for project instance
     Args:
         models (_type_): _description_
     """
     _name = "database.server"
-    _description = "Class for Database Server"
+    _description = "Class for Database Server model"
     
     name = fields.Char('Name')
     ip = fields.Char('Ip')
