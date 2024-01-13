@@ -7,7 +7,7 @@ class GitlabCredential(models.Model):
         Gitlab Credential model
 
     Args:
-        models (_type_): odoo model ORM
+        models (models.Model): odoo model ORM
 
     Returns:
         _type_: Gitlab Credential object

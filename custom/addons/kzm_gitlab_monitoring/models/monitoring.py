@@ -14,7 +14,7 @@ class Monitoring(models.Model):
         Monitoring model
 
     Args:
-        models (_type_): odoo orm model
+        models (models.Model): odoo orm model
 
     """
     _inherit = "project.database"

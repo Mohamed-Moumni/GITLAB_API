@@ -9,7 +9,7 @@ class DatabaseServer(models.Model):
     """
         Database Server model for project instance
     Args:
-        models (_type_): _description_
+        models (models.Model): _description_
     """
     _name = "database.server"
     _description = "Class for Database Server model"

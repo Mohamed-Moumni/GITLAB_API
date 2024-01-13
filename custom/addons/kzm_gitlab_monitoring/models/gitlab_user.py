@@ -5,7 +5,7 @@ class GitlabUser(models.Model):
         GitlabUser model for gitlab member
 
     Args:
-        models (_type_): _description_
+        models (models.Model): _description_
     """
     
     _name = "gitlab.user"

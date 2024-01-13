@@ -1,7 +1,7 @@
 {
     'name': "kzm_gitlab_monitoring",
     'summary': "Karizma Gitlab Monitoring",
-    'author': "Mohamed Moumni",
+    'author': "Karizma Group, Mohamed Moumni",
     'license': "AGPL-3",
     'category': 'Uncategorized',
     'version': '16.0',

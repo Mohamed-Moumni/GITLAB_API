@@ -17,11 +17,11 @@
         <field name="model">database.server</field>
         <field name="arch" type="xml">
             <form>
-                <sheet>
-                    <field name="name" string="Name" required="1"/>
-                    <field name="ip" string="IP" required="1" />
-                    <field name="region" string="Region" required="1" />
-                </sheet>
+                <group>
+                    <field name="name" string="Name" />
+                    <field name="ip" string="IP"  />
+                    <field name="region" string="Region"  />
+                </group>
             </form>
         </field>
     </record>
