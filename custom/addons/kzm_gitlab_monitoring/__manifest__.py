@@ -5,8 +5,9 @@
     'license': "AGPL-3",
     'category': 'Uncategorized',
     'version': '16.0',
-    'depends': ['base', 'kzm_project_base'],
+    'depends': ['base', 'kzm_project_base', 'kzm_key_server'],
     'data': [
+        'security/gitlab_monitoring_security.xml',
         'security/ir.model.access.csv',
         'views/gitlab_credential_view.xml',
         'views/project_instance_view.xml',

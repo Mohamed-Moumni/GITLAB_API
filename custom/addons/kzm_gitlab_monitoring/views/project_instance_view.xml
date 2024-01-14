@@ -47,7 +47,6 @@
                         <group>
                             <field name="ssl_expiration_date" string="SSL Expiration Date" />
                             <field name="disk_usage" string="Disk Usage" />
-                            <field name="ip" string="Postgresql server IP" />
                             <field name="database_server_id" string="Database Server" />
                         </group>
                         <group>

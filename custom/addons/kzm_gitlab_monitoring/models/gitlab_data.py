@@ -1,5 +1,5 @@
 import gitlab
-from typing import Any
+from typing import Any,List
 from gitlab import exceptions
 import requests
 
@@ -71,7 +71,7 @@ class GitlabData:
         self.expiration_date = self.gl.personal_access_tokens.get(
             "self").expires_at
 
-    def get_gitlab_members(self) -> list[str]:
+    def get_gitlab_members(self) -> List[str]:
         return self.project.members_all.list(get_all=True)
 
     def get_pipeline(self, project: Any) -> str:
@@ -118,6 +118,7 @@ class GitlabData:
         url = "https://gitlab.com/api/v4/projects/" + \
             str(self.project_id) + "/jobs/" + str(job_id) + "/trace"
         headers = {'PRIVATE-TOKEN': self.token}
+        params = {'ref': self.default_branch}
         trace = requests.get(url, headers=headers).text
         start = trace.find("Your code has been rated at")
         end = trace[start:].find("\n")

@@ -22,7 +22,6 @@ class Monitoring(models.Model):
 
     ssl_expiration_date = fields.Date('SSL Expiration Date')
     disk_usage = fields.Char('Disk Usage')
-    ip = fields.Char('Postgresql server IP')
 
     database_server_id = fields.Many2one(
         'database.server', string='Database Server')
@@ -44,7 +43,7 @@ class Monitoring(models.Model):
         ssh = paramiko.SSHClient()
         private_key = paramiko.RSAKey.from_private_key_file(_private_key)
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        ssh.connect(hostname=_hostname, username=_username, password=_password,
+        ssh.connect(hostname=_hostname, username=_username,password=_password,
                     port=_port, pkey=private_key, disabled_algorithms=dict(pubkeys=["rsa-sha2-512", "rsa-sha2-256"]))
         command: str = "df -hP / | awk 'NR==2 {print $4}'"
         stdin, stdout, stderr = ssh.exec_command(command)
@@ -73,7 +72,9 @@ class Monitoring(models.Model):
         """
             monitoring synchronization 
         """
-        hostname = self.ip
+        database_server = self.env['database.server'].search(
+            [('id', '=', self.database_server_id.id)])
+        hostname = database_server.ip
         username = "sshuser"
         password = "password"
         private_key = "/home/mmoumni/.ssh/id_rsa"

@@ -1,6 +1,7 @@
 from odoo import models, fields, _, exceptions
 import gitlab
 from .gitlab_data import GitlabData
+from typing import List
 
 
 class ProjectGitlab(models.Model):
@@ -71,7 +72,7 @@ class ProjectGitlab(models.Model):
         self.write({'members_ids': [
                    (6, 0, self.get_gitlab_members(git_lab_infos.get_gitlab_members()))]})
 
-    def get_gitlab_members(self, members: list[str]):
+    def get_gitlab_members(self, members: List[str]):
         """
             gitlab project members 
         Args:
