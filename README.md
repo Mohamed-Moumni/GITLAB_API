@@ -10,8 +10,8 @@ this repository contains an odoo module implemented for monitoring various tasks
 - [x] Add the The form and Kanban view with the following attributes username, token
 - [x] Add the validation button to the form
 - [x] create security Gitlab group for Gitlab Crendentials menu items
-- [ ] Add SubMenu of Configuration called SQL Servers
-- [ ] Add The list View with the following attributes name, IP, region
-- [ ] Add Another page called Monitoring
-- [ ] create a model with the following attributes SSL Expiration Date, Disk Usage, Postgres Sql Server IP
-- [ ] Add A SYNCH Button
+- [x] Add SubMenu of Configuration called SQL Servers
+- [x] Add The list View with the following attributes name, IP, region
+- [x] Add Another page called Monitoring
+- [x] create a model with the following attributes SSL Expiration Date, Disk Usage, Postgres Sql Server IP
+- [x] Add A SYNCH Button
