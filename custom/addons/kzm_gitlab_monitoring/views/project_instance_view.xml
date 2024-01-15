@@ -47,7 +47,7 @@
                         <group>
                             <field name="ssl_expiration_date" string="SSL Expiration Date" />
                             <field name="disk_usage" string="Disk Usage" />
-                            <field name="database_server_id" string="Database Server" />
+                            <field name="sql_ip" string="Server IP" />
                         </group>
                         <group>
                             <button name="monitor_synch" type="object" string="SYNCH"

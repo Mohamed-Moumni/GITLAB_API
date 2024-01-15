@@ -3,6 +3,7 @@ from odoo import fields, models
 import paramiko
 import OpenSSL
 import ssl
+from fabric2 import Connection
 
 """
     Monitoring model class for postgresql server
@@ -22,11 +23,9 @@ class Monitoring(models.Model):
 
     ssl_expiration_date = fields.Date('SSL Expiration Date')
     disk_usage = fields.Char('Disk Usage')
+    sql_ip = fields.Char('Server IP')
 
-    database_server_id = fields.Many2one(
-        'database.server', string='Database Server')
-
-    def synch_disk_usage(self, _hostname: str, _private_key: str, _username: str, _password: str, _port: int) -> str:
+    def synch_server(self, _hostname: str, _private_key: str, _username: str, _port: int) -> str:
         """
             get disk usage server
 
@@ -40,16 +39,20 @@ class Monitoring(models.Model):
         Returns:
             str: disk usage in GB
         """
-        ssh = paramiko.SSHClient()
-        private_key = paramiko.RSAKey.from_private_key_file(_private_key)
-        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        ssh.connect(hostname=_hostname, username=_username,password=_password,
-                    port=_port, pkey=private_key, disabled_algorithms=dict(pubkeys=["rsa-sha2-512", "rsa-sha2-256"]))
-        command: str = "df -hP / | awk 'NR==2 {print $4}'"
-        stdin, stdout, stderr = ssh.exec_command(command)
-        disk_usage: str = stdout.read().decode()
-        ssh.close()
-        return disk_usage
+        with Connection(
+                _hostname,
+                _username,
+                connect_kwargs=dict(
+                    key_filename=[_private_key,
+                                  ],
+                ),
+        ) as conn:
+            disk_usage = conn.sudo("df -hP / | awk 'NR==2 {print $4}'")
+            config_file = conn.sudo("cat /etc/odoo-server.conf")
+            start = config_file.find("db_host")
+            end = config_file[start:].find("\n")
+            server_ip = config_file[start:start+end].split('=')[1].strip()
+        return (disk_usage, server_ip)
 
     def get_ssl_cert_expiration_date(self, _domain: str) -> datetime.date:
         """
@@ -72,16 +75,14 @@ class Monitoring(models.Model):
         """
             monitoring synchronization 
         """
-        database_server = self.env['database.server'].search(
-            [('id', '=', self.database_server_id.id)])
-        hostname = database_server.ip
-        username = "sshuser"
-        password = "password"
-        private_key = "/home/mmoumni/.ssh/id_rsa"
-        port = 2222
+        hostname = self.link
+        username = "ubuntu"
+        private_key = "/opt/id_rsa"
+        port = 22
         try:
-            self.write({'disk_usage': self.synch_disk_usage(
-                hostname, private_key, username, password, port)})
+            disk_usage, server_ip = self.synch_server(hostname, private_key, username, port)
+            self.write({'disk_usage': disk_usage})
+            self.write({'sql_ip': server_ip})
         except Exception as e:
             return {
                 'type': 'ir.actions.client',
@@ -94,7 +95,7 @@ class Monitoring(models.Model):
             }
         try:
             self.write(
-                {'ssl_expiration_date': self.get_ssl_cert_expiration_date("www.mmoumni.me")})
+                {'ssl_expiration_date': self.get_ssl_cert_expiration_date(hostname)})
         except Exception as e:
             return {
                 'type': 'ir.actions.client',
