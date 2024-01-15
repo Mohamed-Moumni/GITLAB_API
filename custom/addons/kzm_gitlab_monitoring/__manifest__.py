@@ -14,9 +14,6 @@
         'views/sql_servers_view.xml',
     ],
     'assets': {
-        'web.assets_common': [
-            'kzm_gitlab_monitoring/static/src/css/kanban.css',
-            ],
     },
     'demo': [],
     'application': True,

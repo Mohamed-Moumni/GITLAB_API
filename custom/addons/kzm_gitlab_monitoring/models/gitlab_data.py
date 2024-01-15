@@ -1,8 +1,8 @@
 import gitlab
-from typing import Any,List
+from typing import Any, List
 from gitlab import exceptions
 import requests
-
+from urllib.parse import urlparse
 
 class GitlabData:
     """
@@ -38,16 +38,18 @@ class GitlabData:
         Raises:
             ValueError: Invalid Error
         """
-        is_url = _url.find(".com/")
-        if is_url == -1:
+        url = urlparse(_url)
+        if url and url.path:
+            namespace = url.path.strip('/')
+            self.namespace = namespace.replace('.git', '')
+        else:
             raise ValueError("Invalid Url")
-        self.namespace = _url[is_url + 5:]
 
     def get_branch_number(self) -> None:
-        self.branch_number = len(self.project.branches.list())
+        self.branch_number = len(self.project.branches.list(get_all=True))
 
     def get_group_name(self) -> None:
-        self.group = self.project.groups.list()[0].name
+        self.group = self.project.groups.list(get_all=True)[0].name
 
     def get_project_name(self) -> None:
         self.project_id = self.project.id
@@ -84,8 +86,9 @@ class GitlabData:
         Returns:
             str: success,failed or normal
         """
-        pipeline_list: list = project.pipelines.list()
+        pipeline_list: list = project.pipelines.list(get_all=True)
         if len(pipeline_list) != 0:
+            self.pipeline_id = pipeline_list[0].id
             return pipeline_list[0].status
         return "normal"
 
@@ -100,7 +103,7 @@ class GitlabData:
             str: last_merge_request commit name
         """
         last_mergerequests_list = project.mergerequests.list(
-            state='merged', order_by='updated_at', sort="desc")
+            state='merged', order_by='updated_at', sort="desc", get_all=True)
         if len(last_mergerequests_list) != 0:
             return last_mergerequests_list[0].title
         return ""
@@ -112,23 +115,25 @@ class GitlabData:
         Returns:
             float: quality code in float format
         """
-        pipelines = self.project.pipelines.list()
-        pipeline_job = pipelines[0].jobs.list()
-        job_id = pipeline_job[0].id
-        url = "https://gitlab.com/api/v4/projects/" + \
-            str(self.project_id) + "/jobs/"
-        headers = {'PRIVATE-TOKEN': self.token}
+        _url = "https://gitlab.com/api/v4/projects/" + \
+            str(self.project_id) + "/pipelines/" + str(self.pipeline_id) + "/jobs/"
+        headers = {'Private-Token': self.token}
         params = {'ref': self.default_branch}
-        response = requests.get(url, headers=headers,params=params)
+        response = requests.get(url=_url, headers=headers, params=params)
+
         if response.status_code == 200:
             jobs = response.json()
-            job_id = jobs[0]['id']
+            job_id = jobs[len(jobs) - 1]['id']
             _url = "https://gitlab.com/api/v4/projects/" + \
                 str(self.project_id) + "/jobs/" + str(job_id) + "/trace"
+                
             res = requests.get(url=_url, headers=headers)
+            
             if res.status_code == 200:
                 trace = res.text
                 start = trace.find("Your code has been rated at")
+                if (start == -1):
+                    return 0.0
                 end = trace[start:].find("\n")
                 quality_code = trace[start:start + end]
                 quality_code = float(quality_code.split()[6].split('/')[0])

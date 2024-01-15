@@ -28,10 +28,15 @@
                             <field name="project_name" string="Project Name" />
                             <field name="default_branch" string="Default Branch" />
                             <field name="last_merge_request" string="Last Merge Request" />
-                            <field name="pipeline_status" widget="label_selection"
-                                options="{'classes': {'success': 'success', 'failed': 'danger', 'no_pipeline':'normal'}}" />
-                            <field name="members_ids" string="Project Members" widget="many2many_tags" />
-                            <field name="quality_code" string="Quality Code"/>
+                            <field name="pipeline_status"
+                                decoration-info="pipeline_status == 'success'"
+                                decoration-warning="pipeline_status == 'canceled'"
+                                decoration-error="pipeline_status == 'undefined'"
+                                decoration-danger="pipeline_status == 'failed'"
+                                widget="badge" />
+                            <field name="members_ids" string="Project Members"
+                                widget="many2many_tags" />
+                            <field name="quality_code" string="Quality Code" />
                         </group>
                         <group>
                             <button name="synchronization" type="object" string="SYNCH"
@@ -50,7 +55,7 @@
                             <field name="sql_ip" string="Server IP" />
                         </group>
                         <group>
-                            <button name="monitor_synch" type="object" string="SYNCH"
+                            <button name="monitor_synch" type="object" string=" SYNCH"
                                 class="oe_highlight" />
                         </group>
                     </form>

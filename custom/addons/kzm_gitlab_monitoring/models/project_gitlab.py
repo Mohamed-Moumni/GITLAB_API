@@ -23,8 +23,9 @@ class ProjectGitlab(models.Model):
     pipeline_status = fields.Selection([
         ('success', 'Success'),
         ('failed', 'Failed'),
-        ('no_pipeline', 'No Pipeline')
-    ], string='Pipeline Status')
+        ('canceled', 'Canceled'),
+        ('undefined', 'Undefined')
+    ], string='Pipeline Status', readonly=True)
     quality_code = fields.Float('Quality Code', readonly=True)
 
     git_lab_credential_id = fields.Many2one(
@@ -88,7 +89,7 @@ class ProjectGitlab(models.Model):
 
             if len(memberExist) == 0:
                 gitlab_user_id = self.env['gitlab.user'].create(
-                    {'name': member.username, 'username': member.username, 'gitlab_id': member.id}).id
+                    {'name': member.name, 'username': member.username, 'gitlab_id': member.id}).id
                 gitlab_members.append(gitlab_user_id)
             else:
                 gitlab_members.append(memberExist[0].id)
