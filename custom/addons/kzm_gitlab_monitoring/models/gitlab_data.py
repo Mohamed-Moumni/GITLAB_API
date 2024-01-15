@@ -116,14 +116,26 @@ class GitlabData:
         pipeline_job = pipelines[0].jobs.list()
         job_id = pipeline_job[0].id
         url = "https://gitlab.com/api/v4/projects/" + \
-            str(self.project_id) + "/jobs/" + str(job_id) + "/trace"
+            str(self.project_id) + "/jobs/"
         headers = {'PRIVATE-TOKEN': self.token}
         params = {'ref': self.default_branch}
-        trace = requests.get(url, headers=headers).text
-        start = trace.find("Your code has been rated at")
-        end = trace[start:].find("\n")
-        quality_code = trace[start:start + end]
-        quality_code = float(quality_code.split()[6].split('/')[0])
+        response = requests.get(url, headers=headers,params=params)
+        if response.status_code == 200:
+            jobs = response.json()
+            job_id = jobs[0]['id']
+            _url = "https://gitlab.com/api/v4/projects/" + \
+                str(self.project_id) + "/jobs/" + str(job_id) + "/trace"
+            res = requests.get(url=_url, headers=headers)
+            if res.status_code == 200:
+                trace = res.text
+                start = trace.find("Your code has been rated at")
+                end = trace[start:].find("\n")
+                quality_code = trace[start:start + end]
+                quality_code = float(quality_code.split()[6].split('/')[0])
+            else:
+                raise ValueError("Job_id not Found")
+        else:
+            raise ValueError("Project_Id Not Valid")
         return quality_code
 
     def get_gitlab_infos(self, _url: str) -> None:
