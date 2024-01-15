@@ -14,3 +14,4 @@ class GitlabUser(models.Model):
     name = fields.Char("name")
     username = fields.Char('Username')
     gitlab_id = fields.Char('gitlab_id')
+    avatar = fields.Char('avatar')

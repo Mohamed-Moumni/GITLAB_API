@@ -89,7 +89,7 @@ class ProjectGitlab(models.Model):
 
             if len(memberExist) == 0:
                 gitlab_user_id = self.env['gitlab.user'].create(
-                    {'name': member.name, 'username': member.username, 'gitlab_id': member.id}).id
+                    {'name': member.name, 'username': member.username, 'gitlab_id': member.id, 'avatar': member.avatar_url}).id
                 gitlab_members.append(gitlab_user_id)
             else:
                 gitlab_members.append(memberExist[0].id)

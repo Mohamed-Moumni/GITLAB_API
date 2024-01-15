@@ -105,5 +105,4 @@ class Monitoring(models.Model):
                             'type': 'danger',
                             'sticky': False,
                         }
-
             }

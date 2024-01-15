@@ -12,6 +12,7 @@
         'views/gitlab_credential_view.xml',
         'views/project_instance_view.xml',
         'views/sql_servers_view.xml',
+        'views/gitlab_members_view.xml',
     ],
     'assets': {
     },
