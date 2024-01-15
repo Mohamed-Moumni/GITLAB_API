@@ -23,7 +23,10 @@ class GitlabCredential(models.Model):
         ('not_Active', 'Not Active'),
     ], string='Status')
     expiration_date = fields.Char('Expiration Date')
-
+    
+    _sql_constraints = [
+        ('token', 'unique(token)', 'This gitlab Token already used.')
+    ]
     @api.model
     def create(self, vals):
         """
