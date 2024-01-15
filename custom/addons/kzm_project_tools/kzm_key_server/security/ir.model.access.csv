@@ -1,6 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_database_metadata,access_database_metadata,model_database_metadata,,1,1,1,1
-access_synch_data_wizard,access_synch_data_wizard,model_synch_data_wizard,,1,1,1,1
-access_client_hr_employee,access_client_hr_employee,model_client_hr_employee,,1,1,1,1
-access_client_res_users,access_client_res_users,model_client_res_users,,1,1,1,1
-access_installed_modules,access_installed_modules,model_installed_modules,,1,1,1,1

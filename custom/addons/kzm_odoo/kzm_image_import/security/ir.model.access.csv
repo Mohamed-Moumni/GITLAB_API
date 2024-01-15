@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-kzm_image_import.access_import_wizard,access_import_wizard,kzm_image_import.model_import_wizard,base.group_user,1,1,1,1

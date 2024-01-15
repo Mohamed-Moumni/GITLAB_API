@@ -1,7 +1,0 @@
-steps:
-  - name: "gcr.io/cloud-builders/gcloud"
-    args: ['run', 'deploy', '${_PROJET}-${_CI_PIPELINE_ID}', '--image', 'us-central1-docker.pkg.dev/dev-delivery-378511/kzm/${_PROJET}:${_BRANCH}', '--region', 'us-central1', '--port', '8069', '--memory', '2Gi','--cpu', '2000m','--concurrency','1000', '--timeout', '3600', '--allow-unauthenticated']
-substitutions:
-  _BRANCH: b1
-  _CI_PIPELINE_ID: j1
-  _PROJET: projet

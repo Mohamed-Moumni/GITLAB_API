@@ -1,7 +1,0 @@
-pyexcel-io
-pandas
-dbfread
-firebase_admin
-pysftp
-google-cloud-storage
-fabric

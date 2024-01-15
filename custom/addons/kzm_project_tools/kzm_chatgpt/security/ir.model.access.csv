@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_chatgpt_conversation,chatgpt_conversation,model_chatgpt_conversation,,1,1,1,1
-access_chatgpt_tag,chatgpt_tag,model_chatgpt_tag,,1,1,1,1

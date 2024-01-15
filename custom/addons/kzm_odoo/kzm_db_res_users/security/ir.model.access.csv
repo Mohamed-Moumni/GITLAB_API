@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_db_res_users,access_db_res_users,model_db_res_users,,1,1,1,1
-access_accessible_modules,access_accessible_modules,model_accessible_modules,,1,1,1,1
