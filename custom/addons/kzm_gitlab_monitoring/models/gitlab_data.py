@@ -4,6 +4,9 @@ from gitlab import exceptions
 import requests
 from urllib.parse import urlparse
 
+GITLAB = "https://gitlab.com/"
+GITALB_API_PROJECT = "https://gitlab.com/api/v4/projects/"
+
 class GitlabData:
     """
         This Class contains an interface for gitlab informations for a specific project
@@ -21,7 +24,7 @@ class GitlabData:
         """
         try:
             self.gl = gitlab.Gitlab(
-                "https://gitlab.com", private_token=self.token)
+                GITLAB, private_token=self.token)
             self.gl.auth()
         except exceptions.GitlabAuthenticationError:
             raise ValueError("Invalid Token for Authentication")
@@ -115,7 +118,7 @@ class GitlabData:
         Returns:
             float: quality code in float format
         """
-        _url = "https://gitlab.com/api/v4/projects/" + \
+        _url = GITALB_API_PROJECT + \
             str(self.project_id) + "/pipelines/" + str(self.pipeline_id) + "/jobs/"
         headers = {'Private-Token': self.token}
         params = {'ref': self.default_branch}
@@ -124,7 +127,7 @@ class GitlabData:
         if response.status_code == 200:
             jobs = response.json()
             job_id = jobs[len(jobs) - 1]['id']
-            _url = "https://gitlab.com/api/v4/projects/" + \
+            _url = GITALB_API_PROJECT + \
                 str(self.project_id) + "/jobs/" + str(job_id) + "/trace"
                 
             res = requests.get(url=_url, headers=headers)
