@@ -107,12 +107,3 @@ class Monitoring(models.Model):
                         }
 
             }
-        return {
-            'type': 'ir.actions.client',
-            'tag': 'display_notification',
-            'params': {
-                'message': "synchronized Successfully!",
-                'type': 'success',
-                'sticky': False,
-            }
-        }
