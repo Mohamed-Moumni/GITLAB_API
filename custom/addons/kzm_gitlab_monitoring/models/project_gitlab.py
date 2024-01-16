@@ -32,6 +32,7 @@ class ProjectGitlab(models.Model):
         'gitlab.credential', string='Git Lab Token')
     members_ids = fields.Many2many(
         'gitlab.user', string="Members", readonly=True)
+    
 
     def synchronization(self):
         """Synchronize with gitlab and get all the data needed"""

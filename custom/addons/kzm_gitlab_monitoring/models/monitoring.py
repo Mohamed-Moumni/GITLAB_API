@@ -4,8 +4,7 @@ from fabric2 import Connection
 import OpenSSL
 import ssl
 import re
-
-
+import configparser
 
 """
     Monitoring model class for postgresql server
@@ -25,7 +24,8 @@ class Monitoring(models.Model):
 
     ssl_expiration_date = fields.Date('SSL Expiration Date')
     disk_usage = fields.Char('Disk Usage')
-    sql_ip = fields.Char('Server IP')
+    sql_server_id = fields.Many2one(
+        'database.server', string='Sql Server')
 
     def synch_server(self, _hostname: str, _private_key: str, _username: str) -> str:
         """
@@ -43,14 +43,17 @@ class Monitoring(models.Model):
         """
         with Connection(
                 _hostname,
-                user="ubuntu",
-                connect_kwargs=dict(key_filename=[_private_key])
+                user=_username,
+                connect_kwargs=dict(
+                    key_filename=[_private_key],
+                )
         ) as conn:
-            disk_usage = conn.sudo("df -hP / | awk 'NR==2 {print $4}'").stdout
+            disk_usage = conn.sudo(
+                "df -h / | awk 'NR==2 {print $3\" / \"$2\" ( \"$5\" )\"}'").stdout
             config_file = conn.sudo("cat /etc/odoo-server.conf").stdout
-            match = re.search(r'\bdb_host\s*=\s*(\S+)', config_file)
-            if match:
-                server_ip = match.group(1).strip()
+            configParser = configparser.ConfigParser()
+            configParser.read_string(config_file)
+            server_ip = configParser.get('options', 'db_host')
         return (disk_usage, server_ip)
 
     def get_ssl_cert_expiration_date(self, _domain: str) -> datetime.date:
@@ -81,7 +84,16 @@ class Monitoring(models.Model):
             disk_usage, server_ip = self.synch_server(
                 hostname, private_key, username)
             self.write({'disk_usage': disk_usage})
-            self.write({'sql_ip': server_ip})
+            database_server_found = self.env['database.server'].search(
+                [('ip', '=', server_ip)])
+
+            if not database_server_found:
+                database_server = self.env['database.server'].create({'ip': server_ip, 'name': self.env['ir.sequence'].next_by_code(
+                    'kzm_gitlab_monitoring.sequence')})
+                self.write({'sql_server_id': database_server.id})
+            else:
+                self.write({'sql_server_id': database_server_found.id})
+
         except Exception as e:
             return {
                 'type': 'ir.actions.client',
@@ -92,9 +104,10 @@ class Monitoring(models.Model):
                             'sticky': False,
                         }
             }
+
         try:
             self.write(
-                {'ssl_expiration_date': self.get_ssl_cert_expiration_date("chat.openai.com")})
+                {'ssl_expiration_date': self.get_ssl_cert_expiration_date(hostname)})
         except Exception as e:
             return {
                 'type': 'ir.actions.client',

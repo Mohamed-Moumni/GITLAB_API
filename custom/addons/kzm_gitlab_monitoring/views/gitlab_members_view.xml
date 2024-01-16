@@ -7,7 +7,6 @@
             <tree>
                 <field name="name" string="Name" />
                 <field name="username" string="Username" />
-                <field name="avatar" widget="image" options="{'url': 'avatar', 'preview_image_class': 'oe_avatar'}"/>
             </tree>
         </field>
     </record>
