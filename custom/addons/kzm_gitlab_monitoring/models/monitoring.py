@@ -41,10 +41,9 @@ class Monitoring(models.Model):
         """
         with Connection(
                 _hostname,
-                _username,
+                user=_username,
                 connect_kwargs=dict(
-                    key_filename=[_private_key,
-                                  ],
+                    key_filename=[_private_key],
                 ),
         ) as conn:
             disk_usage = conn.sudo("df -hP / | awk 'NR==2 {print $4}'")
@@ -80,7 +79,8 @@ class Monitoring(models.Model):
         private_key = "/opt/id_rsa"
         port = 22
         try:
-            disk_usage, server_ip = self.synch_server(hostname, private_key, username, port)
+            disk_usage, server_ip = self.synch_server(
+                hostname, private_key, username, port)
             self.write({'disk_usage': disk_usage})
             self.write({'sql_ip': server_ip})
         except Exception as e:
