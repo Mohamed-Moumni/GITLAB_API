@@ -93,7 +93,8 @@ class GitlabData:
         if len(pipeline_list) != 0:
             self.pipeline_id = pipeline_list[0].id
             return pipeline_list[0].status
-        return "normal"
+        self.pipeline_id = None
+        return "undefined"
 
     def last_merge_request(self, project: Any) -> str:
         """
@@ -118,6 +119,8 @@ class GitlabData:
         Returns:
             float: quality code in float format
         """
+        if self.pipeline_id == None:
+            return 0.0
         _url = GITALB_API_PROJECT + \
             str(self.project_id) + "/pipelines/" + str(self.pipeline_id) + "/jobs/"
         headers = {'Private-Token': self.token}

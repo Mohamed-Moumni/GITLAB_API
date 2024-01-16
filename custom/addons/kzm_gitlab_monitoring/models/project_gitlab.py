@@ -2,7 +2,9 @@ from odoo import models, fields, _, exceptions
 import gitlab
 from .gitlab_data import GitlabData
 from typing import List
+import logging
 
+logger = logging.getLogger(__name__)
 
 class ProjectGitlab(models.Model):
     """
@@ -14,7 +16,7 @@ class ProjectGitlab(models.Model):
     """
     _inherit = "project.database"
 
-    git_link = fields.Char('Git Link')
+    git_link = fields.Char('Git Link', required=True)
     branch_number = fields.Integer(string="Branch Number", readonly=True)
     group = fields.Char('Group', readonly=True)
     project_name = fields.Char('Group', readonly=True)
@@ -24,19 +26,19 @@ class ProjectGitlab(models.Model):
         ('success', 'Success'),
         ('failed', 'Failed'),
         ('canceled', 'Canceled'),
-        ('undefined', 'Undefined')
+        ('undefined', 'Undefined'),
     ], string='Pipeline Status', readonly=True)
     quality_code = fields.Float('Quality Code', readonly=True)
 
     git_lab_credential_id = fields.Many2one(
-        'gitlab.credential', string='Git Lab Token')
+        'gitlab.credential', string='Git Lab Token', required=True)
     members_ids = fields.Many2many(
         'gitlab.user', string="Members", readonly=True)
     
 
     def synchronization(self):
         """Synchronize with gitlab and get all the data needed"""
-
+        
         gitlab_credentials = self.env['gitlab.credential'].search(
             [('id', '=', self.git_lab_credential_id.id)])
         if gitlab_credentials:
@@ -55,9 +57,9 @@ class ProjectGitlab(models.Model):
                     raise exceptions.UserError(
                         f'Encountring error while getting Data from Gitlab: {e}')
             else:
-                raise exceptions.UserError(f'Credentials is not Active: {e}')
+                raise exceptions.UserError('Credentials is not Active')
         else:
-            raise exceptions.UserError(f'Credentials Not Found: {e}')
+            raise exceptions.UserError('Credentials Not Found')
 
     def update_Gitlab_data(self, git_lab_infos) -> None:
         """
@@ -122,3 +124,18 @@ class ProjectGitlab(models.Model):
                 raise exceptions.UserError(f'Credentials is not Active: {e}')
         else:
             raise exceptions.UserError(f'Credentials Not Found: {e}')
+        
+    def cron_sync(self):
+        self.with_delay().gitlab_cron()
+
+    def gitlab_cron(self):
+        gitlab_projects = self.env['project.database'].search([])
+        for project in gitlab_projects:
+            try:
+                project.synchronization()
+                project.calculate_quality_code()
+            except Exception as e:
+                raise exceptions.Warning(
+                    _("Gitlab synchronization Failed!\n " + str(e)))
+
+                
