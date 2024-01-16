@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="project_instances_root_menu" model="ir.ui.menu">
+    <record id="project_database_root_menu" model="ir.ui.menu">
         <field name="name">Instances</field>
     </record>
 

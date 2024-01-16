@@ -3,7 +3,6 @@ from odoo import fields, models
 from fabric2 import Connection
 import OpenSSL
 import ssl
-import re
 import configparser
 
 """
@@ -22,10 +21,10 @@ class Monitoring(models.Model):
     _inherit = "project.database"
     _description = "Monitoring Postgresql Server"
 
-    ssl_expiration_date = fields.Date('SSL Expiration Date')
-    disk_usage = fields.Char('Disk Usage')
+    ssl_expiration_date = fields.Date('SSL Expiration Date', readonly=True)
+    disk_usage = fields.Char('Disk Usage', readonly=True)
     sql_server_id = fields.Many2one(
-        'database.server', string='Sql Server')
+        'database.server', string='Sql Server', readonly=True)
 
     def synch_server(self, _hostname: str, _private_key: str, _username: str) -> str:
         """
@@ -84,6 +83,7 @@ class Monitoring(models.Model):
             disk_usage, server_ip = self.synch_server(
                 hostname, private_key, username)
             self.write({'disk_usage': disk_usage})
+
             database_server_found = self.env['database.server'].search(
                 [('ip', '=', server_ip)])
 
