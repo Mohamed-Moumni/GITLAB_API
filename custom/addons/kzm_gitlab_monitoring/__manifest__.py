@@ -13,12 +13,13 @@
         'views/project_instance_view.xml',
         'views/sql_servers_view.xml',
         'views/gitlab_members_view.xml',
-        'data/sequence.xml'
+        'data/sequence.xml',
+        'data/gitlab_cron.xml',
     ],
     'assets': {
     },
     'demo': [],
     'application': True,
-    'auto_install': True,
+    'auto_install': False,
     'installable': True
 }

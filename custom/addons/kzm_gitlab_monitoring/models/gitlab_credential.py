@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, exceptions
 import gitlab
 from .gitlab_data import GitlabData
 
@@ -15,7 +15,6 @@ class GitlabCredential(models.Model):
     _name = "gitlab.credential"
 
     name = fields.Char('Token Name')
-    username = fields.Char('Username', required=True)
     active = fields.Boolean(default=True)
     token = fields.Char('Token', required=True)
     status = fields.Selection([
@@ -27,6 +26,7 @@ class GitlabCredential(models.Model):
     _sql_constraints = [
         ('token', 'unique(token)', 'This gitlab Token already used.')
     ]
+
     @api.model
     def create(self, vals):
         """
@@ -42,33 +42,24 @@ class GitlabCredential(models.Model):
             GitlabData: the created gitlab Credential
         """
         try:
-            gitlab_data = GitlabData(vals['username'], vals['token'])
-            gitlab_data.authenticate()
-            gitlab_data.get_access_token_name()
-            gitlab_data.get_expiration_date()
+            gitlabData = GitlabData(vals['token'])
+            vals['name'] = gitlabData.access_token_name
+            vals['token'] = gitlabData.token
             vals['status'] = 'active'
-            vals['name'] = gitlab_data.access_token_name
-            vals['expiration_date'] = gitlab_data.expiration_date
-        except:
-            vals['name'] = "Unknown"
-            vals['status'] = 'not_Active'
+            vals['expiration_date'] = gitlabData.expiration_date
+        except Exception as e:
+            raise exceptions.UserError(f'Credentials Authentication Error: {e}')
         return super(GitlabCredential, self).create(vals)
-
-    def validate(self):
-        """
-            validate the gitlab entred access_token
-        """
-        token = self.token
-        username = self.username
+    
+    def write(self, vals):
         try:
-            gitlab_data = GitlabData(username, token)
-            gitlab_data.authenticate()
-            gitlab_data.get_access_token_name()
-            gitlab_data.get_expiration_date()
-            self.name = gitlab_data.access_token_name
-            self.status = 'active'
-            self.expiration_date = gitlab_data.expiration_date
-        except:
-            self.name = "Unknown"
-            self.status = 'not_Active'
+            gitlabData = GitlabData(vals['token'])
+            vals['name'] = gitlabData.access_token_name
+            vals['token'] = gitlabData.token
+            vals['status'] = 'active'
+            vals['expiration_date'] = gitlabData.expiration_date
+        except Exception as e:
+            raise exceptions.UserError(
+                f'Credentials Authentication Error: {e}')
+        return super(GitlabCredential, self).write(vals)
 
