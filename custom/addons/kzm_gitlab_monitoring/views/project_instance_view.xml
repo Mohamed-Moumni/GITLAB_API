@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="kzm_project_base.project_database_root_menu" model="ir.ui.menu">
+    <record id="project_instances_root_menu" model="ir.ui.menu">
         <field name="name">Instances</field>
     </record>
 
-    <record id="kzm_project_base.project_database_base_menu" model="ir.ui.menu">
+    <record id="project_database_base_menu" model="ir.ui.menu">
         <field name="name">Instances</field>
     </record>
 
