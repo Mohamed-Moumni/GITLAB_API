@@ -1,9 +1,11 @@
 from datetime import datetime
 from odoo import fields, models
-import paramiko
+from fabric2 import Connection
 import OpenSSL
 import ssl
-from fabric2 import Connection
+import re
+
+
 
 """
     Monitoring model class for postgresql server
@@ -25,7 +27,7 @@ class Monitoring(models.Model):
     disk_usage = fields.Char('Disk Usage')
     sql_ip = fields.Char('Server IP')
 
-    def synch_server(self, _hostname: str, _private_key: str, _username: str, _port: int) -> str:
+    def synch_server(self, _hostname: str, _private_key: str, _username: str) -> str:
         """
             get disk usage server
 
@@ -41,16 +43,14 @@ class Monitoring(models.Model):
         """
         with Connection(
                 _hostname,
-                user=_username,
-                connect_kwargs=dict(
-                    key_filename=[_private_key],
-                ),
+                user="ubuntu",
+                connect_kwargs=dict(key_filename=[_private_key])
         ) as conn:
-            disk_usage = conn.sudo("df -hP / | awk 'NR==2 {print $4}'")
-            config_file = conn.sudo("cat /etc/odoo-server.conf")
-            start = config_file.find("db_host")
-            end = config_file[start:].find("\n")
-            server_ip = config_file[start:start+end].split('=')[1].strip()
+            disk_usage = conn.sudo("df -hP / | awk 'NR==2 {print $4}'").stdout
+            config_file = conn.sudo("cat /etc/odoo-server.conf").stdout
+            match = re.search(r'\bdb_host\s*=\s*(\S+)', config_file)
+            if match:
+                server_ip = match.group(1).strip()
         return (disk_usage, server_ip)
 
     def get_ssl_cert_expiration_date(self, _domain: str) -> datetime.date:
@@ -77,10 +77,9 @@ class Monitoring(models.Model):
         hostname = self.link
         username = "ubuntu"
         private_key = "/opt/id_rsa"
-        port = 22
         try:
             disk_usage, server_ip = self.synch_server(
-                hostname, private_key, username, port)
+                hostname, private_key, username)
             self.write({'disk_usage': disk_usage})
             self.write({'sql_ip': server_ip})
         except Exception as e:
@@ -95,7 +94,7 @@ class Monitoring(models.Model):
             }
         try:
             self.write(
-                {'ssl_expiration_date': self.get_ssl_cert_expiration_date(hostname)})
+                {'ssl_expiration_date': self.get_ssl_cert_expiration_date("chat.openai.com")})
         except Exception as e:
             return {
                 'type': 'ir.actions.client',
