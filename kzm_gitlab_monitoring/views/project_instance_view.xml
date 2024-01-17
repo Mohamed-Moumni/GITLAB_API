@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="project_database_root_menu" model="ir.ui.menu">
+        <field name="name">Instances</field>
+    </record>
+
+    <record id="project_database_base_menu" model="ir.ui.menu">
+        <field name="name">Instances</field>
+    </record>
+
+    <record id="kzm_project_base.project_database_action_window" model="ir.actions.act_window">
+        <field name="name"> Project Instances</field>
+    </record>
+
+    <record id="project_database_form_view_inherit" model="ir.ui.view">
+        <field name="name">project.database.form.view.inherit</field>
+        <field name="model">project.database</field>
+        <field name="inherit_id" ref="kzm_project_base.project_database_form" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="GitLab" string="Projet Gitlab">
+                    <form>
+                        <group>
+                            <field name="git_link" string="Git Link" />
+                            <field name="git_lab_credential_id" string='Git Lab Token' />
+                            <field name="branch_number" string="Number of Branches" />
+                            <field name="group" string="Group" />
+                            <field name="project_name" string="Project Name" />
+                            <field name="default_branch" string="Default Branch" />
+                            <field name="last_merge_request" string="Last Merge Request" />
+                            <field name="pipeline_status"
+                                decoration-info="pipeline_status == 'success'"
+                                decoration-warning="pipeline_status == 'canceled'"
+                                decoration-error="pipeline_status == 'undefined'"
+                                decoration-danger="pipeline_status == 'failed'"
+                                widget="badge" />
+                            <field name="members_ids" string="Project Members"
+                                widget="many2many_tags" />
+                            <field name="quality_code" string="Quality Code" />
+                        </group>
+                        <group>
+                            <button name="synchronization" type="object" string="SYNCH"
+                                class="oe_highlight" />
+                            <button name="calculate_quality_code" type="object"
+                                string="Quality Code"
+                                class="oe_highlight" />
+                        </group>
+                    </form>
+                </page>
+                <page name="Monitoring" string="Monitoring">
+                    <form>
+                        <group>
+                            <field name="ssl_expiration_date" string="SSL Expiration Date" />
+                            <field name="disk_usage" string="Disk Usage" />
+                            <field name="sql_server_id" string='Sql Server' />
+                        </group>
+                        <group>
+                            <button name="monitor_synch" type="object" string=" SYNCH"
+                                class="oe_highlight" />
+                        </group>
+                    </form>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>
