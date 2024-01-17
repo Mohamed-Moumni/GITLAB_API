@@ -38,9 +38,11 @@ class ProjectGitlab(models.Model):
 
     def synchronization(self):
         """Synchronize with gitlab and get all the data needed"""
-
+        
+        print(self.git_lab_credential_id.id)
         gitlab_credentials = self.env['gitlab.credential'].search(
             [('id', '=', self.git_lab_credential_id.id)])
+        print(gitlab_credentials)
         if gitlab_credentials:
             try:
                 gitlabData = GitlabData(gitlab_credentials.token)
@@ -50,7 +52,7 @@ class ProjectGitlab(models.Model):
                 raise exceptions.UserError(
                     f'Encountring error while getting Data from Gitlab: {e}')
         else:
-            raise exceptions.UserError('Credentials is Not Valid')
+            raise exceptions.UserError('Synchronization Error: Credentials is Not Valid')
 
     def update_Gitlab_data(self, gitlabData) -> None:
         """
@@ -112,13 +114,13 @@ class ProjectGitlab(models.Model):
     def monitoring_project_synch(self):
         self.synchronization()
         self.calculate_quality_code()
-        self.monitor_synch()
+        # self.monitor_synch()
 
     def gitlab_cron(self):
         gitlab_projects = self.env['project.database'].search([])
         for project in gitlab_projects:
             try:
-                project.with_delay().project_sync()
+                project.with_delay().monitoring_project_synch()
             except Exception as e:
                 raise exceptions.Warning(
                     _("Gitlab synchronization Failed!\n " + str(e)))

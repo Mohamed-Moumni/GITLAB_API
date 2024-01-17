@@ -5,7 +5,7 @@
             <field name="name">MONITORING PROJECT SYNC</field>
             <field name="model_id" ref="model_project_database"/>
             <field name="state">code</field>
-            <field name="code">model.monitoring_project_synch()</field>
+            <field name="code">model.gitlab_cron()</field>
             <field name="interval_number">1</field>
             <field name="interval_type">days</field>
             <field name="nextcall"
