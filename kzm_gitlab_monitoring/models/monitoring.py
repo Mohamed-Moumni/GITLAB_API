@@ -48,8 +48,8 @@ class Monitoring(models.Model):
                 )
         ) as conn:
             disk_usage = conn.sudo(
-                "df -h / | awk 'NR==2 {print $3\" / \"$2\" ( \"$5\" )\"}'").stdout
-            config_file = conn.sudo("cat /etc/odoo-server.conf").stdout
+                "df -h / | awk 'NR==2 {print $3\" / \"$2\" ( \"$5\" )\"}'", hide=True).stdout
+            config_file = conn.sudo("cat /etc/odoo-server.conf", hide=True).stdout
             configParser = configparser.ConfigParser()
             configParser.read_string(config_file)
             server_ip = configParser.get('options', 'db_host')
