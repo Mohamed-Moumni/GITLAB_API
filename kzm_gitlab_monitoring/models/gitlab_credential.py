@@ -34,12 +34,11 @@ class GitlabCredential(models.Model):
         Args:
             vals (_type_):
             {
-                'username':,
                 'token':,
             }
 
         Returns:
-            GitlabData: the created gitlab Credential
+            GitlabData: the created gitlab Credential instance
         """
         try:
             gitlabData = GitlabData(vals['token'])

@@ -5,7 +5,7 @@ class GitlabUser(models.Model):
         GitlabUser model for gitlab member
 
     Args:
-        models (models.Model): _description_
+        models (models.Model): Odoo ORM Model
     """
     
     _name = "gitlab.user"

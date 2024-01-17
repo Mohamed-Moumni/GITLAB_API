@@ -2,15 +2,16 @@
 <odoo>
     <data>
         <record id="gitlab_infos_sync" model="ir.cron">
-            <field name="name">GITLAB INFO SYNC</field>
+            <field name="name">GITLAB PROJECT INFO SYNC</field>
             <field name="model_id" ref="model_project_database"/>
             <field name="state">code</field>
-            <field name="code">model.cron_sync()</field>
+            <field name="code">model.gitlab_cron()</field>
             <field name="interval_number">1</field>
             <field name="interval_type">days</field>
             <field name="nextcall"
                 eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 02:00:00')" />
             <field name="numbercall">-1</field>
+            <field name="doall" eval="True"/>
         </record>
     </data>
 </odoo>

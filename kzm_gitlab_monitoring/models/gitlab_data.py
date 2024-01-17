@@ -7,26 +7,30 @@ from urllib.parse import urlparse
 GITLAB = "https://gitlab.com/"
 GITALB_API_PROJECT = "https://gitlab.com/api/v4/projects/"
 
+
 class GitlabData:
     """
         This Class contains an interface for gitlab informations for a specific project
     """
 
-    def __init__(self,_token: str) -> None:
-        """_summary_
+    def __init__(self, _token: str) -> None:
+        """
+            GitlabData Constructor
 
         Args:
-            _token (str): _description_
+            _token (str): gitlab access_token
 
         Raises:
-            ValueError: _description_
+            ValueError: raised when Invalid Token for Authentication is given
         """
         try:
             self.gl = gitlab.Gitlab(GITLAB, private_token=_token)
             self.gl.auth()
             self.token = _token
-            self.access_token_name = self.gl.personal_access_tokens.get("self").name
-            self.expiration_date = self.gl.personal_access_tokens.get("self").expires_at
+            self.access_token_name = self.gl.personal_access_tokens.get(
+                "self").name
+            self.expiration_date = self.gl.personal_access_tokens.get(
+                "self").expires_at
         except exceptions.GitlabAuthenticationError:
             raise ValueError("Invalid Token for Authentication")
 
@@ -48,47 +52,54 @@ class GitlabData:
             self.namespace = namespace.replace('.git', '')
         else:
             raise ValueError("Invalid Url")
-    
+
     def get_project(self) -> None:
-        """_summary_
+        """
+            get the gitlab project instance
         """
         self.project = self.gl.projects.get(self.namespace)
-    
+
     def get_branch_number(self) -> None:
         """
+            get the number of branch in gitlab project
         """
         self.branch_number = len(self.project.branches.list(get_all=True))
 
     def get_group_name(self) -> None:
-        """_summary_
+        """
+            get the name of the group for the project
         """
         self.group = self.project.groups.list(get_all=True)[0].name
 
     def get_project_name(self) -> None:
-        """_summary_
+        """
+            get the gitlab project name 
         """
         self.project_id = self.project.id
         self.project_name = self.project.name
 
     def get_default_branch(self) -> None:
-        """_summary_
+        """
+            get the gitlab default branch
         """
         self.default_branch = self.project.default_branch
         self.default_branch_id = self.project.branches.get(self.default_branch)
 
     def get_last_merge_request(self) -> None:
-        """_summary_
+        """
+            get the last merge request in the project
         """
         self.last_merge_request = self.last_merge_request(self.project)
 
     def get_pipeline_status(self) -> None:
-        """_summary_
+        """
+            get the pipeline status
         """
         self.pipeline_status = self.get_pipeline(self.project)
 
     def get_gitlab_members(self) -> List[str]:
-        """_summary_
-
+        """
+            get gitlab members list
         Returns:
             List[str]: _description_
         """
@@ -128,17 +139,19 @@ class GitlabData:
         return ""
 
     def get_quality_code(self) -> float:
-        """_summary_
+        """
+            calculate the quality code via the logs of the first job in the last pipeline
 
         Raises:
-            ValueError: _description_
-            ValueError: _description_
+            ValueError: Job_id not Found
+            ValueError: Project Pipeline jobs not Founds
 
         Returns:
-            float: _description_
+            float: quality Code value
         """
         _url = GITALB_API_PROJECT + \
-            str(self.project_id) + "/pipelines/" + str(self.pipeline_id) + "/jobs/"
+            str(self.project_id) + "/pipelines/" + \
+            str(self.pipeline_id) + "/jobs/"
         headers = {'Private-Token': self.token}
         params = {'ref': self.default_branch}
         response = requests.get(url=_url, headers=headers, params=params)
@@ -148,9 +161,9 @@ class GitlabData:
             job_id = jobs[len(jobs) - 1]['id']
             _url = GITALB_API_PROJECT + \
                 str(self.project_id) + "/jobs/" + str(job_id) + "/trace"
-                
+
             res = requests.get(url=_url, headers=headers)
-            
+
             if res.status_code == 200:
                 trace = res.text
                 start = trace.find("Your code has been rated at")
@@ -166,6 +179,15 @@ class GitlabData:
         return quality_code
 
     def get_gitlab_infos(self, _url: str) -> None:
+        """
+
+
+        Args:
+            _url (str): Url of the project
+
+        Raises:
+            ValueError: Error while getting the Gitlab infos
+        """
         try:
             self.get_project_namespace(_url)
             self.get_project()

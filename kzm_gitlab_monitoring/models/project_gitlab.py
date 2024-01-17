@@ -109,15 +109,15 @@ class ProjectGitlab(models.Model):
         else:
             raise exceptions.UserError('Credentials is Not Valid')
 
-    def cron_sync(self):
-        self.with_delay().gitlab_cron()
+    def project_sync(self):
+        self.synchronization()
+        self.calculate_quality_code()
 
     def gitlab_cron(self):
         gitlab_projects = self.env['project.database'].search([])
         for project in gitlab_projects:
             try:
-                project.synchronization()
-                project.calculate_quality_code()
+                project.with_delay().project_sync()
             except Exception as e:
                 raise exceptions.Warning(
                     _("Gitlab synchronization Failed!\n " + str(e)))
